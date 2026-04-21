@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import './App.css';
 import ChatWidget from './components/ChatWidget';
 import CourseScreen from './components/CourseScreen';
@@ -248,6 +249,7 @@ function App() {
         currentCourseSection={currentCourseSection}
         screen={screen}
       />
+      <SpeedInsights />
     </div>
   );
 }
