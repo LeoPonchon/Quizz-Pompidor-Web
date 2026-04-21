@@ -1,0 +1,2092 @@
+{
+  "all": [
+    {
+      "question": "Que signifie MEAN ?",
+      "answer": "MongoDB Express Angular Node.js"
+    },
+    {
+      "question": "Que signifie SEO ?",
+      "answer": "Search Engine Optimization"
+    },
+    {
+      "question": "Que signifie SSR ?",
+      "answer": "Server-Side Rendering"
+    },
+    {
+      "question": "Que signifie CSR ?",
+      "answer": "Client-Side Rendering"
+    },
+    {
+      "question": "Quel est l'objectif principal du SSR dans le cours ?",
+      "answer": "Améliorer le référencement"
+    },
+    {
+      "question": "Quel est l'objectif principal du CSR dans le cours ?",
+      "answer": "Réduire les temps de navigation"
+    },
+    {
+      "question": "Quel langage est utilisé de manière unifiée dans l'architecture MEAN ?",
+      "answer": "JavaScript"
+    },
+    {
+      "question": "Quel surlangage de JavaScript est très utilisé avec Angular ?",
+      "answer": "TypeScript"
+    },
+    {
+      "question": "MongoDB est un SGBD de quel type ?",
+      "answer": "NoSQL"
+    },
+    {
+      "question": "Dans MongoDB, comment s'appelle l'équivalent approximatif d'une table ?",
+      "answer": "Une collection"
+    },
+    {
+      "question": "Dans MongoDB, comment s'appelle l'équivalent approximatif d'un enregistrement ?",
+      "answer": "Un document"
+    },
+    {
+      "question": "Sous quel format binaire MongoDB stocke-t-il les documents ?",
+      "answer": "BSON"
+    },
+    {
+      "question": "Quel shell interactif permet de manipuler MongoDB ?",
+      "answer": "mongosh"
+    },
+    {
+      "question": "Quelle commande MongoDB liste les bases ?",
+      "answer": "show dbs"
+    },
+    {
+      "question": "Quelle commande MongoDB liste les collections ?",
+      "answer": "show collections"
+    },
+    {
+      "question": "Quelle autre commande MongoDB peut aussi lister les collections ?",
+      "answer": "show tables"
+    },
+    {
+      "question": "Quelle commande permet de sélectionner une base MongoDB ?",
+      "answer": "use <base>"
+    },
+    {
+      "question": "Quelle méthode MongoDB permet de récupérer tous les documents d'une collection ?",
+      "answer": "find()"
+    },
+    {
+      "question": "Quelle méthode MongoDB permet de compter les documents ?",
+      "answer": "countDocuments()"
+    },
+    {
+      "question": "Quelle méthode MongoDB permet d'obtenir des valeurs distinctes d'un champ ?",
+      "answer": "distinct()"
+    },
+    {
+      "question": "Quel opérateur MongoDB signifie strictement supérieur à ?",
+      "answer": "$gt"
+    },
+    {
+      "question": "Quel opérateur MongoDB signifie strictement inférieur à ?",
+      "answer": "$lt"
+    },
+    {
+      "question": "Quel opérateur MongoDB signifie supérieur ou égal à ?",
+      "answer": "$gte"
+    },
+    {
+      "question": "Quel opérateur MongoDB signifie inférieur ou égal à ?",
+      "answer": "$lte"
+    },
+    {
+      "question": "Quel opérateur MongoDB teste l'existence d'une propriété ?",
+      "answer": "$exists"
+    },
+    {
+      "question": "Quel opérateur MongoDB permet de tester l'appartenance à une liste de valeurs ?",
+      "answer": "$in"
+    },
+    {
+      "question": "Quel opérateur MongoDB permet d'exclure une liste de valeurs ?",
+      "answer": "$nin"
+    },
+    {
+      "question": "Quel opérateur MongoDB permet une disjonction logique ?",
+      "answer": "$or"
+    },
+    {
+      "question": "Quel opérateur MongoDB permet une négation logique ?",
+      "answer": "$not"
+    },
+    {
+      "question": "Quel opérateur MongoDB permet de rejeter toutes les conditions listées ?",
+      "answer": "$nor"
+    },
+    {
+      "question": "Quelle commande sert à importer des données JSON dans MongoDB ?",
+      "answer": "mongoimport"
+    },
+    {
+      "question": "Quelle option de mongoimport indique qu'on importe un tableau JSON ?",
+      "answer": "--jsonArray"
+    },
+    {
+      "question": "Quelle option de mongoimport supprime d'abord la collection existante ?",
+      "answer": "--drop"
+    },
+    {
+      "question": "Dans le TP, quel est le nom de la base MongoDB à utiliser ?",
+      "answer": "ECOMMERCE"
+    },
+    {
+      "question": "Dans le TP e-commerce, quels sont les trois fichiers JSON fournis pour MongoDB ?",
+      "answer": "articles.json rayons.json users.json"
+    },
+    {
+      "question": "Quel champ de la collection rayons contient le pourcentage de promotion ?",
+      "answer": "promotion"
+    },
+    {
+      "question": "Quel champ de la collection articles contient le stock disponible ?",
+      "answer": "stock"
+    },
+    {
+      "question": "Quel champ de la collection users contient le mot de passe ?",
+      "answer": "password"
+    },
+    {
+      "question": "Quel module Node.js permet de créer une application Express ?",
+      "answer": "express"
+    },
+    {
+      "question": "Quel module Node.js permet de se connecter à MongoDB ?",
+      "answer": "mongodb"
+    },
+    {
+      "question": "Quel objet du module mongodb sert à se connecter au serveur MongoDB ?",
+      "answer": "MongoClient"
+    },
+    {
+      "question": "Quel framework est utilisé avec Node.js pour créer les endpoints REST dans le cours ?",
+      "answer": "Express"
+    },
+    {
+      "question": "Comment s'appelle un code exécuté en réponse à une requête HTTP dans un service REST ?",
+      "answer": "Un endpoint"
+    },
+    {
+      "question": "Dans Express, quelle méthode gère une route HTTP GET ?",
+      "answer": "app.get"
+    },
+    {
+      "question": "Dans Express, quelle méthode gère une route HTTP POST ?",
+      "answer": "app.post"
+    },
+    {
+      "question": "Quelle instruction Express permet de parser le JSON des requêtes ?",
+      "answer": "express.json()"
+    },
+    {
+      "question": "Où récupère-t-on les données JSON envoyées en POST dans Express ?",
+      "answer": "req.body"
+    },
+    {
+      "question": "Où récupère-t-on les paramètres de route dans Express ?",
+      "answer": "req.params"
+    },
+    {
+      "question": "Quelle méthode de réponse Express renvoie directement du JSON ?",
+      "answer": "res.json"
+    },
+    {
+      "question": "Quel module Node.js est utilisé dans le cours pour gérer CORS ?",
+      "answer": "cors"
+    },
+    {
+      "question": "À quoi sert CORS ?",
+      "answer": "À autoriser le Cross-Origin Resource Sharing"
+    },
+    {
+      "question": "Quel port est utilisé dans la plupart des exemples Node.js du cours ?",
+      "answer": "8888"
+    },
+    {
+      "question": "Quelle commande exécute un serveur Node nommé serveur.js ?",
+      "answer": "node serveur.js"
+    },
+    {
+      "question": "Quel fichier enregistre les dépendances npm d'un projet Node ?",
+      "answer": "package.json"
+    },
+    {
+      "question": "Quel langage structure les pages web côté client ?",
+      "answer": "HTML"
+    },
+    {
+      "question": "Quel langage gère la présentation graphique des pages web ?",
+      "answer": "CSS"
+    },
+    {
+      "question": "Quel langage manipule le DOM et ajoute du comportement côté client ?",
+      "answer": "JavaScript"
+    },
+    {
+      "question": "Que signifie DOM ?",
+      "answer": "Document Object Model"
+    },
+    {
+      "question": "Quel protocole de communication usuel permet la navigation web ?",
+      "answer": "HTTP"
+    },
+    {
+      "question": "Quelle balise HTML crée un lien hypertexte ?",
+      "answer": "a"
+    },
+    {
+      "question": "Quel attribut de la balise a contient l'URL de destination ?",
+      "answer": "href"
+    },
+    {
+      "question": "Quel attribut permet d'ouvrir un lien dans un nouvel onglet ?",
+      "answer": "target"
+    },
+    {
+      "question": "Quelle valeur de target ouvre dans un nouvel onglet ?",
+      "answer": "_blank"
+    },
+    {
+      "question": "Quelle balise HTML structure l'en-tête de page dans les balises sémantiques ?",
+      "answer": "header"
+    },
+    {
+      "question": "Quelle balise HTML structure le contenu principal ?",
+      "answer": "main"
+    },
+    {
+      "question": "Quelle balise HTML structure un article ?",
+      "answer": "article"
+    },
+    {
+      "question": "Quelle balise HTML structure le pied de page ?",
+      "answer": "footer"
+    },
+    {
+      "question": "Quelle balise HTML crée un paragraphe ?",
+      "answer": "p"
+    },
+    {
+      "question": "Quelle balise HTML crée un saut de ligne autofermante ?",
+      "answer": "br"
+    },
+    {
+      "question": "Quelle balise HTML crée une liste non ordonnée ?",
+      "answer": "ul"
+    },
+    {
+      "question": "Quelle balise HTML crée un item de liste ?",
+      "answer": "li"
+    },
+    {
+      "question": "Quelle balise HTML crée un tableau ?",
+      "answer": "table"
+    },
+    {
+      "question": "Quelle balise HTML crée une ligne de tableau ?",
+      "answer": "tr"
+    },
+    {
+      "question": "Quelle balise HTML crée une cellule de tableau ?",
+      "answer": "td"
+    },
+    {
+      "question": "Quelle balise HTML crée une cellule d'en-tête de tableau ?",
+      "answer": "th"
+    },
+    {
+      "question": "Quelle balise HTML permet de créer un bloc générique ?",
+      "answer": "div"
+    },
+    {
+      "question": "Quelle balise HTML lie une feuille de style CSS dans le head ?",
+      "answer": "link"
+    },
+    {
+      "question": "Quel attribut HTML est crucial pour nommer un contrôle de formulaire envoyé au serveur ?",
+      "answer": "name"
+    },
+    {
+      "question": "Quelle balise HTML crée un formulaire ?",
+      "answer": "form"
+    },
+    {
+      "question": "Quelle méthode HTML envoie les paramètres dans l'URL ?",
+      "answer": "GET"
+    },
+    {
+      "question": "Quelle méthode HTML envoie les paramètres dans le corps du message ?",
+      "answer": "POST"
+    },
+    {
+      "question": "Quel attribut d'un input affiche un texte indicatif ?",
+      "answer": "placeholder"
+    },
+    {
+      "question": "Quel attribut d'un input rend la saisie obligatoire ?",
+      "answer": "required"
+    },
+    {
+      "question": "Quel type d'input masque les caractères saisis ?",
+      "answer": "password"
+    },
+    {
+      "question": "Quel type d'input crée des cases à cocher ?",
+      "answer": "checkbox"
+    },
+    {
+      "question": "Quel type d'input crée des boutons radio ?",
+      "answer": "radio"
+    },
+    {
+      "question": "Quel type d'input crée une zone de texte simple ?",
+      "answer": "text"
+    },
+    {
+      "question": "Quelle balise HTML crée une liste déroulante ?",
+      "answer": "select"
+    },
+    {
+      "question": "Quelle balise HTML crée une option de liste déroulante ?",
+      "answer": "option"
+    },
+    {
+      "question": "Quelle balise HTML crée une zone de texte multiligne dans un formulaire ?",
+      "answer": "textarea"
+    },
+    {
+      "question": "En CSS, quel sélecteur cible une classe ?",
+      "answer": ".classe"
+    },
+    {
+      "question": "En CSS, quel sélecteur cible un identifiant ?",
+      "answer": "#id"
+    },
+    {
+      "question": "Quelle propriété CSS règle la taille de la police ?",
+      "answer": "font-size"
+    },
+    {
+      "question": "Quelle propriété CSS règle la graisse de la police ?",
+      "answer": "font-weight"
+    },
+    {
+      "question": "Quelle propriété CSS règle la police utilisée ?",
+      "answer": "font-family"
+    },
+    {
+      "question": "Quelle propriété CSS définit une marge extérieure générale ?",
+      "answer": "margin"
+    },
+    {
+      "question": "Quelle propriété CSS peut flotter une image à droite ?",
+      "answer": "float"
+    },
+    {
+      "question": "Quel mécanisme CSS permet d'adapter le style à la taille de l'écran ?",
+      "answer": "media queries"
+    },
+    {
+      "question": "Quel nom donne-t-on aux seuils de largeur d'écran dans le responsive design ?",
+      "answer": "breakpoints"
+    },
+    {
+      "question": "Quelle balise meta permet d'ajuster le viewport aux mobiles ?",
+      "answer": "viewport"
+    },
+    {
+      "question": "Quel mot-clé JavaScript déclare une variable à portée de bloc ?",
+      "answer": "let"
+    },
+    {
+      "question": "Quel mot-clé JavaScript déclare une constante ?",
+      "answer": "const"
+    },
+    {
+      "question": "Quel mot-clé JavaScript historique déclare une variable plus globale ?",
+      "answer": "var"
+    },
+    {
+      "question": "Quel mot-clé JavaScript déclare une fonction ?",
+      "answer": "function"
+    },
+    {
+      "question": "Quel mot-clé JavaScript représente l'objet courant dans de nombreux contextes ?",
+      "answer": "this"
+    },
+    {
+      "question": "Quel constructeur JavaScript permet de créer une liste explicitement ?",
+      "answer": "Array"
+    },
+    {
+      "question": "Quel attribut JavaScript donne la longueur d'une liste ?",
+      "answer": "length"
+    },
+    {
+      "question": "Comment s'appelle la notation textuelle des objets JavaScript utilisée pour l'échange de données ?",
+      "answer": "JSON"
+    },
+    {
+      "question": "Quelle fonction JavaScript sélectionne un élément par identifiant ?",
+      "answer": "getElementById"
+    },
+    {
+      "question": "Quelle fonction JavaScript sélectionne avec une syntaxe proche de CSS ?",
+      "answer": "querySelector"
+    },
+    {
+      "question": "Quelle méthode ajoute dynamiquement un écouteur d'événement ?",
+      "answer": "addEventListener"
+    },
+    {
+      "question": "Quel événement HTML/JS correspond à un clic ?",
+      "answer": "onclick"
+    },
+    {
+      "question": "Quel événement HTML/JS correspond à l'entrée de la souris sur un élément ?",
+      "answer": "onmouseover"
+    },
+    {
+      "question": "Quel événement HTML/JS correspond à la sortie de la souris d'un élément ?",
+      "answer": "onmouseout"
+    },
+    {
+      "question": "Quel événement HTML/JS correspond au chargement de la page ?",
+      "answer": "onload"
+    },
+    {
+      "question": "Quel événement HTML/JS correspond au départ (quitter) de la page ?",
+      "answer": "onunload"
+    },
+    {
+      "question": "Quel attribut de script permet de différer l'exécution jusqu'après le parsing du DOM ?",
+      "answer": "defer"
+    },
+    {
+      "question": "Quelle méthode JavaScript moderne permet de faire des requêtes HTTP côté client ?",
+      "answer": "fetch"
+    },
+    {
+      "question": "Que signifie AJAX ?",
+      "answer": "Asynchronous JavaScript And XML"
+    },
+    {
+      "question": "Dans les exemples modernes du cours, les données AJAX sont surtout au format ?",
+      "answer": "JSON"
+    },
+    {
+      "question": "Quelle méthode JavaScript du DOM crée un élément ?",
+      "answer": "createElement"
+    },
+    {
+      "question": "Quelle méthode JavaScript du DOM crée un nœud texte ?",
+      "answer": "createTextNode"
+    },
+    {
+      "question": "Quelle méthode JavaScript du DOM ajoute un enfant à un élément ?",
+      "answer": "appendChild"
+    },
+    {
+      "question": "Quel mot-clé JavaScript suspend l'exécution en attendant une promesse ?",
+      "answer": "await"
+    },
+    {
+      "question": "Quel paradigme important est associé à JavaScript dans le cours en plus de l'objet et du fonctionnel ?",
+      "answer": "Événementiel"
+    },
+    {
+      "question": "Quel environnement a porté JavaScript côté serveur ?",
+      "answer": "Node.js"
+    },
+    {
+      "question": "Quel jeton d'authentification moderne est étudié dans le cours ?",
+      "answer": "JWT"
+    },
+    {
+      "question": "Que signifie JWT ?",
+      "answer": "JSON Web Token"
+    },
+    {
+      "question": "Quelles sont les trois parties d'un JWT dans le principe du cours ?",
+      "answer": "En-tête charge utile signature"
+    },
+    {
+      "question": "Qu'est-ce qui garantit l'authenticité d'un JWT ?",
+      "answer": "La signature"
+    },
+    {
+      "question": "Quel protocole reste indispensable pour la confidentialité d'un JWT ?",
+      "answer": "HTTPS"
+    },
+    {
+      "question": "Quels sont les deux emplacements côté client proposés pour stocker un JWT ?",
+      "answer": "cookie localStorage"
+    },
+    {
+      "question": "Quel emplacement est présenté comme préférable dans le cours pour un JWT ?",
+      "answer": "cookie"
+    },
+    {
+      "question": "Quel attribut de cookie empêche l'accès direct par JavaScript ?",
+      "answer": "httpOnly"
+    },
+    {
+      "question": "Quel attribut de cookie aide contre le CSRF dans le cours ?",
+      "answer": "sameSite"
+    },
+    {
+      "question": "Quel attribut de cookie est à ajouter en HTTPS pour imposer une transmission sécurisée ?",
+      "answer": "secure"
+    },
+    {
+      "question": "Quel module Node.js sert à manipuler les JWT ?",
+      "answer": "jsonwebtoken"
+    },
+    {
+      "question": "Quel module Node.js sert à parser les cookies ?",
+      "answer": "cookie-parser"
+    },
+    {
+      "question": "Quelle méthode de jsonwebtoken vérifie un token ?",
+      "answer": "verify"
+    },
+    {
+      "question": "Quelle méthode de jsonwebtoken signe un token ?",
+      "answer": "sign"
+    },
+    {
+      "question": "Quel nom de cookie est utilisé dans les exemples JWT du cours ?",
+      "answer": "jwt"
+    },
+    {
+      "question": "Dans le microservice d'authentification, quelles trois routes sont citées ?",
+      "answer": "/signup /signin /validate"
+    },
+    {
+      "question": "Dans le couplage NestJS + microservice, où le cookie doit-il être créé ?",
+      "answer": "Au niveau de NestJS"
+    },
+    {
+      "question": "Quel serveur frontal est recommandé en production devant NestJS ?",
+      "answer": "Apache ou Nginx"
+    },
+    {
+      "question": "Quel framework JavaScript client est présenté comme le plus complet mais le plus complexe ?",
+      "answer": "Angular"
+    },
+    {
+      "question": "Quel outil Angular sert de gestionnaire de projet ?",
+      "answer": "ng"
+    },
+    {
+      "question": "Quelle commande crée un nouveau projet Angular ?",
+      "answer": "ng new"
+    },
+    {
+      "question": "Quelle commande abrégée génère un composant Angular ?",
+      "answer": "ng g c"
+    },
+    {
+      "question": "Quelle commande abrégée génère un service Angular ?",
+      "answer": "ng g s"
+    },
+    {
+      "question": "Quelle commande lance le serveur de développement Angular ?",
+      "answer": "ng serve -o"
+    },
+    {
+      "question": "Quel élément top-level Angular apparaît dans index.html dans le cours classique ?",
+      "answer": "app-root"
+    },
+    {
+      "question": "Quel élément Angular sert de point d'insertion pour les composants routés ?",
+      "answer": "router-outlet"
+    },
+    {
+      "question": "Quel attribut Angular dans un template crée un lien de navigation ?",
+      "answer": "routerLink"
+    },
+    {
+      "question": "Quelle classe Angular décrit la table de routage ?",
+      "answer": "Routes"
+    },
+    {
+      "question": "Quel décorateur Angular permet à un composant enfant de recevoir une donnée du parent ?",
+      "answer": "Input"
+    },
+    {
+      "question": "Quel service Angular est utilisé pour faire des requêtes HTTP ?",
+      "answer": "HttpClient"
+    },
+    {
+      "question": "Quel type renvoyé par HttpClient est mis en avant dans le cours ?",
+      "answer": "Observable"
+    },
+    {
+      "question": "Quelle méthode consomme généralement un Observable dans les exemples du cours ?",
+      "answer": "subscribe"
+    },
+    {
+      "question": "Quel attribut Angular permet une liaison bidirectionnelle de formulaire ?",
+      "answer": "ngModel"
+    },
+    {
+      "question": "Quelle syntaxe Angular représente la liaison bidirectionnelle ?",
+      "answer": "[(ngModel)]"
+    },
+    {
+      "question": "Quelle directive structurelle Angular ancienne sert à itérer ?",
+      "answer": "*ngFor"
+    },
+    {
+      "question": "Quelle nouvelle syntaxe Angular moderne sert à itérer ?",
+      "answer": "@for"
+    },
+    {
+      "question": "Quelle directive structurelle Angular ancienne sert à conditionner l'affichage ?",
+      "answer": "*ngIf"
+    },
+    {
+      "question": "Quelle nouvelle syntaxe Angular moderne sert à conditionner l'affichage ?",
+      "answer": "@if"
+    },
+    {
+      "question": "Quelle bibliothèque est citée pour mettre en œuvre des stores Angular ?",
+      "answer": "@ngrx"
+    },
+    {
+      "question": "Dans Angular 21+, quel fichier joue le rôle du serveur Node.js intégré ?",
+      "answer": "src/server.ts"
+    },
+    {
+      "question": "Dans Angular 21+, le serveur intégré utilise par défaut quel framework Node ?",
+      "answer": "Express"
+    },
+    {
+      "question": "Quel avantage SEO est explicitement associé à Angular 21 SSR ?",
+      "answer": "Améliorer le référencement"
+    },
+    {
+      "question": "Dans Angular 21 hybride, que peuvent renvoyer les endpoints du serveur ?",
+      "answer": "Des ressources statiques, du JSON et des pages SSR"
+    },
+    {
+      "question": "Dans Angular 21, quel booléen de express.static permet de laisser les routes front fonctionner ?",
+      "answer": "index false"
+    },
+    {
+      "question": "Quel endpoint d'exemple Angular 21 renvoie les données de la page d'accueil ?",
+      "answer": "/api/homepage"
+    },
+    {
+      "question": "Dans les services fournis du projet, quel endpoint fournit les produits ?",
+      "answer": "/api/products"
+    },
+    {
+      "question": "Dans app.routes.ts fourni, quelles deux routes principales existent ?",
+      "answer": "products cart"
+    },
+    {
+      "question": "Dans app.routes.server.ts fourni, quel mode de rendu est configuré ?",
+      "answer": "Prerender"
+    },
+    {
+      "question": "Quel concept Angular 21 permet de gérer un état réactif localement ?",
+      "answer": "Les signaux"
+    },
+    {
+      "question": "Quelle fonction Angular crée un signal ?",
+      "answer": "signal"
+    },
+    {
+      "question": "Quelle fonction Angular crée une valeur dérivée d'un signal ?",
+      "answer": "computed"
+    },
+    {
+      "question": "Quelle méthode de signal remplace directement la valeur ?",
+      "answer": "set"
+    },
+    {
+      "question": "Quelle méthode de signal met à jour la valeur à partir de l'ancienne ?",
+      "answer": "update"
+    },
+    {
+      "question": "Dans l'exemple de panier Angular 21, quel signal dérivé calcule le total du panier ?",
+      "answer": "total"
+    },
+    {
+      "question": "Dans l'exemple de panier Angular 21, quel signal dérivé calcule le nombre total d'articles ?",
+      "answer": "itemCount"
+    },
+    {
+      "question": "Dans le TP Angular 21, quel composant est prévu pour être hydraté en SSR pour le SEO ?",
+      "answer": "Les types d'articles en promotion"
+    },
+    {
+      "question": "Dans le TP Angular 21, quel type de composant est hydraté en CSR pour la recherche ?",
+      "answer": "Le formulaire de recherche"
+    },
+    {
+      "question": "Dans le TP Angular 21, où le panier peut-il être sauvegardé ?",
+      "answer": "localStorage"
+    },
+    {
+      "question": "Dans le sujet du TP, quels composants sont interchangeables via le routage ?",
+      "answer": "La liste des articles recherchés et le panier"
+    },
+    {
+      "question": "Écris le code pour créer le client MongoDB à partir d'une URL.",
+      "answer": "const client = new MongoClient(url);"
+    },
+    {
+      "question": "Écris le code pour connecter ce client avant d'interroger la base.",
+      "answer": "await client.connect();"
+    },
+    {
+      "question": "Écris le code Express pour activer le parsing JSON des requêtes.",
+      "answer": "app.use(express.json());"
+    },
+    {
+      "question": "Écris la fonction Express qui récupère tous les rayons.",
+      "answer": "async function getRayons(req, res) {\n  const rayons = await db.collection('rayons').find().toArray();\n  res.json(rayons);\n}"
+    },
+    {
+      "question": "Écris la fonction Express qui renvoie les produits en JSON.",
+      "answer": "async function getProducts(req, res) {\n  const products = await db.collection('articles').find().toArray();\n  res.json(products);\n}"
+    },
+    {
+      "question": "Écris une fonction Express qui renvoie tous les articles d'un rayon donné.",
+      "answer": "async function getArticlesByRayon(req, res) {\n  const { id } = req.params;\n  const articles = await db.collection('articles').find({ rayonId: id }).toArray();\n  res.json(articles);\n}"
+    },
+    {
+      "question": "Écris la commande mongoimport pour charger articles.json dans ECOMMERCE.",
+      "answer": "mongoimport --db ECOMMERCE --collection articles --jsonArray --drop --file articles.json"
+    },
+    {
+      "question": "Écris une méthode de service Angular qui récupère les produits depuis l'API.",
+      "answer": "getProducts() {\n  return this.http.get('/api/products');\n}"
+    },
+    {
+      "question": "Écris une fonction qui ajoute un produit au panier ou incrémente sa quantité.",
+      "answer": "function addToCart(product) {\n  var existing = cart().find(function (item) {\n    return item.id === product.id;\n  });\n\n  if (existing) {\n    cart.update(function (items) {\n      return items.map(function (item) {\n        if (item.id === product.id) {\n          return { ...item, qty: item.qty + 1 };\n        }\n\n        return item;\n      });\n    });\n    return;\n  }\n\n  cart.update(function (items) {\n    return [...items, { ...product, qty: 1 }];\n  });\n}"
+    },
+    {
+      "question": "Écris une fonction qui calcule le total du panier à partir d'un tableau d'articles.",
+      "answer": "function calculateTotal(items) {\n  return items.reduce((sum, item) => sum + item.price * item.qty, 0);\n}"
+    },
+    {
+      "question": "Écris une fonction qui sauvegarde le panier dans localStorage.",
+      "answer": "function saveCart(cart) {\n  localStorage.setItem('cart', JSON.stringify(cart));\n}"
+    },
+    {
+      "question": "Écris une fonction qui charge le panier depuis localStorage.",
+      "answer": "function loadCart() {\n  return JSON.parse(localStorage.getItem('cart') || '[]');\n}"
+    },
+    {
+      "question": "Écris le computed qui calcule le total du panier.",
+      "answer": "const total = computed(function () {\n  return cart().reduce(function (sum, item) {\n    return sum + item.price * item.qty;\n  }, 0);\n});"
+    },
+    {
+      "question": "Écris une route Express GET qui renvoie les produits.",
+      "answer": "app.get('/api/products', async (req, res) => {\n  const products = await db.collection('articles').find().toArray();\n  res.json(products);\n});"
+    },
+    {
+      "question": "Écris la route /signin qui crée un JWT et le place dans un cookie.",
+      "answer": "app.post('/signin', async function (req, res) {\n  const token = jwt.sign({ username: username }, secret, { expiresIn: '1h' });\n\n  res.cookie('jwt', token, {\n    httpOnly: true,\n    sameSite: 'strict',\n    secure: true,\n  });\n\n  res.json({ ok: true });\n});"
+    },
+    {
+      "question": "Écris le middleware qui vérifie le JWT stocké dans le cookie.",
+      "answer": "function auth(req, res, next) {\n  const token = req.cookies.jwt;\n\n  if (!token) {\n    return res.sendStatus(401);\n  }\n\n  try {\n    req.user = jwt.verify(token, secret);\n    next();\n  } catch (error) {\n    res.sendStatus(403);\n  }\n}"
+    },
+    {
+      "question": "Écris la route /validate qui renvoie l'utilisateur authentifié.",
+      "answer": "app.get('/validate', auth, function (req, res) {\n  res.json(req.user);\n});"
+    },
+    {
+      "question": "Écris la configuration des routes Angular du TP avec la recherche et le panier.",
+      "answer": "export const routes: Routes = [\n  { path: '', component: SearchComponent },\n  { path: 'cart', component: CartComponent },\n];"
+    },
+    {
+      "question": "Écris le template Angular qui affiche les liens de navigation et le contenu routé.",
+      "answer": "<nav>\n  <a routerLink=\"\">Recherche</a>\n  <a routerLink=\"cart\">Panier</a>\n</nav>\n\n<router-outlet></router-outlet>"
+    },
+    {
+      "question": "Écris le serveur Angular 21 qui sert les fichiers statiques sans capturer les routes front.",
+      "answer": "const app = express();\napp.use(express.static(join(distFolder), { index: false }));\napp.get('*', (req, res) => {\n  res.sendFile(join(distFolder, 'index.html'));\n});"
+    },
+    {
+      "question": "Écris le code d'initialisation du panier depuis localStorage au démarrage.",
+      "answer": "ngOnInit() {\n  this.cart = JSON.parse(localStorage.getItem('cart') || '[]');\n}"
+    },
+    {
+      "question": "Écris le code d'un composant de recherche qui charge les produits au démarrage.",
+      "answer": "ngOnInit() {\n  this.productsService.getProducts().subscribe(function (products) {\n    this.products = products;\n  }.bind(this));\n}"
+    },
+    {
+      "question": "Écris la ligne qui ajoute un écouteur de clic à un bouton.",
+      "answer": "button.addEventListener('click', handler);"
+    },
+    {
+      "question": "Que signifie MEAN ?",
+      "answer": "MongoDB Express Angular Node.js"
+    },
+    {
+      "question": "Quels sont les trois langages de base du web côté client ?",
+      "answer": "HTML CSS JavaScript"
+    },
+    {
+      "question": "À quoi sert HTML ?",
+      "answer": "À structurer le contenu"
+    },
+    {
+      "question": "À quoi sert CSS ?",
+      "answer": "À mettre en forme l'apparence"
+    },
+    {
+      "question": "À quoi sert JavaScript ?",
+      "answer": "À ajouter du comportement et de l'interactivité"
+    },
+    {
+      "question": "Que signifie DOM ?",
+      "answer": "Document Object Model"
+    },
+    {
+      "question": "À quoi sert HTTP ?",
+      "answer": "À communiquer entre un client et un serveur"
+    },
+    {
+      "question": "Quelle est la différence principale entre HTTP et HTTPS ?",
+      "answer": "HTTPS chiffre et sécurise les échanges"
+    },
+    {
+      "question": "Que signifie JSON ?",
+      "answer": "JavaScript Object Notation"
+    },
+    {
+      "question": "À quoi sert Node.js ?",
+      "answer": "À exécuter du JavaScript côté serveur"
+    },
+    {
+      "question": "À quoi sert Express ?",
+      "answer": "À créer facilement des routes et des API"
+    },
+    {
+      "question": "Qu'est-ce qu'un endpoint ?",
+      "answer": "Une route qui répond à une requête HTTP"
+    },
+    {
+      "question": "À quoi sert MongoDB ?",
+      "answer": "À stocker des données dans une base NoSQL"
+    },
+    {
+      "question": "Qu'est-ce qu'une collection dans MongoDB ?",
+      "answer": "Un ensemble de documents"
+    },
+    {
+      "question": "Qu'est-ce qu'un document dans MongoDB ?",
+      "answer": "Une donnée stockée au format BSON"
+    },
+    {
+      "question": "Que signifie NoSQL ?",
+      "answer": "Not Only SQL"
+    },
+    {
+      "question": "À quoi sert CORS ?",
+      "answer": "À autoriser des requêtes entre origines différentes"
+    },
+    {
+      "question": "Que signifie JWT ?",
+      "answer": "JSON Web Token"
+    },
+    {
+      "question": "Où stocke-t-on le JWT côté client dans le cours ?",
+      "answer": "Dans un cookie"
+    },
+    {
+      "question": "Que signifie SSR ?",
+      "answer": "Server-Side Rendering"
+    },
+    {
+      "question": "Que signifie CSR ?",
+      "answer": "Client-Side Rendering"
+    },
+    {
+      "question": "Quel est l'objectif principal du SSR ?",
+      "answer": "Améliorer le référencement"
+    },
+    {
+      "question": "Quel est l'objectif principal du CSR ?",
+      "answer": "Réduire les temps de navigation"
+    },
+    {
+      "question": "Qu'est-ce qu'un composant Angular ?",
+      "answer": "Une brique d'interface réutilisable"
+    },
+    {
+      "question": "Qu'est-ce qu'un service Angular ?",
+      "answer": "Une classe qui partage de la logique et des données"
+    },
+    {
+      "question": "À quoi sert une route Angular ?",
+      "answer": "À afficher une vue selon l'URL"
+    },
+    {
+      "question": "À quoi servent les signaux Angular ?",
+      "answer": "À gérer un état réactif local"
+    },
+    {
+      "question": "Quel est le rôle du TP e-commerce ?",
+      "answer": "Construire un front de recherche et un panier"
+    }
+  ],
+  "course": {
+    "title": "Cours complet de révision",
+    "intro": "Ce chapitre regroupe les bases du cours dans un ordre logique pour réviser depuis zéro.",
+    "sections": [
+      {
+        "title": "1. Comprendre le web",
+        "goal": "Savoir ce qu'est une page web, comment elle est affichée et comment elle échange des données.",
+        "keyPoints": [
+          "HTML structure le contenu.",
+          "CSS gère l'apparence.",
+          "JavaScript ajoute le comportement.",
+          "HTTP transporte les requêtes et les réponses.",
+          "HTTPS protège les échanges."
+        ],
+        "example": "Une page web = structure HTML + style CSS + logique JavaScript.",
+        "checklist": [
+          "Je sais distinguer contenu, style et comportement.",
+          "Je sais expliquer la différence entre HTTP et HTTPS."
+        ]
+      },
+      {
+        "title": "2. HTML et structure",
+        "goal": "Construire des pages propres avec les bonnes balises et les bons attributs.",
+        "keyPoints": [
+          "Les balises sémantiques donnent du sens au document.",
+          "Les formulaires envoient des données au serveur.",
+          "Les attributs comme href, target, name, required ou placeholder décrivent le comportement.",
+          "Les éléments utiles: header, main, article, footer, form, input, select, textarea, table."
+        ],
+        "example": "<form method=\"post\">\n  <input name=\"search\" placeholder=\"Rechercher\" required />\n</form>",
+        "checklist": [
+          "Je sais créer un lien avec a et href.",
+          "Je sais créer un formulaire simple.",
+          "Je sais choisir une balise sémantique adaptée."
+        ]
+      },
+      {
+        "title": "3. CSS et mise en forme",
+        "goal": "Savoir styliser une page et l'adapter à différents écrans.",
+        "keyPoints": [
+          "Les sélecteurs ciblent les éléments, les classes et les identifiants.",
+          "Les propriétés essentielles: margin, font-size, font-weight, font-family, float.",
+          "Les media queries permettent le responsive design.",
+          "Le viewport permet d'adapter l'affichage mobile."
+        ],
+        "example": "@media (max-width: 600px) {\n  .card {\n    margin: 12px;\n  }\n}",
+        "checklist": [
+          "Je sais écrire un sélecteur de classe.",
+          "Je sais faire un style responsive simple.",
+          "Je sais utiliser le viewport."
+        ]
+      },
+      {
+        "title": "4. JavaScript et DOM",
+        "goal": "Comprendre comment JavaScript pilote l'interactivité d'une page.",
+        "keyPoints": [
+          "let, const et var n'ont pas la même portée.",
+          "Le DOM représente la page sous forme d'objets.",
+          "getElementById et querySelector sélectionnent des éléments.",
+          "addEventListener permet de gérer un événement.",
+          "createElement, createTextNode et appendChild servent à construire le DOM.",
+          "fetch permet de charger des données côté client."
+        ],
+        "example": "button.addEventListener('click', function () {\n  alert('Bonjour');\n});",
+        "checklist": [
+          "Je sais sélectionner un élément du DOM.",
+          "Je sais réagir à un clic.",
+          "Je sais ajouter dynamiquement un élément."
+        ]
+      },
+      {
+        "title": "5. Données et communication",
+        "goal": "Comprendre JSON, AJAX, CORS et les échanges entre client et serveur.",
+        "keyPoints": [
+          "JSON sert à échanger des données textuelles.",
+          "AJAX permet des requêtes asynchrones.",
+          "CORS autorise ou bloque les requêtes entre origines différentes.",
+          "Un endpoint est une route HTTP exposée par un service."
+        ],
+        "example": "fetch('/api/products').then(function (response) {\n  return response.json();\n});",
+        "checklist": [
+          "Je sais expliquer à quoi sert JSON.",
+          "Je sais expliquer le rôle de CORS.",
+          "Je sais définir ce qu'est un endpoint."
+        ]
+      },
+      {
+        "title": "6. Node.js, Express et MongoDB",
+        "goal": "Construire un backend simple avec des routes et une base de données.",
+        "keyPoints": [
+          "Node.js exécute JavaScript côté serveur.",
+          "Express simplifie les routes et les réponses HTTP.",
+          "MongoDB stocke les données sous forme de documents BSON.",
+          "Une collection contient plusieurs documents.",
+          "MongoClient permet de se connecter à MongoDB.",
+          "express.json() lit le JSON des requêtes."
+        ],
+        "example": "app.get('/api/products', function (req, res) {\n  res.json([]);\n});",
+        "checklist": [
+          "Je sais créer une route GET ou POST.",
+          "Je sais lire req.body et req.params.",
+          "Je sais expliquer collection et document."
+        ]
+      },
+      {
+        "title": "7. JWT et authentification",
+        "goal": "Comprendre l'authentification par jeton et son transport dans les cookies.",
+        "keyPoints": [
+          "JWT signifie JSON Web Token.",
+          "Le token est signé côté serveur.",
+          "Le cookie peut transporter le token vers le navigateur.",
+          "httpOnly, sameSite et secure renforcent la sécurité.",
+          "jsonwebtoken sert à signer et vérifier le token.",
+          "cookie-parser lit les cookies côté serveur."
+        ],
+        "example": "res.cookie('jwt', token, {\n  httpOnly: true,\n  sameSite: 'strict',\n  secure: true,\n});",
+        "checklist": [
+          "Je sais expliquer le rôle d'un JWT.",
+          "Je sais pourquoi un cookie peut transporter le token.",
+          "Je sais citer les attributs de sécurité du cookie."
+        ]
+      },
+      {
+        "title": "8. Angular classique",
+        "goal": "Comprendre la structure d'une application Angular.",
+        "keyPoints": [
+          "Un composant affiche une vue.",
+          "Un service partage de la logique ou des données.",
+          "Les routes permettent de changer de page sans recharger.",
+          "ngModel relie un champ à une donnée.",
+          "HttpClient fait les requêtes HTTP.",
+          "Observable est le type courant pour les données asynchrones."
+        ],
+        "example": "<router-outlet></router-outlet>",
+        "checklist": [
+          "Je sais expliquer composant, service et route.",
+          "Je sais reconnaître routerLink et router-outlet.",
+          "Je sais expliquer à quoi sert HttpClient."
+        ]
+      },
+      {
+        "title": "9. Angular 21, SSR et signaux",
+        "goal": "Comprendre le rendu serveur et l'état réactif moderne.",
+        "keyPoints": [
+          "SSR rend la page côté serveur.",
+          "CSR rend la page côté client.",
+          "Prerender génère des pages à l'avance.",
+          "Les signaux gèrent l'état local.",
+          "signal crée un état, computed crée une valeur dérivée.",
+          "set et update modifient un signal."
+        ],
+        "example": "const total = computed(function () {\n  return cart().length;\n});",
+        "checklist": [
+          "Je sais distinguer SSR et CSR.",
+          "Je sais expliquer le rôle d'un signal.",
+          "Je sais décrire ce qu'apporte prerender."
+        ]
+      },
+      {
+        "title": "10. TP e-commerce",
+        "goal": "Relier toutes les briques dans un vrai projet de recherche et de panier.",
+        "keyPoints": [
+          "La base ECOMMERCE contient articles, rayons et users.",
+          "Le front affiche la recherche et le panier.",
+          "Le backend expose des endpoints pour les produits.",
+          "Le panier peut être sauvegardé dans localStorage.",
+          "Le TP utilise aussi la recherche, l'authentification et les routes Angular.",
+          "La partie code demande souvent de relier plusieurs briques ensemble."
+        ],
+        "example": "Recherche -> chargement des produits -> affichage -> ajout au panier -> sauvegarde locale",
+        "checklist": [
+          "Je sais décrire le flux complet du TP.",
+          "Je sais relier front, backend et base de données.",
+          "Je sais où intervient l'authentification."
+        ]
+      }
+    ]
+  },
+  "themes": {
+    "Architecture et MEAN": [
+      {
+        "question": "Que signifie SEO ?",
+        "answer": "Search Engine Optimization"
+      },
+      {
+        "question": "MongoDB est un SGBD de quel type ?",
+        "answer": "NoSQL"
+      },
+      {
+        "question": "Quelle commande MongoDB liste les bases ?",
+        "answer": "show dbs"
+      },
+      {
+        "question": "Quelle commande permet de sélectionner une base MongoDB ?",
+        "answer": "use <base>"
+      },
+      {
+        "question": "Quel attribut permet d'ouvrir un lien dans un nouvel onglet ?",
+        "answer": "target"
+      },
+      {
+        "question": "Quelle valeur de target ouvre dans un nouvel onglet ?",
+        "answer": "_blank"
+      },
+      {
+        "question": "Quel nom donne-t-on aux seuils de largeur d'écran dans le responsive design ?",
+        "answer": "breakpoints"
+      },
+      {
+        "question": "Quelle méthode ajoute dynamiquement un écouteur d'événement ?",
+        "answer": "addEventListener"
+      },
+      {
+        "question": "Quel serveur frontal est recommandé en production devant NestJS ?",
+        "answer": "Apache ou Nginx"
+      },
+      {
+        "question": "Dans app.routes.ts fourni, quelles deux routes principales existent ?",
+        "answer": "products cart"
+      }
+    ],
+    "MongoDB": [
+      {
+        "question": "Dans MongoDB, comment s'appelle l'équivalent approximatif d'une table ?",
+        "answer": "Une collection"
+      },
+      {
+        "question": "Dans MongoDB, comment s'appelle l'équivalent approximatif d'un enregistrement ?",
+        "answer": "Un document"
+      },
+      {
+        "question": "Sous quel format binaire MongoDB stocke-t-il les documents ?",
+        "answer": "BSON"
+      },
+      {
+        "question": "Quel shell interactif permet de manipuler MongoDB ?",
+        "answer": "mongosh"
+      },
+      {
+        "question": "Quelle commande MongoDB liste les collections ?",
+        "answer": "show collections"
+      },
+      {
+        "question": "Quelle autre commande MongoDB peut aussi lister les collections ?",
+        "answer": "show tables"
+      },
+      {
+        "question": "Quelle méthode MongoDB permet de récupérer tous les documents d'une collection ?",
+        "answer": "find()"
+      },
+      {
+        "question": "Quelle méthode MongoDB permet de compter les documents ?",
+        "answer": "countDocuments()"
+      },
+      {
+        "question": "Quelle méthode MongoDB permet d'obtenir des valeurs distinctes d'un champ ?",
+        "answer": "distinct()"
+      },
+      {
+        "question": "Quel opérateur MongoDB signifie strictement supérieur à ?",
+        "answer": "$gt"
+      },
+      {
+        "question": "Quel opérateur MongoDB signifie strictement inférieur à ?",
+        "answer": "$lt"
+      },
+      {
+        "question": "Quel opérateur MongoDB signifie supérieur ou égal à ?",
+        "answer": "$gte"
+      },
+      {
+        "question": "Quel opérateur MongoDB signifie inférieur ou égal à ?",
+        "answer": "$lte"
+      },
+      {
+        "question": "Quel opérateur MongoDB teste l'existence d'une propriété ?",
+        "answer": "$exists"
+      },
+      {
+        "question": "Quel opérateur MongoDB permet de tester l'appartenance à une liste de valeurs ?",
+        "answer": "$in"
+      },
+      {
+        "question": "Quel opérateur MongoDB permet d'exclure une liste de valeurs ?",
+        "answer": "$nin"
+      },
+      {
+        "question": "Quel opérateur MongoDB permet une disjonction logique ?",
+        "answer": "$or"
+      },
+      {
+        "question": "Quel opérateur MongoDB permet une négation logique ?",
+        "answer": "$not"
+      },
+      {
+        "question": "Quel opérateur MongoDB permet de rejeter toutes les conditions listées ?",
+        "answer": "$nor"
+      },
+      {
+        "question": "Quelle commande sert à importer des données JSON dans MongoDB ?",
+        "answer": "mongoimport"
+      },
+      {
+        "question": "Quelle option de mongoimport indique qu'on importe un tableau JSON ?",
+        "answer": "--jsonArray"
+      },
+      {
+        "question": "Quelle option de mongoimport supprime d'abord la collection existante ?",
+        "answer": "--drop"
+      },
+      {
+        "question": "Quel champ de la collection rayons contient le pourcentage de promotion ?",
+        "answer": "promotion"
+      },
+      {
+        "question": "Quel champ de la collection articles contient le stock disponible ?",
+        "answer": "stock"
+      },
+      {
+        "question": "Quel champ de la collection users contient le mot de passe ?",
+        "answer": "password"
+      }
+    ],
+    "Node.js et Express": [
+      {
+        "question": "Quel module Node.js permet de créer une application Express ?",
+        "answer": "express"
+      },
+      {
+        "question": "Quel module Node.js permet de se connecter à MongoDB ?",
+        "answer": "mongodb"
+      },
+      {
+        "question": "Quel objet du module mongodb sert à se connecter au serveur MongoDB ?",
+        "answer": "MongoClient"
+      },
+      {
+        "question": "Quel framework est utilisé avec Node.js pour créer les endpoints REST dans le cours ?",
+        "answer": "Express"
+      },
+      {
+        "question": "Quelle instruction Express permet de parser le JSON des requêtes ?",
+        "answer": "express.json()"
+      },
+      {
+        "question": "Où récupère-t-on les données JSON envoyées en POST dans Express ?",
+        "answer": "req.body"
+      },
+      {
+        "question": "Où récupère-t-on les paramètres de route dans Express ?",
+        "answer": "req.params"
+      },
+      {
+        "question": "Quelle méthode de réponse Express renvoie directement du JSON ?",
+        "answer": "res.json"
+      },
+      {
+        "question": "Quel module Node.js est utilisé dans le cours pour gérer CORS ?",
+        "answer": "cors"
+      },
+      {
+        "question": "À quoi sert CORS ?",
+        "answer": "À autoriser le Cross-Origin Resource Sharing"
+      },
+      {
+        "question": "Quel port est utilisé dans la plupart des exemples Node.js du cours ?",
+        "answer": "8888"
+      },
+      {
+        "question": "Quelle commande exécute un serveur Node nommé serveur.js ?",
+        "answer": "node serveur.js"
+      },
+      {
+        "question": "Quel fichier enregistre les dépendances npm d'un projet Node ?",
+        "answer": "package.json"
+      }
+    ],
+    "Web client HTML CSS JS": [
+      {
+        "question": "Quel langage est utilisé de manière unifiée dans l'architecture MEAN ?",
+        "answer": "JavaScript"
+      },
+      {
+        "question": "Quel langage structure les pages web côté client ?",
+        "answer": "HTML"
+      },
+      {
+        "question": "Quel langage gère la présentation graphique des pages web ?",
+        "answer": "CSS"
+      },
+      {
+        "question": "Quel langage manipule le DOM et ajoute du comportement côté client ?",
+        "answer": "JavaScript"
+      },
+      {
+        "question": "Que signifie DOM ?",
+        "answer": "Document Object Model"
+      },
+      {
+        "question": "Quelle balise HTML crée un lien hypertexte ?",
+        "answer": "a"
+      },
+      {
+        "question": "Quel attribut de la balise a contient l'URL de destination ?",
+        "answer": "href"
+      },
+      {
+        "question": "Quelle balise HTML structure l'en-tête de page dans les balises sémantiques ?",
+        "answer": "header"
+      },
+      {
+        "question": "Quelle balise HTML structure le contenu principal ?",
+        "answer": "main"
+      },
+      {
+        "question": "Quelle balise HTML structure un article ?",
+        "answer": "article"
+      },
+      {
+        "question": "Quelle balise HTML structure le pied de page ?",
+        "answer": "footer"
+      },
+      {
+        "question": "Quelle balise HTML crée un paragraphe ?",
+        "answer": "p"
+      },
+      {
+        "question": "Quelle balise HTML crée un saut de ligne autofermante ?",
+        "answer": "br"
+      },
+      {
+        "question": "Quelle balise HTML crée une liste non ordonnée ?",
+        "answer": "ul"
+      },
+      {
+        "question": "Quelle balise HTML crée un item de liste ?",
+        "answer": "li"
+      },
+      {
+        "question": "Quelle balise HTML crée un tableau ?",
+        "answer": "table"
+      },
+      {
+        "question": "Quelle balise HTML crée une ligne de tableau ?",
+        "answer": "tr"
+      },
+      {
+        "question": "Quelle balise HTML crée une cellule de tableau ?",
+        "answer": "td"
+      },
+      {
+        "question": "Quelle balise HTML crée une cellule d'en-tête de tableau ?",
+        "answer": "th"
+      },
+      {
+        "question": "Quelle balise HTML permet de créer un bloc générique ?",
+        "answer": "div"
+      },
+      {
+        "question": "Quelle balise HTML lie une feuille de style CSS dans le head ?",
+        "answer": "link"
+      },
+      {
+        "question": "Quel attribut HTML est crucial pour nommer un contrôle de formulaire envoyé au serveur ?",
+        "answer": "name"
+      },
+      {
+        "question": "Quelle balise HTML crée un formulaire ?",
+        "answer": "form"
+      },
+      {
+        "question": "Quelle méthode HTML envoie les paramètres dans l'URL ?",
+        "answer": "GET"
+      },
+      {
+        "question": "Quelle méthode HTML envoie les paramètres dans le corps du message ?",
+        "answer": "POST"
+      },
+      {
+        "question": "Quel attribut d'un input affiche un texte indicatif ?",
+        "answer": "placeholder"
+      },
+      {
+        "question": "Quel attribut d'un input rend la saisie obligatoire ?",
+        "answer": "required"
+      },
+      {
+        "question": "Quel type d'input masque les caractères saisis ?",
+        "answer": "password"
+      },
+      {
+        "question": "Quel type d'input crée des cases à cocher ?",
+        "answer": "checkbox"
+      },
+      {
+        "question": "Quel type d'input crée des boutons radio ?",
+        "answer": "radio"
+      },
+      {
+        "question": "Quel type d'input crée une zone de texte simple ?",
+        "answer": "text"
+      },
+      {
+        "question": "Quelle balise HTML crée une liste déroulante ?",
+        "answer": "select"
+      },
+      {
+        "question": "Quelle balise HTML crée une option de liste déroulante ?",
+        "answer": "option"
+      },
+      {
+        "question": "Quelle balise HTML crée une zone de texte multiligne dans un formulaire ?",
+        "answer": "textarea"
+      },
+      {
+        "question": "En CSS, quel sélecteur cible une classe ?",
+        "answer": ".classe"
+      },
+      {
+        "question": "En CSS, quel sélecteur cible un identifiant ?",
+        "answer": "#id"
+      },
+      {
+        "question": "Quelle propriété CSS règle la taille de la police ?",
+        "answer": "font-size"
+      },
+      {
+        "question": "Quelle propriété CSS règle la graisse de la police ?",
+        "answer": "font-weight"
+      },
+      {
+        "question": "Quelle propriété CSS règle la police utilisée ?",
+        "answer": "font-family"
+      },
+      {
+        "question": "Quelle propriété CSS définit une marge extérieure générale ?",
+        "answer": "margin"
+      },
+      {
+        "question": "Quelle propriété CSS peut flotter une image à droite ?",
+        "answer": "float"
+      },
+      {
+        "question": "Quel mécanisme CSS permet d'adapter le style à la taille de l'écran ?",
+        "answer": "media queries"
+      },
+      {
+        "question": "Quelle balise meta permet d'ajuster le viewport aux mobiles ?",
+        "answer": "viewport"
+      },
+      {
+        "question": "Quel mot-clé JavaScript déclare une variable à portée de bloc ?",
+        "answer": "let"
+      },
+      {
+        "question": "Quel mot-clé JavaScript déclare une constante ?",
+        "answer": "const"
+      },
+      {
+        "question": "Quel mot-clé JavaScript historique déclare une variable plus globale ?",
+        "answer": "var"
+      },
+      {
+        "question": "Quel mot-clé JavaScript déclare une fonction ?",
+        "answer": "function"
+      },
+      {
+        "question": "Quel mot-clé JavaScript représente l'objet courant dans de nombreux contextes ?",
+        "answer": "this"
+      },
+      {
+        "question": "Quel constructeur JavaScript permet de créer une liste explicitement ?",
+        "answer": "Array"
+      },
+      {
+        "question": "Quel attribut JavaScript donne la longueur d'une liste ?",
+        "answer": "length"
+      },
+      {
+        "question": "Comment s'appelle la notation textuelle des objets JavaScript utilisée pour l'échange de données ?",
+        "answer": "JSON"
+      },
+      {
+        "question": "Quelle fonction JavaScript sélectionne un élément par identifiant ?",
+        "answer": "getElementById"
+      },
+      {
+        "question": "Quelle fonction JavaScript sélectionne avec une syntaxe proche de CSS ?",
+        "answer": "querySelector"
+      },
+      {
+        "question": "Quel événement HTML/JS correspond à un clic ?",
+        "answer": "onclick"
+      },
+      {
+        "question": "Quel événement HTML/JS correspond à l'entrée de la souris sur un élément ?",
+        "answer": "onmouseover"
+      },
+      {
+        "question": "Quel événement HTML/JS correspond à la sortie de la souris d'un élément ?",
+        "answer": "onmouseout"
+      },
+      {
+        "question": "Quel événement HTML/JS correspond au chargement de la page ?",
+        "answer": "onload"
+      },
+      {
+        "question": "Quel événement HTML/JS correspond au départ (quitter) de la page ?",
+        "answer": "onunload"
+      },
+      {
+        "question": "Quel attribut de script permet de différer l'exécution jusqu'après le parsing du DOM ?",
+        "answer": "defer"
+      },
+      {
+        "question": "Quelle méthode JavaScript du DOM crée un élément ?",
+        "answer": "createElement"
+      },
+      {
+        "question": "Quelle méthode JavaScript du DOM crée un nœud texte ?",
+        "answer": "createTextNode"
+      },
+      {
+        "question": "Quelle méthode JavaScript du DOM ajoute un enfant à un élément ?",
+        "answer": "appendChild"
+      },
+      {
+        "question": "Quel mot-clé JavaScript suspend l'exécution en attendant une promesse ?",
+        "answer": "await"
+      },
+      {
+        "question": "Quel paradigme important est associé à JavaScript dans le cours en plus de l'objet et du fonctionnel ?",
+        "answer": "Événementiel"
+      },
+      {
+        "question": "Quel environnement a porté JavaScript côté serveur ?",
+        "answer": "Node.js"
+      }
+    ],
+    "AJAX et JWT": [
+      {
+        "question": "Que signifie AJAX ?",
+        "answer": "Asynchronous JavaScript And XML"
+      },
+      {
+        "question": "Dans les exemples modernes du cours, les données AJAX sont surtout au format ?",
+        "answer": "JSON"
+      },
+      {
+        "question": "Quel jeton d'authentification moderne est étudié dans le cours ?",
+        "answer": "JWT"
+      },
+      {
+        "question": "Que signifie JWT ?",
+        "answer": "JSON Web Token"
+      },
+      {
+        "question": "Quelles sont les trois parties d'un JWT dans le principe du cours ?",
+        "answer": "En-tête charge utile signature"
+      },
+      {
+        "question": "Qu'est-ce qui garantit l'authenticité d'un JWT ?",
+        "answer": "La signature"
+      },
+      {
+        "question": "Quels sont les deux emplacements côté client proposés pour stocker un JWT ?",
+        "answer": "cookie localStorage"
+      },
+      {
+        "question": "Quel emplacement est présenté comme préférable dans le cours pour un JWT ?",
+        "answer": "cookie"
+      },
+      {
+        "question": "Quel module Node.js sert à manipuler les JWT ?",
+        "answer": "jsonwebtoken"
+      },
+      {
+        "question": "Quel module Node.js sert à parser les cookies ?",
+        "answer": "cookie-parser"
+      },
+      {
+        "question": "Quelle méthode de jsonwebtoken vérifie un token ?",
+        "answer": "verify"
+      },
+      {
+        "question": "Quelle méthode de jsonwebtoken signe un token ?",
+        "answer": "sign"
+      },
+      {
+        "question": "Quel nom de cookie est utilisé dans les exemples JWT du cours ?",
+        "answer": "jwt"
+      }
+    ],
+    "Angular classique": [
+      {
+        "question": "Que signifie MEAN ?",
+        "answer": "MongoDB Express Angular Node.js"
+      },
+      {
+        "question": "Quel surlangage de JavaScript est très utilisé avec Angular ?",
+        "answer": "TypeScript"
+      },
+      {
+        "question": "Dans le microservice d'authentification, quelles trois routes sont citées ?",
+        "answer": "/signup /signin /validate"
+      },
+      {
+        "question": "Dans le couplage NestJS + microservice, où le cookie doit-il être créé ?",
+        "answer": "Au niveau de NestJS"
+      },
+      {
+        "question": "Quel framework JavaScript client est présenté comme le plus complet mais le plus complexe ?",
+        "answer": "Angular"
+      },
+      {
+        "question": "Quel outil Angular sert de gestionnaire de projet ?",
+        "answer": "ng"
+      },
+      {
+        "question": "Quelle commande crée un nouveau projet Angular ?",
+        "answer": "ng new"
+      },
+      {
+        "question": "Quelle commande abrégée génère un composant Angular ?",
+        "answer": "ng g c"
+      },
+      {
+        "question": "Quelle commande abrégée génère un service Angular ?",
+        "answer": "ng g s"
+      },
+      {
+        "question": "Quelle commande lance le serveur de développement Angular ?",
+        "answer": "ng serve -o"
+      },
+      {
+        "question": "Quel élément top-level Angular apparaît dans index.html dans le cours classique ?",
+        "answer": "app-root"
+      },
+      {
+        "question": "Quel élément Angular sert de point d'insertion pour les composants routés ?",
+        "answer": "router-outlet"
+      },
+      {
+        "question": "Quel attribut Angular dans un template crée un lien de navigation ?",
+        "answer": "routerLink"
+      },
+      {
+        "question": "Quelle classe Angular décrit la table de routage ?",
+        "answer": "Routes"
+      },
+      {
+        "question": "Quel décorateur Angular permet à un composant enfant de recevoir une donnée du parent ?",
+        "answer": "Input"
+      },
+      {
+        "question": "Quelle méthode consomme généralement un Observable dans les exemples du cours ?",
+        "answer": "subscribe"
+      },
+      {
+        "question": "Quel attribut Angular permet une liaison bidirectionnelle de formulaire ?",
+        "answer": "ngModel"
+      },
+      {
+        "question": "Quelle syntaxe Angular représente la liaison bidirectionnelle ?",
+        "answer": "[(ngModel)]"
+      },
+      {
+        "question": "Quelle directive structurelle Angular ancienne sert à itérer ?",
+        "answer": "*ngFor"
+      },
+      {
+        "question": "Quelle nouvelle syntaxe Angular moderne sert à itérer ?",
+        "answer": "@for"
+      },
+      {
+        "question": "Quelle directive structurelle Angular ancienne sert à conditionner l'affichage ?",
+        "answer": "*ngIf"
+      },
+      {
+        "question": "Quelle nouvelle syntaxe Angular moderne sert à conditionner l'affichage ?",
+        "answer": "@if"
+      },
+      {
+        "question": "Quelle bibliothèque est citée pour mettre en œuvre des stores Angular ?",
+        "answer": "@ngrx"
+      },
+      {
+        "question": "Dans les services fournis du projet, quel endpoint fournit les produits ?",
+        "answer": "/api/products"
+      }
+    ],
+    "Angular 21 CSR SSR": [
+      {
+        "question": "Que signifie SSR ?",
+        "answer": "Server-Side Rendering"
+      },
+      {
+        "question": "Que signifie CSR ?",
+        "answer": "Client-Side Rendering"
+      },
+      {
+        "question": "Quel est l'objectif principal du SSR dans le cours ?",
+        "answer": "Améliorer le référencement"
+      },
+      {
+        "question": "Quel est l'objectif principal du CSR dans le cours ?",
+        "answer": "Réduire les temps de navigation"
+      },
+      {
+        "question": "Quel attribut de cookie aide contre le CSRF dans le cours ?",
+        "answer": "sameSite"
+      },
+      {
+        "question": "Dans Angular 21+, quel fichier joue le rôle du serveur Node.js intégré ?",
+        "answer": "src/server.ts"
+      },
+      {
+        "question": "Dans Angular 21+, le serveur intégré utilise par défaut quel framework Node ?",
+        "answer": "Express"
+      },
+      {
+        "question": "Quel avantage SEO est explicitement associé à Angular 21 SSR ?",
+        "answer": "Améliorer le référencement"
+      },
+      {
+        "question": "Dans Angular 21 hybride, que peuvent renvoyer les endpoints du serveur ?",
+        "answer": "Des ressources statiques, du JSON et des pages SSR"
+      },
+      {
+        "question": "Dans Angular 21, quel booléen de express.static permet de laisser les routes front fonctionner ?",
+        "answer": "index false"
+      },
+      {
+        "question": "Quel endpoint d'exemple Angular 21 renvoie les données de la page d'accueil ?",
+        "answer": "/api/homepage"
+      },
+      {
+        "question": "Dans app.routes.server.ts fourni, quel mode de rendu est configuré ?",
+        "answer": "Prerender"
+      },
+      {
+        "question": "Quel concept Angular 21 permet de gérer un état réactif localement ?",
+        "answer": "Les signaux"
+      },
+      {
+        "question": "Quelle fonction Angular crée un signal ?",
+        "answer": "signal"
+      },
+      {
+        "question": "Quelle fonction Angular crée une valeur dérivée d'un signal ?",
+        "answer": "computed"
+      },
+      {
+        "question": "Quelle méthode de signal remplace directement la valeur ?",
+        "answer": "set"
+      },
+      {
+        "question": "Quelle méthode de signal met à jour la valeur à partir de l'ancienne ?",
+        "answer": "update"
+      }
+    ],
+    "TP e-commerce": [
+      {
+        "question": "Dans le TP, quel est le nom de la base MongoDB à utiliser ?",
+        "answer": "ECOMMERCE"
+      },
+      {
+        "question": "Dans le TP e-commerce, quels sont les trois fichiers JSON fournis pour MongoDB ?",
+        "answer": "articles.json rayons.json users.json"
+      },
+      {
+        "question": "Comment s'appelle un code exécuté en réponse à une requête HTTP dans un service REST ?",
+        "answer": "Un endpoint"
+      },
+      {
+        "question": "Dans Express, quelle méthode gère une route HTTP GET ?",
+        "answer": "app.get"
+      },
+      {
+        "question": "Dans Express, quelle méthode gère une route HTTP POST ?",
+        "answer": "app.post"
+      },
+      {
+        "question": "Quel protocole de communication usuel permet la navigation web ?",
+        "answer": "HTTP"
+      },
+      {
+        "question": "Quelle méthode JavaScript moderne permet de faire des requêtes HTTP côté client ?",
+        "answer": "fetch"
+      },
+      {
+        "question": "Quel protocole reste indispensable pour la confidentialité d'un JWT ?",
+        "answer": "HTTPS"
+      },
+      {
+        "question": "Quel attribut de cookie empêche l'accès direct par JavaScript ?",
+        "answer": "httpOnly"
+      },
+      {
+        "question": "Quel attribut de cookie est à ajouter en HTTPS pour imposer une transmission sécurisée ?",
+        "answer": "secure"
+      },
+      {
+        "question": "Quel service Angular est utilisé pour faire des requêtes HTTP ?",
+        "answer": "HttpClient"
+      },
+      {
+        "question": "Quel type renvoyé par HttpClient est mis en avant dans le cours ?",
+        "answer": "Observable"
+      },
+      {
+        "question": "Dans l'exemple de panier Angular 21, quel signal dérivé calcule le total du panier ?",
+        "answer": "total"
+      },
+      {
+        "question": "Dans l'exemple de panier Angular 21, quel signal dérivé calcule le nombre total d'articles ?",
+        "answer": "itemCount"
+      },
+      {
+        "question": "Dans le TP Angular 21, quel composant est prévu pour être hydraté en SSR pour le SEO ?",
+        "answer": "Les types d'articles en promotion"
+      },
+      {
+        "question": "Dans le TP Angular 21, quel type de composant est hydraté en CSR pour la recherche ?",
+        "answer": "Le formulaire de recherche"
+      },
+      {
+        "question": "Dans le TP Angular 21, où le panier peut-il être sauvegardé ?",
+        "answer": "localStorage"
+      },
+      {
+        "question": "Dans le sujet du TP, quels composants sont interchangeables via le routage ?",
+        "answer": "La liste des articles recherchés et le panier"
+      }
+    ],
+    "Cours de base": [
+      {
+        "question": "Que signifie MEAN ?",
+        "answer": "MongoDB Express Angular Node.js"
+      },
+      {
+        "question": "Quels sont les trois langages de base du web côté client ?",
+        "answer": "HTML CSS JavaScript"
+      },
+      {
+        "question": "À quoi sert HTML ?",
+        "answer": "À structurer le contenu"
+      },
+      {
+        "question": "À quoi sert CSS ?",
+        "answer": "À mettre en forme l'apparence"
+      },
+      {
+        "question": "À quoi sert JavaScript ?",
+        "answer": "À ajouter du comportement et de l'interactivité"
+      },
+      {
+        "question": "Que signifie DOM ?",
+        "answer": "Document Object Model"
+      },
+      {
+        "question": "À quoi sert HTTP ?",
+        "answer": "À communiquer entre un client et un serveur"
+      },
+      {
+        "question": "Quelle est la différence principale entre HTTP et HTTPS ?",
+        "answer": "HTTPS chiffre et sécurise les échanges"
+      },
+      {
+        "question": "Que signifie JSON ?",
+        "answer": "JavaScript Object Notation"
+      },
+      {
+        "question": "À quoi sert Node.js ?",
+        "answer": "À exécuter du JavaScript côté serveur"
+      },
+      {
+        "question": "À quoi sert Express ?",
+        "answer": "À créer facilement des routes et des API"
+      },
+      {
+        "question": "Qu'est-ce qu'un endpoint ?",
+        "answer": "Une route qui répond à une requête HTTP"
+      },
+      {
+        "question": "À quoi sert MongoDB ?",
+        "answer": "À stocker des données dans une base NoSQL"
+      },
+      {
+        "question": "Qu'est-ce qu'une collection dans MongoDB ?",
+        "answer": "Un ensemble de documents"
+      },
+      {
+        "question": "Qu'est-ce qu'un document dans MongoDB ?",
+        "answer": "Une donnée stockée au format BSON"
+      },
+      {
+        "question": "Que signifie NoSQL ?",
+        "answer": "Not Only SQL"
+      },
+      {
+        "question": "À quoi sert CORS ?",
+        "answer": "À autoriser des requêtes entre origines différentes"
+      },
+      {
+        "question": "Que signifie JWT ?",
+        "answer": "JSON Web Token"
+      },
+      {
+        "question": "Où stocke-t-on le JWT côté client dans le cours ?",
+        "answer": "Dans un cookie"
+      },
+      {
+        "question": "Que signifie SSR ?",
+        "answer": "Server-Side Rendering"
+      },
+      {
+        "question": "Que signifie CSR ?",
+        "answer": "Client-Side Rendering"
+      },
+      {
+        "question": "Quel est l'objectif principal du SSR ?",
+        "answer": "Améliorer le référencement"
+      },
+      {
+        "question": "Quel est l'objectif principal du CSR ?",
+        "answer": "Réduire les temps de navigation"
+      },
+      {
+        "question": "Qu'est-ce qu'un composant Angular ?",
+        "answer": "Une brique d'interface réutilisable"
+      },
+      {
+        "question": "Qu'est-ce qu'un service Angular ?",
+        "answer": "Une classe qui partage de la logique et des données"
+      },
+      {
+        "question": "À quoi sert une route Angular ?",
+        "answer": "À afficher une vue selon l'URL"
+      },
+      {
+        "question": "À quoi servent les signaux Angular ?",
+        "answer": "À gérer un état réactif local"
+      },
+      {
+        "question": "Quel est le rôle du TP e-commerce ?",
+        "answer": "Construire un front de recherche et un panier"
+      }
+    ],
+    "Code": [
+    {
+      "question": "Écris le code pour créer le client MongoDB à partir d'une URL.",
+      "answer": "const client = new MongoClient(url);"
+    },
+    {
+      "question": "Écris le code pour connecter ce client avant d'interroger la base.",
+      "answer": "await client.connect();"
+    },
+    {
+      "question": "Écris le code Express pour activer le parsing JSON des requêtes.",
+      "answer": "app.use(express.json());"
+    },
+    {
+      "question": "Écris la fonction Express qui récupère tous les rayons.",
+      "answer": "async function getRayons(req, res) {\n  const rayons = await db.collection('rayons').find().toArray();\n  res.json(rayons);\n}"
+    },
+    {
+      "question": "Écris la fonction Express qui renvoie les produits en JSON.",
+      "answer": "async function getProducts(req, res) {\n  const products = await db.collection('articles').find().toArray();\n  res.json(products);\n}"
+    },
+    {
+      "question": "Écris une fonction Express qui renvoie tous les articles d'un rayon donné.",
+      "answer": "async function getArticlesByRayon(req, res) {\n  const { id } = req.params;\n  const articles = await db.collection('articles').find({ rayonId: id }).toArray();\n  res.json(articles);\n}"
+    },
+    {
+      "question": "Écris la commande mongoimport pour charger articles.json dans ECOMMERCE.",
+      "answer": "mongoimport --db ECOMMERCE --collection articles --jsonArray --drop --file articles.json"
+    },
+    {
+      "question": "Écris une méthode de service Angular qui récupère les produits depuis l'API.",
+      "answer": "getProducts() {\n  return this.http.get('/api/products');\n}"
+    },
+      {
+        "question": "Écris une fonction qui ajoute un produit au panier ou incrémente sa quantité.",
+        "answer": "function addToCart(product) {\n  var existing = cart().find(function (item) {\n    return item.id === product.id;\n  });\n\n  if (existing) {\n    cart.update(function (items) {\n      return items.map(function (item) {\n        if (item.id === product.id) {\n          return { ...item, qty: item.qty + 1 };\n        }\n\n        return item;\n      });\n    });\n    return;\n  }\n\n  cart.update(function (items) {\n    return [...items, { ...product, qty: 1 }];\n  });\n}"
+      },
+    {
+      "question": "Écris une fonction qui calcule le total du panier à partir d'un tableau d'articles.",
+      "answer": "function calculateTotal(items) {\n  return items.reduce((sum, item) => sum + item.price * item.qty, 0);\n}"
+    },
+    {
+      "question": "Écris une fonction qui sauvegarde le panier dans localStorage.",
+      "answer": "function saveCart(cart) {\n  localStorage.setItem('cart', JSON.stringify(cart));\n}"
+    },
+    {
+      "question": "Écris une fonction qui charge le panier depuis localStorage.",
+      "answer": "function loadCart() {\n  return JSON.parse(localStorage.getItem('cart') || '[]');\n}"
+    },
+      {
+        "question": "Écris le computed qui calcule le total du panier.",
+        "answer": "const total = computed(function () {\n  return cart().reduce(function (sum, item) {\n    return sum + item.price * item.qty;\n  }, 0);\n});"
+      },
+      {
+        "question": "Écris une route Express GET qui renvoie les produits.",
+        "answer": "app.get('/api/products', async (req, res) => {\n  const products = await db.collection('articles').find().toArray();\n  res.json(products);\n});"
+      },
+      {
+        "question": "Écris la route /signin qui crée un JWT et le place dans un cookie.",
+        "answer": "app.post('/signin', async function (req, res) {\n  const token = jwt.sign({ username: username }, secret, { expiresIn: '1h' });\n\n  res.cookie('jwt', token, {\n    httpOnly: true,\n    sameSite: 'strict',\n    secure: true,\n  });\n\n  res.json({ ok: true });\n});"
+      },
+      {
+        "question": "Écris le middleware qui vérifie le JWT stocké dans le cookie.",
+        "answer": "function auth(req, res, next) {\n  const token = req.cookies.jwt;\n\n  if (!token) {\n    return res.sendStatus(401);\n  }\n\n  try {\n    req.user = jwt.verify(token, secret);\n    next();\n  } catch (error) {\n    res.sendStatus(403);\n  }\n}"
+      },
+      {
+        "question": "Écris la route /validate qui renvoie l'utilisateur authentifié.",
+        "answer": "app.get('/validate', auth, function (req, res) {\n  res.json(req.user);\n});"
+      },
+      {
+        "question": "Écris la configuration des routes Angular du TP avec la recherche et le panier.",
+        "answer": "export const routes: Routes = [\n  { path: '', component: SearchComponent },\n  { path: 'cart', component: CartComponent },\n];"
+      },
+      {
+        "question": "Écris le template Angular qui affiche les liens de navigation et le contenu routé.",
+        "answer": "<nav>\n  <a routerLink=\"\">Recherche</a>\n  <a routerLink=\"cart\">Panier</a>\n</nav>\n\n<router-outlet></router-outlet>"
+      },
+      {
+        "question": "Écris le serveur Angular 21 qui sert les fichiers statiques sans capturer les routes front.",
+        "answer": "const app = express();\napp.use(express.static(join(distFolder), { index: false }));\napp.get('*', (req, res) => {\n  res.sendFile(join(distFolder, 'index.html'));\n});"
+      },
+      {
+        "question": "Écris le code d'initialisation du panier depuis localStorage au démarrage.",
+        "answer": "ngOnInit() {\n  this.cart = JSON.parse(localStorage.getItem('cart') || '[]');\n}"
+      },
+      {
+        "question": "Écris le code d'un composant de recherche qui charge les produits au démarrage.",
+        "answer": "ngOnInit() {\n  this.productsService.getProducts().subscribe(function (products) {\n    this.products = products;\n  }.bind(this));\n}"
+      },
+      {
+        "question": "Écris la ligne qui ajoute un écouteur de clic à un bouton.",
+        "answer": "button.addEventListener('click', handler);"
+      }
+    ]
+  }
+}

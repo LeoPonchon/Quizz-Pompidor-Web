@@ -1,0 +1,127 @@
+function QuizScreen({
+  currentTheme,
+  totalCount,
+  currentQuestion,
+  isCodeQuestion,
+  answer,
+  setAnswer,
+  answered,
+  inputRef,
+  onValidate,
+  onNext,
+  onGoToThemes,
+  onRestartTheme,
+  result,
+}) {
+  return (
+    <div className="screen">
+      <div className="topbar">
+        <div>
+          <span className="badge">{currentTheme?.label || 'Thème'}</span>
+        </div>
+        <div className="small">{totalCount} questions mélangées</div>
+      </div>
+
+      <div className="question">{currentQuestion.question}</div>
+
+      <label htmlFor="answerInput">Écris ta réponse</label>
+      {isCodeQuestion ? (
+        <textarea
+          ref={inputRef}
+          id="answerInput"
+          autoComplete="off"
+          spellCheck="false"
+          rows={8}
+          value={answer}
+          onChange={(event) => setAnswer(event.target.value)}
+          onKeyDown={(event) => {
+            if ((event.ctrlKey || event.metaKey) && event.key === 'Enter' && !answered) {
+              event.preventDefault();
+              onValidate();
+            } else if (event.key === 'Enter' && answered) {
+              event.preventDefault();
+              onNext();
+            }
+          }}
+          disabled={answered}
+        />
+      ) : (
+        <input
+          ref={inputRef}
+          id="answerInput"
+          type="text"
+          autoComplete="off"
+          spellCheck="false"
+          value={answer}
+          onChange={(event) => setAnswer(event.target.value)}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter' && !answered) {
+              event.preventDefault();
+              onValidate();
+            } else if (event.key === 'Enter' && answered) {
+              event.preventDefault();
+              onNext();
+            }
+          }}
+          disabled={answered}
+        />
+      )}
+
+      <div className="buttons">
+        <button className="action primary" onClick={onValidate} disabled={answered} type="button">
+          Valider
+        </button>
+        <button className="action secondary" onClick={onNext} disabled={!answered} type="button">
+          Question suivante
+        </button>
+        <button className="action secondary" onClick={onGoToThemes} type="button">
+          Changer de thème
+        </button>
+        <button className="action danger" onClick={onRestartTheme} type="button">
+          Relancer ce thème
+        </button>
+      </div>
+
+      <div className={`result ${result ? (result.isCorrect ? 'good' : 'bad') : ''}`} aria-live="polite">
+        {result && (
+          <>
+            <div>
+              <strong>{result.isCorrect ? 'Juste' : 'Faux'}</strong>
+              {result.isCorrect ? ' · +1 point' : ' · +0 point'}
+            </div>
+            <div className="result-line">
+              <strong>Réponse attendue :</strong> {result.expectedRaw}
+            </div>
+            <div className="result-line">
+              <strong>Ta réponse :</strong> {result.userRaw || '∅'}
+            </div>
+            <div className="result-line">
+              <strong>Distance de Levenshtein :</strong> {result.distance} ·{' '}
+              <strong>Tolérance :</strong> {result.tolerance}
+            </div>
+          </>
+        )}
+      </div>
+
+      <div className="hint">
+        Règle de correction: accents et casse ignorés, petite tolérance Levenshtein selon la longueur.
+        Le score prend <strong>+1</strong> seulement si la réponse est jugée suffisamment proche.
+      </div>
+
+      <div className="small extra-hint">
+        {isCodeQuestion ? (
+          <>
+            Astuce: <code>Entrée</code> ajoute une nouvelle ligne.
+            Utilise <code>Ctrl+Entrée</code> pour valider.
+          </>
+        ) : (
+          <>
+            Astuce: <code>Entrée</code> valide, puis <code>Entrée</code> passe à la suivante.
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default QuizScreen;
