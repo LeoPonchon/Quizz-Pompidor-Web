@@ -70,7 +70,7 @@ export const themeDefinitions = [
   {
     key: 'code',
     label: 'Code',
-    description: 'Extraits concrets à écrire pour construire les morceaux du TP.',
+    description: 'Extraits de code concrets à écrire pour construire les morceaux du TP.',
     sourceName: 'Code',
   },
 ];
