@@ -199,7 +199,36 @@ label,
   line-height: 1.55;
   margin-bottom: 18px;
   color: #13202f;
+}
+
+.question-text {
   white-space: pre-wrap;
+}
+
+.question-text + .question-text {
+  margin-top: 12px;
+}
+
+.question-code,
+.result-rich-code {
+  margin: 14px 0 0;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: #12212f;
+  color: #f8fafc;
+  overflow: auto;
+  white-space: pre;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  font-family: Consolas, "Courier New", monospace;
+}
+
+.result-rich-text {
+  white-space: pre-wrap;
+}
+
+.result-rich {
+  margin-top: 6px;
 }
 
 label {

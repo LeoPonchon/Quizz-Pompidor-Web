@@ -1,3 +1,75 @@
+function normalizeQuestionContent(question) {
+  if (!question || question.includes('```')) {
+    return question;
+  }
+
+  const prefix = 'Component Angular:\n';
+  const suffix = '\nCe component est-il mal écrit ?';
+
+  if (question.startsWith(prefix) && question.endsWith(suffix)) {
+    const code = question.slice(prefix.length, -suffix.length);
+    return `Component Angular:\n\n\`\`\`js\n${code}\n\`\`\`\n\nCe component est-il mal écrit ?`;
+  }
+
+  return question;
+}
+
+function renderRichText(content, baseClassName) {
+  if (!content) {
+    return null;
+  }
+
+  const normalizedContent = normalizeQuestionContent(content);
+  const codeBlockRegex = /```(\w+)?\n([\s\S]*?)```/g;
+  const parts = [];
+  let lastIndex = 0;
+  let match;
+
+  while ((match = codeBlockRegex.exec(normalizedContent)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push({
+        type: 'text',
+        value: normalizedContent.slice(lastIndex, match.index),
+      });
+    }
+
+    parts.push({
+      type: 'code',
+      language: match[1] || '',
+      value: match[2].replace(/\n$/, ''),
+    });
+
+    lastIndex = codeBlockRegex.lastIndex;
+  }
+
+  if (lastIndex < normalizedContent.length) {
+    parts.push({
+      type: 'text',
+      value: normalizedContent.slice(lastIndex),
+    });
+  }
+
+  return parts.map((part, index) => {
+    if (part.type === 'code') {
+      return (
+        <pre key={`${baseClassName}-code-${index}`} className={`${baseClassName}-code`}>
+          <code>{part.value}</code>
+        </pre>
+      );
+    }
+
+    return part.value
+      .split('\n\n')
+      .map((paragraph) => paragraph.trim())
+      .filter(Boolean)
+      .map((paragraph, paragraphIndex) => (
+        <div key={`${baseClassName}-text-${index}-${paragraphIndex}`} className={`${baseClassName}-text`}>
+          {paragraph}
+        </div>
+      ));
+  });
+}
+
 function QuizScreen({
   currentTheme,
   totalCount,
@@ -23,7 +95,7 @@ function QuizScreen({
         <div className="small">{totalCount} questions mélangées</div>
       </div>
 
-      <div className="question">{currentQuestion.question}</div>
+      <div className="question">{renderRichText(currentQuestion.question, 'question')}</div>
 
       {isBinaryQuestion ? (
         <>
@@ -118,10 +190,12 @@ function QuizScreen({
               {result.isCorrect ? ' · +1 point' : ' · +0 point'}
             </div>
             <div className="result-line">
-              <strong>Réponse attendue :</strong> {result.expectedRaw}
+              <strong>Réponse attendue :</strong>
+              <div className="result-rich">{renderRichText(result.expectedRaw, 'result-rich')}</div>
             </div>
             <div className="result-line">
-              <strong>Ta réponse :</strong> {result.userRaw || '∅'}
+              <strong>Ta réponse :</strong>
+              <div className="result-rich">{renderRichText(result.userRaw || '∅', 'result-rich')}</div>
             </div>
             <div className="result-line">
               <strong>Distance de Levenshtein :</strong> {result.distance} ·{' '}
