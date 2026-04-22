@@ -1,3 +1,5 @@
+import RichContent from './RichContent';
+
 function normalizeQuestionContent(question) {
   if (!question || question.includes('```')) {
     return question;
@@ -13,118 +15,6 @@ function normalizeQuestionContent(question) {
 
   return question;
 }
-
-function renderHighlightedCode(code, language) {
-  if (language !== 'js') {
-    return code;
-  }
-
-  const tokenRegex =
-    /(\/\/.*$|\/\*[\s\S]*?\*\/|`(?:\\.|[^`])*`|"(?:\\.|[^"])*"|'(?:\\.|[^'])*'|\b(?:const|let|var|function|return|if|else|class|export|import|new|this|true|false|null|undefined|implements|private|public|constructor)\b|@[A-Za-z_]\w*|\b\d+(?:\.\d+)?\b)/gm;
-  const parts = [];
-  let lastIndex = 0;
-  let match;
-
-  while ((match = tokenRegex.exec(code)) !== null) {
-    if (match.index > lastIndex) {
-      parts.push(code.slice(lastIndex, match.index));
-    }
-
-    const token = match[0];
-    let className = 'token-plain';
-
-    if (token.startsWith('//') || token.startsWith('/*')) {
-      className = 'token-comment';
-    } else if (token.startsWith('@')) {
-      className = 'token-decorator';
-    } else if (
-      token.startsWith("'") ||
-      token.startsWith('"') ||
-      token.startsWith('`')
-    ) {
-      className = 'token-string';
-    } else if (/^\d/.test(token)) {
-      className = 'token-number';
-    } else {
-      className = 'token-keyword';
-    }
-
-    parts.push(
-      <span key={`token-${match.index}`} className={className}>
-        {token}
-      </span>
-    );
-
-    lastIndex = tokenRegex.lastIndex;
-  }
-
-  if (lastIndex < code.length) {
-    parts.push(code.slice(lastIndex));
-  }
-
-  return parts;
-}
-
-function renderRichText(content, baseClassName) {
-  if (!content) {
-    return null;
-  }
-
-  const normalizedContent = normalizeQuestionContent(content);
-  const codeBlockRegex = /```(\w+)?\n([\s\S]*?)```/g;
-  const parts = [];
-  let lastIndex = 0;
-  let match;
-
-  while ((match = codeBlockRegex.exec(normalizedContent)) !== null) {
-    if (match.index > lastIndex) {
-      parts.push({
-        type: 'text',
-        value: normalizedContent.slice(lastIndex, match.index),
-      });
-    }
-
-    parts.push({
-      type: 'code',
-      language: match[1] || '',
-      value: match[2].replace(/\n$/, ''),
-    });
-
-    lastIndex = codeBlockRegex.lastIndex;
-  }
-
-  if (lastIndex < normalizedContent.length) {
-    parts.push({
-      type: 'text',
-      value: normalizedContent.slice(lastIndex),
-    });
-  }
-
-  return parts.map((part, index) => {
-    if (part.type === 'code') {
-      return (
-        <pre
-          key={`${baseClassName}-code-${index}`}
-          className={`${baseClassName}-code`}
-          data-language={part.language || 'text'}
-        >
-          <code>{renderHighlightedCode(part.value, part.language)}</code>
-        </pre>
-      );
-    }
-
-    return part.value
-      .split('\n\n')
-      .map((paragraph) => paragraph.trim())
-      .filter(Boolean)
-      .map((paragraph, paragraphIndex) => (
-        <div key={`${baseClassName}-text-${index}-${paragraphIndex}`} className={`${baseClassName}-text`}>
-          {paragraph}
-        </div>
-      ));
-  });
-}
-
 function QuizScreen({
   currentTheme,
   totalCount,
@@ -150,7 +40,9 @@ function QuizScreen({
         <div className="small">{totalCount} questions mélangées</div>
       </div>
 
-      <div className="question">{renderRichText(currentQuestion.question, 'question')}</div>
+      <div className="question">
+        <RichContent content={currentQuestion.question} transformContent={normalizeQuestionContent} />
+      </div>
 
       {isBinaryQuestion ? (
         <>
@@ -246,11 +138,11 @@ function QuizScreen({
             </div>
             <div className="result-line">
               <strong>Réponse attendue :</strong>
-              <div className="result-rich">{renderRichText(result.expectedRaw, 'result-rich')}</div>
+              <RichContent content={result.expectedRaw} className="result-rich" />
             </div>
             <div className="result-line">
               <strong>Ta réponse :</strong>
-              <div className="result-rich">{renderRichText(result.userRaw || '∅', 'result-rich')}</div>
+              <RichContent content={result.userRaw || '∅'} className="result-rich" />
             </div>
             <div className="result-line">
               <strong>Distance de Levenshtein :</strong> {result.distance} ·{' '}

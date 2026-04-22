@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import RichContent from './RichContent';
 
 const DEFAULT_MODEL = process.env.REACT_APP_OPENROUTER_MODEL || 'openai/gpt-5.2';
 const OPENROUTER_API_KEY = process.env.REACT_APP_OPENROUTER_API_KEY || '';
@@ -167,7 +168,7 @@ function ChatWidget({ siteKnowledge, currentTheme, currentQuestion, currentCours
               key={`${message.role}-${index}-${message.content.slice(0, 18)}`}
               className={`chat-message chat-message-${message.role}`}
             >
-              {message.content}
+              <RichContent content={message.content} variant="compact" />
             </div>
           ))}
 
