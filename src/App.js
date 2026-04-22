@@ -54,6 +54,7 @@ function App() {
   const currentQuestion = questions[index] || null;
   const currentCourseSection = courseSections[index] || null;
   const isCodeQuestion = currentTheme?.key === 'code' || (currentQuestion?.answer || '').includes('\n');
+  const isBinaryQuestion = currentTheme?.key === 'component-review';
   const totalCount = questions.length;
   const themeCount = themes.length;
   const progressLabel = currentTheme ? `${Math.min(index + 1, totalCount)} / ${totalCount}` : 'Choisis un thème';
@@ -111,6 +112,10 @@ function App() {
     }
 
     const userRaw = answer;
+    if (isBinaryQuestion && !userRaw) {
+      return;
+    }
+
     const expectedRaw = currentQuestion.answer;
     const user = normalizeForComparison(userRaw);
     const expected = normalizeForComparison(expectedRaw);
@@ -200,6 +205,7 @@ function App() {
               totalCount={totalCount}
               currentQuestion={currentQuestion}
               isCodeQuestion={isCodeQuestion}
+              isBinaryQuestion={isBinaryQuestion}
               answer={answer}
               setAnswer={setAnswer}
               answered={answered}

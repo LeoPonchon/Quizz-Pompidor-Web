@@ -62,6 +62,12 @@ export const themeDefinitions = [
     sourceName: 'Angular 21 CSR SSR',
   },
   {
+    key: 'component-review',
+    label: 'Revue de component',
+    description: 'Petits composants à relire pour repérer les erreurs de structure, de logique ou d’API.',
+    sourceName: 'Revue de component',
+  },
+  {
     key: 'ecommerce',
     label: 'TP E-commerce',
     description: 'Base ECOMMERCE, fichiers JSON et panier.',

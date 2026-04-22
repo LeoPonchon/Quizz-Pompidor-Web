@@ -199,6 +199,7 @@ label,
   line-height: 1.55;
   margin-bottom: 18px;
   color: #13202f;
+  white-space: pre-wrap;
 }
 
 label {
@@ -225,6 +226,40 @@ textarea {
   resize: vertical;
   font-family: Consolas, "Courier New", monospace;
   line-height: 1.55;
+}
+
+.binary-choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.binary-choice-btn {
+  border: 1px solid rgba(62, 80, 101, 0.2);
+  border-radius: 16px;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #223143;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.binary-choice-btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(38, 64, 95, 0.28);
+}
+
+.binary-choice-btn.selected {
+  background: linear-gradient(135deg, rgba(39, 69, 95, 0.12), rgba(63, 103, 137, 0.16));
+  border-color: rgba(39, 69, 95, 0.42);
+  box-shadow: inset 0 0 0 1px rgba(39, 69, 95, 0.12);
 }
 
 input[type='text']::placeholder {
@@ -717,5 +752,9 @@ code {
 
   .chat-send {
     width: 100%;
+  }
+
+  .binary-choices {
+    grid-template-columns: 1fr;
   }
 }

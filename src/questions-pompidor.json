@@ -741,6 +741,62 @@
       "answer": "La liste des articles recherchés et le panier"
     },
     {
+      "question": "Component Angular:\n@Component({\n  selector: 'app-counter',\n  template: '<button (click)=\"count++\">{{ count }}</button>'\n})\nexport class CounterComponent {\n  count = 0;\n}\nCe component est-il mal écrit ?",
+      "answer": "non"
+    },
+    {
+      "question": "Component Angular:\n@Component({\n  selector: 'app-user-card',\n  template: '<p>{{ user.name }}</p>'\n})\nexport class UserCardComponent {\n  @Input() user!: { name: string };\n\n  ngOnInit() {\n    this.user.name = this.user.name.toUpperCase();\n  }\n}\nCe component est-il mal écrit ?",
+      "answer": "oui"
+    },
+    {
+      "question": "Component Angular:\n@Component({\n  selector: 'app-clock',\n  template: '<p>{{ now | date:\\'shortTime\\' }}</p>'\n})\nexport class ClockComponent {\n  now = new Date();\n}\nCe component est-il mal écrit ?",
+      "answer": "non"
+    },
+    {
+      "question": "Component Angular:\n@Component({\n  selector: 'app-search',\n  template: '<input (input)=\"onSearch($any($event.target).value)\" />'\n})\nexport class SearchComponent {\n  onSearch(value: string) {\n    console.log(value);\n  }\n}\nCe component est-il mal écrit ?",
+      "answer": "non"
+    },
+    {
+      "question": "Component Angular:\n@Component({\n  selector: 'app-profile',\n  template: '<h2>{{ title }}</h2>'\n})\nexport class ProfileComponent {\n  title = document.title;\n}\nCe component est-il mal écrit ?",
+      "answer": "oui"
+    },
+    {
+      "question": "Component Angular:\n@Component({\n  selector: 'app-live-search',\n  template: '<p>{{ filteredUsers.length }} résultats</p>'\n})\nexport class LiveSearchComponent {\n  users: string[] = [];\n  query = '';\n\n  get filteredUsers() {\n    return this.users.filter((user) => user.includes(this.query));\n  }\n}\nCe component est-il mal écrit ?",
+      "answer": "oui"
+    },
+    {
+      "question": "Component Angular:\n@Component({\n  selector: 'app-product-list',\n  template: '<ul><li *ngFor=\"let product of products\">{{ product.name }}</li></ul>'\n})\nexport class ProductListComponent {\n  @Input() products: { name: string }[] = [];\n}\nCe component est-il mal écrit ?",
+      "answer": "non"
+    },
+    {
+      "question": "Component Angular:\n@Component({\n  selector: 'app-todo',\n  template: '<button (click)=\"add()\">Ajouter</button>'\n})\nexport class TodoComponent {\n  todos = ['Acheter du pain'];\n\n  add() {\n    this.todos.push('Nouvelle tâche');\n  }\n}\nCe component est-il mal écrit ?",
+      "answer": "non"
+    },
+    {
+      "question": "Component Angular:\n@Component({\n  selector: 'app-mailbox',\n  template: '<p>{{ unreadCount }}</p>'\n})\nexport class MailboxComponent implements OnInit {\n  unreadCount = 0;\n\n  ngOnInit() {\n    setInterval(() => this.unreadCount++, 1000);\n  }\n}\nCe component est-il mal écrit ?",
+      "answer": "oui"
+    },
+    {
+      "question": "Component Angular:\n@Component({\n  selector: 'app-dashboard',\n  template: '<p>{{ total }}</p>'\n})\nexport class DashboardComponent implements OnChanges {\n  @Input() orders: { price: number }[] = [];\n  total = 0;\n\n  ngOnChanges() {\n    this.total = this.orders.reduce((sum, order) => sum + order.price, 0);\n  }\n}\nCe component est-il mal écrit ?",
+      "answer": "non"
+    },
+    {
+      "question": "Component Angular:\n@Component({\n  selector: 'app-modal',\n  template: '<div *ngIf=\"open\">Modal</div>'\n})\nexport class ModalComponent {\n  open = false;\n\n  constructor(private service: ModalService) {\n    this.service.open$.subscribe(() => {\n      this.open = true;\n    });\n  }\n}\nCe component est-il mal écrit ?",
+      "answer": "oui"
+    },
+    {
+      "question": "Component Angular:\n@Component({\n  selector: 'app-avatar',\n  template: '<img [src]=\"url\" alt=\"Avatar\" />'\n})\nexport class AvatarComponent {\n  @Input() url = '';\n}\nCe component est-il mal écrit ?",
+      "answer": "non"
+    },
+    {
+      "question": "Component Angular:\n@Component({\n  selector: 'app-panel',\n  template: '<button (click)=\"toggle()\">Ouvrir</button>'\n})\nexport class PanelComponent {\n  visible = false;\n\n  toggle() {\n    this.visible = !this.visible;\n    localStorage.setItem('panelVisible', String(this.visible));\n  }\n}\nCe component est-il mal écrit ?",
+      "answer": "non"
+    },
+    {
+      "question": "Component Angular:\n@Component({\n  selector: 'app-bad-template',\n  template: '<p>{{ formatName(user.name) }}</p>'\n})\nexport class BadTemplateComponent {\n  @Input() user!: { name: string };\n\n  formatName(name: string) {\n    return name.trim().toUpperCase();\n  }\n}\nCe component est-il mal écrit ?",
+      "answer": "oui"
+    },
+    {
       "question": "Écris le code pour créer le client MongoDB à partir d'une URL.",
       "answer": "const client = new MongoClient(url);"
     },
@@ -1992,6 +2048,64 @@
       {
         "question": "Quel est le rôle du TP e-commerce ?",
         "answer": "Construire un front de recherche et un panier"
+      }
+    ],
+    "Revue de component": [
+      {
+        "question": "Component Angular:\n@Component({\n  selector: 'app-counter',\n  template: '<button (click)=\"count++\">{{ count }}</button>'\n})\nexport class CounterComponent {\n  count = 0;\n}\nCe component est-il mal écrit ?",
+        "answer": "non"
+      },
+      {
+        "question": "Component Angular:\n@Component({\n  selector: 'app-user-card',\n  template: '<p>{{ user.name }}</p>'\n})\nexport class UserCardComponent {\n  @Input() user!: { name: string };\n\n  ngOnInit() {\n    this.user.name = this.user.name.toUpperCase();\n  }\n}\nCe component est-il mal écrit ?",
+        "answer": "oui"
+      },
+      {
+        "question": "Component Angular:\n@Component({\n  selector: 'app-clock',\n  template: '<p>{{ now | date:\\'shortTime\\' }}</p>'\n})\nexport class ClockComponent {\n  now = new Date();\n}\nCe component est-il mal écrit ?",
+        "answer": "non"
+      },
+      {
+        "question": "Component Angular:\n@Component({\n  selector: 'app-search',\n  template: '<input (input)=\"onSearch($any($event.target).value)\" />'\n})\nexport class SearchComponent {\n  onSearch(value: string) {\n    console.log(value);\n  }\n}\nCe component est-il mal écrit ?",
+        "answer": "non"
+      },
+      {
+        "question": "Component Angular:\n@Component({\n  selector: 'app-profile',\n  template: '<h2>{{ title }}</h2>'\n})\nexport class ProfileComponent {\n  title = document.title;\n}\nCe component est-il mal écrit ?",
+        "answer": "oui"
+      },
+      {
+        "question": "Component Angular:\n@Component({\n  selector: 'app-live-search',\n  template: '<p>{{ filteredUsers.length }} résultats</p>'\n})\nexport class LiveSearchComponent {\n  users: string[] = [];\n  query = '';\n\n  get filteredUsers() {\n    return this.users.filter((user) => user.includes(this.query));\n  }\n}\nCe component est-il mal écrit ?",
+        "answer": "oui"
+      },
+      {
+        "question": "Component Angular:\n@Component({\n  selector: 'app-product-list',\n  template: '<ul><li *ngFor=\"let product of products\">{{ product.name }}</li></ul>'\n})\nexport class ProductListComponent {\n  @Input() products: { name: string }[] = [];\n}\nCe component est-il mal écrit ?",
+        "answer": "non"
+      },
+      {
+        "question": "Component Angular:\n@Component({\n  selector: 'app-todo',\n  template: '<button (click)=\"add()\">Ajouter</button>'\n})\nexport class TodoComponent {\n  todos = ['Acheter du pain'];\n\n  add() {\n    this.todos.push('Nouvelle tâche');\n  }\n}\nCe component est-il mal écrit ?",
+        "answer": "non"
+      },
+      {
+        "question": "Component Angular:\n@Component({\n  selector: 'app-mailbox',\n  template: '<p>{{ unreadCount }}</p>'\n})\nexport class MailboxComponent implements OnInit {\n  unreadCount = 0;\n\n  ngOnInit() {\n    setInterval(() => this.unreadCount++, 1000);\n  }\n}\nCe component est-il mal écrit ?",
+        "answer": "oui"
+      },
+      {
+        "question": "Component Angular:\n@Component({\n  selector: 'app-dashboard',\n  template: '<p>{{ total }}</p>'\n})\nexport class DashboardComponent implements OnChanges {\n  @Input() orders: { price: number }[] = [];\n  total = 0;\n\n  ngOnChanges() {\n    this.total = this.orders.reduce((sum, order) => sum + order.price, 0);\n  }\n}\nCe component est-il mal écrit ?",
+        "answer": "non"
+      },
+      {
+        "question": "Component Angular:\n@Component({\n  selector: 'app-modal',\n  template: '<div *ngIf=\"open\">Modal</div>'\n})\nexport class ModalComponent {\n  open = false;\n\n  constructor(private service: ModalService) {\n    this.service.open$.subscribe(() => {\n      this.open = true;\n    });\n  }\n}\nCe component est-il mal écrit ?",
+        "answer": "oui"
+      },
+      {
+        "question": "Component Angular:\n@Component({\n  selector: 'app-avatar',\n  template: '<img [src]=\"url\" alt=\"Avatar\" />'\n})\nexport class AvatarComponent {\n  @Input() url = '';\n}\nCe component est-il mal écrit ?",
+        "answer": "non"
+      },
+      {
+        "question": "Component Angular:\n@Component({\n  selector: 'app-panel',\n  template: '<button (click)=\"toggle()\">Ouvrir</button>'\n})\nexport class PanelComponent {\n  visible = false;\n\n  toggle() {\n    this.visible = !this.visible;\n    localStorage.setItem('panelVisible', String(this.visible));\n  }\n}\nCe component est-il mal écrit ?",
+        "answer": "non"
+      },
+      {
+        "question": "Component Angular:\n@Component({\n  selector: 'app-bad-template',\n  template: '<p>{{ formatName(user.name) }}</p>'\n})\nexport class BadTemplateComponent {\n  @Input() user!: { name: string };\n\n  formatName(name: string) {\n    return name.trim().toUpperCase();\n  }\n}\nCe component est-il mal écrit ?",
+        "answer": "oui"
       }
     ],
     "Code": [

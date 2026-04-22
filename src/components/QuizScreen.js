@@ -3,6 +3,7 @@ function QuizScreen({
   totalCount,
   currentQuestion,
   isCodeQuestion,
+  isBinaryQuestion,
   answer,
   setAnswer,
   answered,
@@ -24,47 +25,74 @@ function QuizScreen({
 
       <div className="question">{currentQuestion.question}</div>
 
-      <label htmlFor="answerInput">Écris ta réponse</label>
-      {isCodeQuestion ? (
-        <textarea
-          ref={inputRef}
-          id="answerInput"
-          autoComplete="off"
-          spellCheck="false"
-          rows={8}
-          value={answer}
-          onChange={(event) => setAnswer(event.target.value)}
-          onKeyDown={(event) => {
-            if ((event.ctrlKey || event.metaKey) && event.key === 'Enter' && !answered) {
-              event.preventDefault();
-              onValidate();
-            } else if (event.key === 'Enter' && answered) {
-              event.preventDefault();
-              onNext();
-            }
-          }}
-          disabled={answered}
-        />
+      {isBinaryQuestion ? (
+        <>
+          <label>Choisis la bonne réponse</label>
+          <div className="binary-choices" role="group" aria-label="Réponse oui ou non">
+            <button
+              type="button"
+              className={`binary-choice-btn ${answer === 'oui' ? 'selected' : ''}`}
+              onClick={() => setAnswer('oui')}
+              disabled={answered}
+            >
+              Oui, c’est mal écrit
+            </button>
+            <button
+              type="button"
+              className={`binary-choice-btn ${answer === 'non' ? 'selected' : ''}`}
+              onClick={() => setAnswer('non')}
+              disabled={answered}
+            >
+              Non, c’est correct
+            </button>
+          </div>
+        </>
+      ) : isCodeQuestion ? (
+        <>
+          <label htmlFor="answerInput">Écris ta réponse</label>
+          <textarea
+            ref={inputRef}
+            id="answerInput"
+            autoComplete="off"
+            spellCheck="false"
+            rows={8}
+            value={answer}
+            onChange={(event) => setAnswer(event.target.value)}
+            onKeyDown={(event) => {
+              if ((event.ctrlKey || event.metaKey) && event.key === 'Enter' && !answered) {
+                event.preventDefault();
+                onValidate();
+              } else if (event.key === 'Enter' && answered) {
+                event.preventDefault();
+                onNext();
+              }
+            }}
+            disabled={answered}
+          />
+        </>
       ) : (
-        <input
-          ref={inputRef}
-          id="answerInput"
-          type="text"
-          autoComplete="off"
-          spellCheck="false"
-          value={answer}
-          onChange={(event) => setAnswer(event.target.value)}
-          onKeyDown={(event) => {
-            if (event.key === 'Enter' && !answered) {
-              event.preventDefault();
-              onValidate();
-            } else if (event.key === 'Enter' && answered) {
-              event.preventDefault();
-              onNext();
-            }
-          }}
-          disabled={answered}
-        />
+        <>
+          <label htmlFor="answerInput">Écris ta réponse</label>
+          <input
+            ref={inputRef}
+            id="answerInput"
+            type="text"
+            autoComplete="off"
+            spellCheck="false"
+            value={answer}
+            onChange={(event) => setAnswer(event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter' && !answered) {
+                event.preventDefault();
+                onValidate();
+              } else if (event.key === 'Enter' && answered) {
+                event.preventDefault();
+                onNext();
+              }
+            }}
+            disabled={answered}
+          />
+        </>
       )}
 
       <div className="buttons">
@@ -109,7 +137,11 @@ function QuizScreen({
       </div>
 
       <div className="small extra-hint">
-        {isCodeQuestion ? (
+        {isBinaryQuestion ? (
+          <>
+            Astuce: choisis <code>oui</code> ou <code>non</code>, puis valide.
+          </>
+        ) : isCodeQuestion ? (
           <>
             Astuce: <code>Entrée</code> ajoute une nouvelle ligne.
             Utilise <code>Ctrl+Entrée</code> pour valider.
