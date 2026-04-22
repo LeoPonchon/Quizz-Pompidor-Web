@@ -211,16 +211,74 @@ label,
 
 .question-code,
 .result-rich-code {
+  position: relative;
   margin: 14px 0 0;
-  padding: 16px 18px;
+  padding: 22px 18px 16px;
   border-radius: 16px;
-  background: #12212f;
-  color: #f8fafc;
+  border: 1px solid rgba(94, 234, 212, 0.16);
+  background:
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.18), transparent 28%),
+    radial-gradient(circle at top left, rgba(244, 114, 182, 0.16), transparent 24%),
+    linear-gradient(180deg, #0f1b2d 0%, #13243a 100%);
+  color: #e6edf7;
   overflow: auto;
   white-space: pre;
   line-height: 1.6;
   font-size: 0.95rem;
   font-family: Consolas, "Courier New", monospace;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.question-code::before,
+.result-rich-code::before {
+  content: attr(data-language);
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(14, 165, 233, 0.18);
+  color: #7dd3fc;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.question-code code,
+.result-rich-code code {
+  display: block;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+}
+
+.question-code .token-keyword,
+.result-rich-code .token-keyword {
+  color: #c084fc;
+}
+
+.question-code .token-string,
+.result-rich-code .token-string {
+  color: #86efac;
+}
+
+.question-code .token-comment,
+.result-rich-code .token-comment {
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.question-code .token-number,
+.result-rich-code .token-number {
+  color: #fca5a5;
+}
+
+.question-code .token-decorator,
+.result-rich-code .token-decorator {
+  color: #fbbf24;
 }
 
 .result-rich-text {

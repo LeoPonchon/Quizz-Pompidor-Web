@@ -14,6 +14,57 @@ function normalizeQuestionContent(question) {
   return question;
 }
 
+function renderHighlightedCode(code, language) {
+  if (language !== 'js') {
+    return code;
+  }
+
+  const tokenRegex =
+    /(\/\/.*$|\/\*[\s\S]*?\*\/|`(?:\\.|[^`])*`|"(?:\\.|[^"])*"|'(?:\\.|[^'])*'|\b(?:const|let|var|function|return|if|else|class|export|import|new|this|true|false|null|undefined|implements|private|public|constructor)\b|@[A-Za-z_]\w*|\b\d+(?:\.\d+)?\b)/gm;
+  const parts = [];
+  let lastIndex = 0;
+  let match;
+
+  while ((match = tokenRegex.exec(code)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(code.slice(lastIndex, match.index));
+    }
+
+    const token = match[0];
+    let className = 'token-plain';
+
+    if (token.startsWith('//') || token.startsWith('/*')) {
+      className = 'token-comment';
+    } else if (token.startsWith('@')) {
+      className = 'token-decorator';
+    } else if (
+      token.startsWith("'") ||
+      token.startsWith('"') ||
+      token.startsWith('`')
+    ) {
+      className = 'token-string';
+    } else if (/^\d/.test(token)) {
+      className = 'token-number';
+    } else {
+      className = 'token-keyword';
+    }
+
+    parts.push(
+      <span key={`token-${match.index}`} className={className}>
+        {token}
+      </span>
+    );
+
+    lastIndex = tokenRegex.lastIndex;
+  }
+
+  if (lastIndex < code.length) {
+    parts.push(code.slice(lastIndex));
+  }
+
+  return parts;
+}
+
 function renderRichText(content, baseClassName) {
   if (!content) {
     return null;
@@ -52,8 +103,12 @@ function renderRichText(content, baseClassName) {
   return parts.map((part, index) => {
     if (part.type === 'code') {
       return (
-        <pre key={`${baseClassName}-code-${index}`} className={`${baseClassName}-code`}>
-          <code>{part.value}</code>
+        <pre
+          key={`${baseClassName}-code-${index}`}
+          className={`${baseClassName}-code`}
+          data-language={part.language || 'text'}
+        >
+          <code>{renderHighlightedCode(part.value, part.language)}</code>
         </pre>
       );
     }
