@@ -2053,59 +2053,73 @@
     "Revue de component": [
       {
         "question": "Component Angular:\n@Component({\n  selector: 'app-counter',\n  template: '<button (click)=\"count++\">{{ count }}</button>'\n})\nexport class CounterComponent {\n  count = 0;\n}\nCe component est-il mal écrit ?",
-        "answer": "non"
+        "answer": "non",
+        "explanation": "Ce composant est simple, lisible et cohérent avec son besoin. Il garde un état local minimal et le template ne fait rien de coûteux ou dangereux."
       },
       {
         "question": "Component Angular:\n@Component({\n  selector: 'app-user-card',\n  template: '<p>{{ user.name }}</p>'\n})\nexport class UserCardComponent {\n  @Input() user!: { name: string };\n\n  ngOnInit() {\n    this.user.name = this.user.name.toUpperCase();\n  }\n}\nCe component est-il mal écrit ?",
-        "answer": "oui"
+        "answer": "oui",
+        "explanation": "Il modifie directement un objet reçu en `@Input()`. Un composant enfant ne devrait pas muter les données du parent, sinon on crée des effets de bord et un couplage difficile à suivre."
       },
       {
         "question": "Component Angular:\n@Component({\n  selector: 'app-clock',\n  template: '<p>{{ now | date:\\'shortTime\\' }}</p>'\n})\nexport class ClockComponent {\n  now = new Date();\n}\nCe component est-il mal écrit ?",
-        "answer": "non"
+        "answer": "non",
+        "explanation": "Rien d’anormal ici: il expose une donnée simple et s’appuie sur un pipe Angular standard pour l’affichage. Le composant reste passif et lisible."
       },
       {
         "question": "Component Angular:\n@Component({\n  selector: 'app-search',\n  template: '<input (input)=\"onSearch($any($event.target).value)\" />'\n})\nexport class SearchComponent {\n  onSearch(value: string) {\n    console.log(value);\n  }\n}\nCe component est-il mal écrit ?",
-        "answer": "non"
+        "answer": "non",
+        "explanation": "Le composant reste correct dans cet exemple: il réagit à un événement utilisateur et délègue le traitement à une méthode claire. Ce n’est pas très riche, mais ce n’est pas un anti-pattern."
       },
       {
         "question": "Component Angular:\n@Component({\n  selector: 'app-profile',\n  template: '<h2>{{ title }}</h2>'\n})\nexport class ProfileComponent {\n  title = document.title;\n}\nCe component est-il mal écrit ?",
-        "answer": "oui"
+        "answer": "oui",
+        "explanation": "Il lit directement `document` dans la classe. Ce couplage au DOM global complique les tests et pose problème dans des contextes comme le SSR; il vaut mieux passer par Angular ou un service dédié."
       },
       {
         "question": "Component Angular:\n@Component({\n  selector: 'app-live-search',\n  template: '<p>{{ filteredUsers.length }} résultats</p>'\n})\nexport class LiveSearchComponent {\n  users: string[] = [];\n  query = '';\n\n  get filteredUsers() {\n    return this.users.filter((user) => user.includes(this.query));\n  }\n}\nCe component est-il mal écrit ?",
-        "answer": "oui"
+        "answer": "oui",
+        "explanation": "Le getter refait un filtrage complet à chaque cycle de détection de changements. Pour une simple démo ça passe, mais en pratique ce calcul dans le template devient vite coûteux et imprévisible."
       },
       {
         "question": "Component Angular:\n@Component({\n  selector: 'app-product-list',\n  template: '<ul><li *ngFor=\"let product of products\">{{ product.name }}</li></ul>'\n})\nexport class ProductListComponent {\n  @Input() products: { name: string }[] = [];\n}\nCe component est-il mal écrit ?",
-        "answer": "non"
+        "answer": "non",
+        "explanation": "C’est un composant de présentation classique: il reçoit des données en entrée et se contente de les afficher. La responsabilité est claire et l’API est simple."
       },
       {
         "question": "Component Angular:\n@Component({\n  selector: 'app-todo',\n  template: '<button (click)=\"add()\">Ajouter</button>'\n})\nexport class TodoComponent {\n  todos = ['Acheter du pain'];\n\n  add() {\n    this.todos.push('Nouvelle tâche');\n  }\n}\nCe component est-il mal écrit ?",
-        "answer": "non"
+        "answer": "non",
+        "explanation": "Pour un état purement local, modifier le tableau dans la méthode du composant reste acceptable. Il n’y a pas ici de mutation d’un `@Input()` ni d’abonnement oublié."
       },
       {
         "question": "Component Angular:\n@Component({\n  selector: 'app-mailbox',\n  template: '<p>{{ unreadCount }}</p>'\n})\nexport class MailboxComponent implements OnInit {\n  unreadCount = 0;\n\n  ngOnInit() {\n    setInterval(() => this.unreadCount++, 1000);\n  }\n}\nCe component est-il mal écrit ?",
-        "answer": "oui"
+        "answer": "oui",
+        "explanation": "Le `setInterval` n’est jamais nettoyé. Si le composant est détruit puis recréé, on garde des timers actifs en mémoire, ce qui provoque des fuites et des comportements inattendus."
       },
       {
         "question": "Component Angular:\n@Component({\n  selector: 'app-dashboard',\n  template: '<p>{{ total }}</p>'\n})\nexport class DashboardComponent implements OnChanges {\n  @Input() orders: { price: number }[] = [];\n  total = 0;\n\n  ngOnChanges() {\n    this.total = this.orders.reduce((sum, order) => sum + order.price, 0);\n  }\n}\nCe component est-il mal écrit ?",
-        "answer": "non"
+        "answer": "non",
+        "explanation": "Le calcul est déclenché au bon moment quand l’entrée change, puis stocké dans une propriété simple. C’est plus sain que de recalculer le total directement dans le template."
       },
       {
         "question": "Component Angular:\n@Component({\n  selector: 'app-modal',\n  template: '<div *ngIf=\"open\">Modal</div>'\n})\nexport class ModalComponent {\n  open = false;\n\n  constructor(private service: ModalService) {\n    this.service.open$.subscribe(() => {\n      this.open = true;\n    });\n  }\n}\nCe component est-il mal écrit ?",
-        "answer": "oui"
+        "answer": "oui",
+        "explanation": "L’abonnement est créé dans le constructeur et n’est jamais libéré. En plus, le constructeur devrait surtout servir à l’injection, pas à lancer des effets de bord métier."
       },
       {
         "question": "Component Angular:\n@Component({\n  selector: 'app-avatar',\n  template: '<img [src]=\"url\" alt=\"Avatar\" />'\n})\nexport class AvatarComponent {\n  @Input() url = '';\n}\nCe component est-il mal écrit ?",
-        "answer": "non"
+        "answer": "non",
+        "explanation": "Le composant fait exactement ce qu’on attend d’un composant visuel simple: une entrée, un rendu, pas de logique cachée. C’est une bonne base de composant réutilisable."
       },
       {
         "question": "Component Angular:\n@Component({\n  selector: 'app-panel',\n  template: '<button (click)=\"toggle()\">Ouvrir</button>'\n})\nexport class PanelComponent {\n  visible = false;\n\n  toggle() {\n    this.visible = !this.visible;\n    localStorage.setItem('panelVisible', String(this.visible));\n  }\n}\nCe component est-il mal écrit ?",
-        "answer": "non"
+        "answer": "non",
+        "explanation": "Ce n’est pas forcément le design le plus abstrait, mais ce n’est pas incorrect. Le composant gère un état local simple et persiste explicitement cette préférence dans `localStorage`."
       },
       {
         "question": "Component Angular:\n@Component({\n  selector: 'app-bad-template',\n  template: '<p>{{ formatName(user.name) }}</p>'\n})\nexport class BadTemplateComponent {\n  @Input() user!: { name: string };\n\n  formatName(name: string) {\n    return name.trim().toUpperCase();\n  }\n}\nCe component est-il mal écrit ?",
-        "answer": "oui"
+        "answer": "oui",
+        "explanation": "Appeler une méthode depuis le template pour un calcul répétitif est généralement une mauvaise idée, car Angular peut la réévaluer très souvent. Un pipe ou un pré-calcul serait plus propre."
       }
     ],
     "Code": [

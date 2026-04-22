@@ -127,6 +127,11 @@ function QuizScreen({
               <strong>Distance de Levenshtein :</strong> {result.distance} ·{' '}
               <strong>Tolérance :</strong> {result.tolerance}
             </div>
+            {currentQuestion.explanation && (
+              <div className="result-line">
+                <strong>Pourquoi :</strong> {currentQuestion.explanation}
+              </div>
+            )}
           </>
         )}
       </div>
