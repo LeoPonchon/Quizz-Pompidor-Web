@@ -125,6 +125,21 @@ const answerExamples = {
   routes: 'Exemple : un tableau Routes peut declarer le chemin /panier et le composant a afficher.',
   input: "Exemple : @Input() products permet a un composant enfant de recevoir une liste depuis son parent.",
   subscribe: 'Exemple : this.http.get("/api/products").subscribe(data => console.log(data));',
+  verify: "Exemple : const payload = jwt.verify(token, secret); permet de verifier qu'un token recu dans le cookie jwt est valide avant d'autoriser /validate.",
+  sign: "Exemple : const token = jwt.sign({ username: 'leo' }, secret, { expiresIn: '1h' }); cree le JWT juste apres la connexion.",
+  fetch: "Exemple : fetch('/api/products').then(response => response.json()) permet de charger la liste des produits depuis le navigateur.",
+  getelementbyid: "Exemple : const form = document.getElementById('login-form'); recupere le formulaire de connexion par son id.",
+  queryselector: "Exemple : const button = document.querySelector('.buy-button'); recupere le premier bouton d'achat.",
+  addeventlistener: "Exemple : button.addEventListener('click', addToCart); lance l'ajout au panier au clic.",
+  createelement: "Exemple : const li = document.createElement('li'); cree un nouvel element de liste dans le DOM.",
+  createtextnode: "Exemple : const text = document.createTextNode('Bonjour'); cree un noeud texte a inserer dans la page.",
+  appendchild: "Exemple : list.appendChild(li); ajoute le nouvel element li dans la liste existante.",
+  array: 'Exemple : const items = new Array("pomme", "poire"); cree explicitement un tableau JavaScript.',
+  length: 'Exemple : ["a", "b", "c"].length renvoie 3.',
+  defer: 'Exemple : <script src="app.js" defer></script> lance le script apres le parsing du DOM.',
+  'media queries': 'Exemple : @media (max-width: 600px) { .card { margin: 12px; } } adapte l’affichage sur mobile.',
+  breakpoints: 'Exemple : 600px ou 768px peuvent servir de breakpoints pour changer la mise en page.',
+  viewport: 'Exemple : <meta name="viewport" content="width=device-width, initial-scale=1.0" /> adapte la page aux mobiles.',
   '*ngfor': 'Exemple : <li *ngFor="let product of products">{{ product.name }}</li>',
   '@for': 'Exemple : @for (product of products; track product.id) { ... }',
   '*ngif': 'Exemple : <p *ngIf="loaded">Pret</p>',
@@ -184,6 +199,54 @@ const questionExamples = [
     test: (question) => normalize(question) === 'quel est le role du tp e-commerce ?',
     text: 'Exemple : on construit une recherche de produits, puis un panier qui reagit aux actions de l’utilisateur.',
   },
+  {
+    test: (question) => normalize(question) === 'quelle methode de jsonwebtoken verifie un token ?',
+    text: "Exemple : dans la route /validate, on peut faire const payload = jwt.verify(token, secret); avant de renvoyer l'utilisateur authentifie.",
+  },
+  {
+    test: (question) => normalize(question) === 'quelle methode de jsonwebtoken signe un token ?',
+    text: "Exemple : dans /signin, on peut faire const token = jwt.sign({ username: 'leo' }, secret, { expiresIn: '1h' }); avant de le mettre dans un cookie.",
+  },
+  {
+    test: (question) => normalize(question) === 'quelle methode javascript moderne permet de faire des requetes http cote client ?',
+    text: "Exemple : fetch('/api/products').then(response => response.json()) charge les produits depuis le navigateur.",
+  },
+  {
+    test: (question) => normalize(question) === 'quelle fonction javascript selectionne un element par identifiant ?',
+    text: "Exemple : const form = document.getElementById('login-form'); recupere le formulaire de connexion.",
+  },
+  {
+    test: (question) => normalize(question) === 'quelle fonction javascript selectionne avec une syntaxe proche de css ?',
+    text: "Exemple : const button = document.querySelector('.buy-button'); recupere le premier bouton qui a cette classe.",
+  },
+  {
+    test: (question) => normalize(question) === 'quelle methode ajoute dynamiquement un ecouteur d\'evenement ?',
+    text: "Exemple : button.addEventListener('click', addToCart); execute addToCart quand l'utilisateur clique sur le bouton.",
+  },
+  {
+    test: (question) => normalize(question) === 'quelle methode javascript du dom cree un element ?',
+    text: "Exemple : const li = document.createElement('li'); cree un nouvel element de liste.",
+  },
+  {
+    test: (question) => normalize(question) === 'quelle methode javascript du dom cree un nœud texte ?' || normalize(question) === 'quelle methode javascript du dom cree un noeud texte ?',
+    text: "Exemple : const text = document.createTextNode('Promo'); cree un texte a inserer dans un element HTML.",
+  },
+  {
+    test: (question) => normalize(question) === 'quelle methode javascript du dom ajoute un enfant a un element ?',
+    text: "Exemple : list.appendChild(li); ajoute l'element li a l'interieur de la liste ul.",
+  },
+  {
+    test: (question) => normalize(question) === 'quel service angular est utilise pour faire des requetes http ?',
+    text: "Exemple : un service Angular peut injecter HttpClient puis appeler this.http.get('/api/products') pour charger les produits.",
+  },
+  {
+    test: (question) => normalize(question) === 'quel type renvoye par httpclient est mis en avant dans le cours ?',
+    text: "Exemple : this.http.get('/api/products') renvoie un Observable sur lequel on fait ensuite subscribe(...).",
+  },
+  {
+    test: (question) => normalize(question) === 'quelle methode consomme generalement un observable dans les exemples du cours ?',
+    text: "Exemple : this.http.get('/api/products').subscribe(products => { this.products = products; }); lit les donnees emises par l'Observable.",
+  },
 ];
 
 function buildTagExample(answerKey, answer) {
@@ -206,15 +269,15 @@ function buildQuestionBasedFallback(question, answer) {
   const answerText = answer.trim();
 
   if (questionKey.startsWith('que signifie ')) {
-    return `Exemple : dans le cours, cette expression apparait quand on parle de ${answerText}.`;
+    return `Exemple : cette expression apparait quand on nomme la notion complete, par exemple "${question.replace(/^Que signifie\s+/i, '').replace(/\s*\?$/, '')} = ${answerText}".`;
   }
 
   if (questionKey.startsWith('a quoi sert ') || questionKey.startsWith('qu est ce qu') || questionKey.startsWith("qu'est-ce qu")) {
-    return `Exemple : dans un cas concret du cours, ${answerText.charAt(0).toLowerCase()}${answerText.slice(1)}.`;
+    return `Exemple : dans un cas concret du cours, ${answerText.charAt(0).toLowerCase()}${answerText.slice(1)}, par exemple dans une appli e-commerce ou une page web du TP.`;
   }
 
   if (questionKey.startsWith('quel est l objectif principal') || questionKey.startsWith("quel est l'objectif principal")) {
-    return `Exemple : dans le TP ou le cours, on vise ${answerText.charAt(0).toLowerCase()}${answerText.slice(1)}.`;
+    return `Exemple : dans le TP ou le cours, cela sert concretement a ${answerText.charAt(0).toLowerCase()}${answerText.slice(1)}, par exemple pour mieux afficher une page produit ou accelerer la navigation.`;
   }
 
   if (questionKey.includes('quel port')) {
@@ -229,7 +292,31 @@ function buildQuestionBasedFallback(question, answer) {
     return `Exemple : un document peut contenir { ${answerText}: ... } selon le cas du cours.`;
   }
 
-  return `Exemple : dans le cours, on rencontre ${answerText} dans une situation concrete liee a cette notion.`;
+  if (questionKey.includes('quelle commande')) {
+    return `Exemple : on tape "${answerText}" dans le terminal pour realiser cette action.`;
+  }
+
+  if (questionKey.includes('quelle methode') || questionKey.includes('quelle fonction')) {
+    return `Exemple : on peut appeler ${answerText}${answerText.endsWith(')') ? '' : '()'} dans un vrai flux du cours pour realiser cette action.`;
+  }
+
+  if (questionKey.includes('quel attribut') || questionKey.includes('quelle valeur de target')) {
+    return `Exemple : on peut voir ${answerText} dans une balise HTML ou un cookie qui fait exactement ce que la question decrit.`;
+  }
+
+  if (questionKey.includes('quel module') || questionKey.includes('quel objet') || questionKey.includes('quel service') || questionKey.includes('quelle classe')) {
+    return `Exemple : on importe ou on utilise ${answerText} dans le code du serveur ou du front pour remplir ce role precis.`;
+  }
+
+  if (questionKey.includes('quel endpoint')) {
+    return `Exemple : le front peut appeler ${answerText} pour recuperer des donnees a afficher a l'ecran.`;
+  }
+
+  if (questionKey.includes('ou le') || questionKey.includes('ou recupere') || questionKey.includes('ou stocke')) {
+    return `Exemple : dans le flux du cours, on retrouve concretement ${answerText} a cet endroit-la.`;
+  }
+
+  return `Exemple : dans une situation concrete du cours, on utilise "${answerText}" pour repondre exactement a ce besoin.`;
 }
 
 export function getQuestionExplanation(question, options = {}) {
