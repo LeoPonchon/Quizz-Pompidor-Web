@@ -3,6 +3,15 @@ import RichContent from './RichContent';
 
 const DEFAULT_MODEL = process.env.REACT_APP_OPENROUTER_MODEL || 'openai/gpt-5.2';
 const OPENROUTER_API_KEY = process.env.REACT_APP_OPENROUTER_API_KEY || '';
+const FREE_FALLBACK_MODEL = 'openrouter/free';
+
+function shouldRetryWithFreeFallback(message, model) {
+  if (!message || model === FREE_FALLBACK_MODEL) {
+    return false;
+  }
+
+  return message.includes('No endpoints found') || message.includes('"code":404');
+}
 
 function ChatWidget({ siteKnowledge, currentTheme, currentQuestion, currentCourseSection, screen }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -79,6 +88,32 @@ function ChatWidget({ siteKnowledge, currentTheme, currentQuestion, currentCours
     ];
   }
 
+  async function requestCompletion(model, questionText) {
+    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+      method: 'POST',
+      headers: getHeaders(),
+      body: JSON.stringify({
+        model,
+        messages: buildRequestMessages(questionText),
+        temperature: 0.2,
+      }),
+    });
+
+    if (!response.ok) {
+      const errorBody = await response.text();
+      throw new Error(`OpenRouter a répondu ${response.status}: ${errorBody || 'erreur inconnue'}`);
+    }
+
+    const data = await response.json();
+    const content = data?.choices?.[0]?.message?.content?.trim();
+
+    if (!content) {
+      throw new Error('Réponse vide de la part du modèle.');
+    }
+
+    return content;
+  }
+
   async function handleSend(event) {
     event.preventDefault();
 
@@ -98,26 +133,16 @@ function ChatWidget({ siteKnowledge, currentTheme, currentQuestion, currentCours
     setIsSending(true);
 
     try {
-      const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-        method: 'POST',
-        headers: getHeaders(),
-        body: JSON.stringify({
-          model: DEFAULT_MODEL,
-          messages: buildRequestMessages(trimmed),
-          temperature: 0.2,
-        }),
-      });
+      let content;
 
-      if (!response.ok) {
-        const errorBody = await response.text();
-        throw new Error(`OpenRouter a répondu ${response.status}: ${errorBody || 'erreur inconnue'}`);
-      }
+      try {
+        content = await requestCompletion(DEFAULT_MODEL, trimmed);
+      } catch (chatError) {
+        if (!shouldRetryWithFreeFallback(chatError.message || '', DEFAULT_MODEL)) {
+          throw chatError;
+        }
 
-      const data = await response.json();
-      const content = data?.choices?.[0]?.message?.content?.trim();
-
-      if (!content) {
-        throw new Error('Réponse vide de la part du modèle.');
+        content = await requestCompletion(FREE_FALLBACK_MODEL, trimmed);
       }
 
       setMessages((current) => [...current, { role: 'assistant', content }]);
