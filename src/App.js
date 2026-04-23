@@ -15,6 +15,7 @@ import {
   shuffle,
   toleranceForLength,
 } from './lib/quizData';
+import { getQuestionExplanation } from './lib/questionExamples';
 import questionBank from './questions-pompidor.json';
 
 function App() {
@@ -55,6 +56,10 @@ function App() {
   const currentCourseSection = courseSections[index] || null;
   const isCodeQuestion = currentTheme?.key === 'code' || (currentQuestion?.answer || '').includes('\n');
   const isBinaryQuestion = currentTheme?.key === 'component-review';
+  const questionExplanation = useMemo(
+    () => getQuestionExplanation(currentQuestion, { isCodeQuestion, isBinaryQuestion }),
+    [currentQuestion, isCodeQuestion, isBinaryQuestion]
+  );
   const totalCount = questions.length;
   const themeCount = themes.length;
   const progressLabel = currentTheme ? `${Math.min(index + 1, totalCount)} / ${totalCount}` : 'Choisis un thème';
@@ -215,6 +220,7 @@ function App() {
               onGoToThemes={goToThemes}
               onRestartTheme={restartTheme}
               result={result}
+              questionExplanation={questionExplanation}
             />
           )}
 

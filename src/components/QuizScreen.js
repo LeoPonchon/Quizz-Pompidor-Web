@@ -30,6 +30,7 @@ function QuizScreen({
   onGoToThemes,
   onRestartTheme,
   result,
+  questionExplanation,
 }) {
   return (
     <div className="screen">
@@ -148,9 +149,10 @@ function QuizScreen({
               <strong>Distance de Levenshtein :</strong> {result.distance} ·{' '}
               <strong>Tolérance :</strong> {result.tolerance}
             </div>
-            {currentQuestion.explanation && (
+            {questionExplanation && (
               <div className="result-line">
-                <strong>Pourquoi :</strong> {currentQuestion.explanation}
+                <strong>Pourquoi :</strong>
+                <RichContent content={questionExplanation} className="result-rich" />
               </div>
             )}
           </>
