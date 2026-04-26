@@ -19,7 +19,13 @@ import { getQuestionExplanation } from './lib/questionExamples';
 import questionBank from './questions-pompidor.json';
 
 function App() {
-  const allQuestions = useMemo(() => getAllQuestionsFromThemes(questionBank.themes), []);
+  const allQuestions = useMemo(() => {
+    const themesMap = questionBank.themes || {};
+    const pompidorThemes = Object.fromEntries(
+      Object.entries(themesMap).filter(([themeName]) => themeName !== 'Ingénierie logicielle')
+    );
+    return getAllQuestionsFromThemes(pompidorThemes);
+  }, []);
   const themes = useMemo(() => buildThemes(allQuestions), [allQuestions]);
   const courseSections = useMemo(() => questionBank.course?.sections || [], []);
   const courseTitle = questionBank.course?.title || 'Cours complet';

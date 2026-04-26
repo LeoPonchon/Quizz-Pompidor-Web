@@ -10,8 +10,8 @@ export const themeDefinitions = [
   {
     key: 'software-engineering',
     label: 'Ingénierie logicielle',
-    description: 'Vide pour l’instant (catégorie prête à être remplie).',
-    sourceName: null,
+    description: 'Patterns, typage, tests et notions vues en examen.',
+    sourceName: 'Ingénierie logicielle',
   },
 ];
 

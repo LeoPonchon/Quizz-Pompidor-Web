@@ -5,5 +5,5 @@ test('renders theme selection screen', () => {
   render(<App />);
   expect(screen.getByText(/Choisis un mode/i)).toBeInTheDocument();
   expect(screen.getByRole('button', { name: /Quiz Pompidor/i })).toBeInTheDocument();
-  expect(screen.getByRole('button', { name: /Ing.*logicielle/i })).toBeDisabled();
+  expect(screen.getByRole('button', { name: /Ing.*logicielle/i })).toBeEnabled();
 });

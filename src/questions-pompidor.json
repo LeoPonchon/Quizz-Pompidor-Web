@@ -2215,6 +2215,108 @@
         "question": "Écris la ligne qui ajoute un écouteur de clic à un bouton.",
         "answer": "button.addEventListener('click', handler);"
       }
+    ],
+    "Ingénierie logicielle": [
+      {
+        "question": "Quel pattern modélise une structure arborescente avec feuilles et composites ?",
+        "answer": "Composite"
+      },
+      {
+        "question": "Dans un framework, qu’est-ce qu’un point d’extension ?",
+        "answer": "Une méthode abstraite (ou hook) à redéfinir"
+      },
+      {
+        "question": "Qu’est-ce que l’inversion de contrôle (IoC) ?",
+        "answer": "Le framework pilote le flux et appelle le code applicatif"
+      },
+      {
+        "question": "Pourquoi une méthode comme prixTTC() peut être dite « fonction d’ordre supérieur » ?",
+        "answer": "Elle délègue à une étape abstraite (ex: prixHT())"
+      },
+      {
+        "question": "Qu’est-ce que la liaison dynamique ?",
+        "answer": "Le choix de la méthode à l’exécution selon le type dynamique"
+      },
+      {
+        "question": "Comment appelle-t-on une méthode qui renvoie this pour chaîner les appels ?",
+        "answer": "Fluent interface"
+      },
+      {
+        "question": "Quel pattern permet de créer des objets sans dépendre des classes concrètes (familles d’objets) ?",
+        "answer": "Fabrique abstraite (Abstract Factory)"
+      },
+      {
+        "question": "La surcharge (overload) est résolue quand ?",
+        "answer": "À la compilation (types statiques)"
+      },
+      {
+        "question": "La redéfinition (override) est résolue quand ?",
+        "answer": "À l’exécution (type dynamique du receveur)"
+      },
+      {
+        "question": "Qu’est-ce que le polymorphisme d’inclusion ?",
+        "answer": "Une variable de type base référence un objet d’une sous-classe"
+      },
+      {
+        "question": "Pourquoi préférer une signature equiv(ComposantOrdi c, ...) plutôt que equiv(Montage c, ...) ?",
+        "answer": "Pour respecter le polymorphisme et éviter les casts"
+      },
+      {
+        "question": "Quelle technique permet d’éviter instanceof dans des comparaisons (equiv/equals) ?",
+        "answer": "Double dispatch"
+      },
+      {
+        "question": "Pour des variations cumulatives de comportement, quel pattern est le plus adapté ?",
+        "answer": "Decorator"
+      },
+      {
+        "question": "Dans un Decorator, comment s’appelle souvent la référence vers l’objet décoré ?",
+        "answer": "wrapped"
+      },
+      {
+        "question": "Dans un decorator de prix, que fait typiquement prixHT() ?",
+        "answer": "wrapped.prixHT() + variation"
+      },
+      {
+        "question": "Quel est le principe du pattern Template Method ?",
+        "answer": "L’algorithme est dans la classe mère, certaines étapes sont redéfinies"
+      },
+      {
+        "question": "Quel principe SOLID est illustré par « étendre sans modifier le code client » ?",
+        "answer": "Ouvert/Fermé (Open/Closed)"
+      },
+      {
+        "question": "Type statique vs type dynamique : lequel correspond à la classe réelle à l’exécution ?",
+        "answer": "Le type dynamique"
+      },
+      {
+        "question": "LSP (Liskov) : que dit-on sur les préconditions et postconditions ?",
+        "answer": "Ne pas renforcer les préconditions, ne pas affaiblir les postconditions"
+      },
+      {
+        "question": "Pourquoi Vector<Forme> v = new Vector<Cercle>(); est refusé en Java ?",
+        "answer": "Les génériques sont invariants (sécurité de type)"
+      },
+      {
+        "question": "Pourquoi factoriser equals dans la classe mère via equalsTo() ?",
+        "answer": "Éviter instanceof/getClass et utiliser le polymorphisme (double dispatch)"
+      },
+      {
+        "question": "Dans equalsTo(), pourquoi utiliser un identifiant de type (getTypeId) ?",
+        "answer": "Vérifier le type avant cast"
+      },
+      {
+        "question": "Dans un composite Dessin/Forme, quel champ contient les enfants ?",
+        "answer": "Une liste de Forme (ex: List<Forme> contenu)"
+      },
+      {
+        "question": "Quelle est l’idée pour obtenir les dessins parents (dessinsInclus) d’une Forme ?",
+        "answer": "Référence inverse (liste de parents) mise à jour lors de add()"
+      },
+      {
+        "question": "Quels types de tests sont recommandés pour une architecture extensible ?",
+        "answer": "Unitaires, intégration, non-régression"
+      }
     ]
   }
 }

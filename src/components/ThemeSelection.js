@@ -5,7 +5,7 @@ function ThemeSelection({ themes, onRandomTheme, onThemeSelect }) {
       <h2>Choisis un mode</h2>
       <p className="theme-desc">
         Le thème <strong>Quiz Pompidor</strong> regroupe toute la banque de questions.
-        La catégorie <strong>Ingénierie logicielle</strong> est prête, mais vide pour le moment.
+        La catégorie <strong>Ingénierie logicielle</strong> regroupe des questions de cours/examens.
       </p>
       <div className="buttons">
         <button className="action primary" onClick={onRandomTheme} type="button">
