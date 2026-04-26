@@ -41,7 +41,10 @@ function ChatWidget({ siteKnowledge, currentTheme, currentQuestion, currentCours
   }, [screen, currentCourseSection, currentQuestion, currentTheme]);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    const element = messagesEndRef.current;
+    if (element && typeof element.scrollIntoView === 'function') {
+      element.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
   }, [messages, isOpen]);
 
   useEffect(() => {

@@ -3,81 +3,15 @@ import questionBank from '../questions-pompidor.json';
 export const themeDefinitions = [
   {
     key: 'all',
-    label: 'Tout le quiz',
-    description: 'La banque complète du programme, mélangée à chaque lancement.',
+    label: 'Quiz Pompidor',
+    description: 'Toutes les questions Pompidor (banque complète), mélangées à chaque lancement.',
     sourceName: null,
   },
   {
-    key: 'course',
-    label: 'Cours de base',
-    description: 'Le parcours pour apprendre le cours depuis zéro, dans l’ordre des notions essentielles.',
-    sourceName: 'Cours de base',
-  },
-  {
-    key: 'mean',
-    label: 'MEAN',
-    description: 'Architecture, référencement et rendu côté client.',
-    sourceName: 'Architecture et MEAN',
-  },
-  {
-    key: 'mongo',
-    label: 'MongoDB',
-    description: 'Shell, requêtes, opérateurs et import de données.',
-    sourceName: 'MongoDB',
-  },
-  {
-    key: 'node',
-    label: 'Node & Express',
-    description: 'Serveur, endpoints REST, CORS et JSON.',
-    sourceName: 'Node.js et Express',
-  },
-  {
-    key: 'web',
-    label: 'HTML & CSS',
-    description: 'Balises, attributs, formulaire et responsive design.',
-    sourceName: 'Web client HTML CSS JS',
-  },
-  {
-    key: 'js',
-    label: 'JavaScript & DOM',
-    description: 'Langage, événements, DOM, AJAX et données JSON.',
-    sourceName: 'Web client HTML CSS JS',
-  },
-  {
-    key: 'auth',
-    label: 'JWT & Auth',
-    description: 'Cookies, sécurité et authentification côté client.',
-    sourceName: 'AJAX et JWT',
-  },
-  {
-    key: 'angular',
-    label: 'Angular',
-    description: 'Composants, services, routes, formulaires et RxJS.',
-    sourceName: 'Angular classique',
-  },
-  {
-    key: 'angular21',
-    label: 'Angular 21 / SSR',
-    description: 'SSR, prerender, signaux et serveur intégré.',
-    sourceName: 'Angular 21 CSR SSR',
-  },
-  {
-    key: 'component-review',
-    label: 'Revue de component',
-    description: 'Petits composants à relire pour repérer les erreurs de structure, de logique ou d’API.',
-    sourceName: 'Revue de component',
-  },
-  {
-    key: 'ecommerce',
-    label: 'TP E-commerce',
-    description: 'Base ECOMMERCE, fichiers JSON et panier.',
-    sourceName: 'TP e-commerce',
-  },
-  {
-    key: 'code',
-    label: 'Code',
-    description: 'Extraits de code concrets à écrire pour construire les morceaux du TP.',
-    sourceName: 'Code',
+    key: 'software-engineering',
+    label: 'Ingénierie logicielle',
+    description: 'Vide pour l’instant (catégorie prête à être remplie).',
+    sourceName: null,
   },
 ];
 
@@ -86,8 +20,8 @@ export function normalizeForComparison(value) {
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[’']/g, "'")
-    .replace(/[-–—]/g, ' ')
+    .replace(/[â€™']/g, "'")
+    .replace(/[-â€“â€”]/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -115,17 +49,15 @@ export function buildThemes(allQuestions) {
   const themesMap = questionBank.themes || {};
   const courseSections = questionBank.course?.sections || [];
 
-  return themeDefinitions
-    .map((definition) => ({
-      ...definition,
-      questions:
-        definition.key === 'all'
-          ? allQuestions
-          : definition.key === 'course'
-            ? courseSections
+  return themeDefinitions.map((definition) => ({
+    ...definition,
+    questions:
+      definition.key === 'all'
+        ? allQuestions
+        : definition.key === 'course'
+          ? courseSections
           : themesMap[definition.sourceName] || [],
-    }))
-    .filter((theme) => theme.questions.length > 0);
+  }));
 }
 
 export function shuffle(array) {
@@ -168,7 +100,7 @@ export function toleranceForLength(length) {
 export function buildOpenRouterKnowledgeBase({ themes, courseTitle, courseIntro, courseSections, allQuestions }) {
   const themeOverview = themes
     .filter((theme) => theme.key !== 'all')
-    .map((theme) => `- ${theme.label}: ${theme.description} (${theme.questions.length} entrées)`)
+    .map((theme) => `- ${theme.label}: ${theme.description} (${theme.questions.length} entrÃ©es)`)
     .join('\n');
 
   const courseOverview = courseSections
@@ -179,10 +111,10 @@ export function buildOpenRouterKnowledgeBase({ themes, courseTitle, courseIntro,
       return [
         `Section ${index + 1}: ${section.title}`,
         `  Objectif: ${section.goal}`,
-        `  Points clés:`,
+        `  Points clÃ©s:`,
         bulletPoints || '    - Aucun',
         `  Exemple: ${section.example || 'Aucun'}`,
-        `  Vérification:`,
+        `  VÃ©rification:`,
         checklist || '    - Aucune',
       ].join('\n');
     })
@@ -193,20 +125,20 @@ export function buildOpenRouterKnowledgeBase({ themes, courseTitle, courseIntro,
     .join('\n');
 
   return [
-    'Tu es l\'assistant du site Quiz Pompidor.',
-    'Réponds uniquement avec les éléments de cette base de connaissance.',
-    'Si le contenu ne suffit pas, dis que la notion n\'est pas dans le site et donne la meilleure piste disponible.',
+    "Tu es l'assistant du site Quiz Pompidor.",
+    'RÃ©ponds uniquement avec les Ã©lÃ©ments de cette base de connaissance.',
+    "Si le contenu ne suffit pas, dis que la notion n'est pas dans le site et donne la meilleure piste disponible.",
     '',
     `Titre du cours complet: ${courseTitle}`,
     `Introduction du cours: ${courseIntro}`,
     '',
-    'Aperçu des thèmes:',
+    'AperÃ§u des thÃ¨mes:',
     themeOverview,
     '',
     'Cours de base complet:',
     courseOverview,
     '',
-    'Banque QCM complète:',
+    'Banque QCM complÃ¨te:',
     quizEntries,
   ].join('\n');
 }

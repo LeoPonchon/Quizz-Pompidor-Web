@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders theme selection screen', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(screen.getByText(/Choisis un mode/i)).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: /Quiz Pompidor/i })).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: /Ing.*logicielle/i })).toBeDisabled();
 });

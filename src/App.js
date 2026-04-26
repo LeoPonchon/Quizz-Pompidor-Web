@@ -87,7 +87,9 @@ function App() {
   }
 
   function startRandomTheme() {
-    const availableThemes = themes.filter((theme) => theme.key !== 'all' && theme.questions.length > 0);
+    const nonEmptyThemes = themes.filter((theme) => theme.questions.length > 0);
+    const availableThemes =
+      nonEmptyThemes.length <= 1 ? nonEmptyThemes : nonEmptyThemes.filter((theme) => theme.key !== 'all');
     if (availableThemes.length === 0) {
       return;
     }
