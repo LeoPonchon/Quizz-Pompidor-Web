@@ -2218,104 +2218,132 @@
     ],
     "Ingénierie logicielle": [
       {
-        "question": "Quel pattern modélise une structure arborescente avec feuilles et composites ?",
-        "answer": "Composite"
+        "question": "1. Comment résumeriez-vous l’intérêt du pattern DAO (Data Access Object) ?",
+        "answer": "Le pattern DAO isole la logique d’accès aux données du reste de l’application. Il sépare le code métier du code qui communique avec la base de données, ce qui limite l’impact si l’on change de technologie de persistance ou de base."
       },
       {
-        "question": "Dans un framework, qu’est-ce qu’un point d’extension ?",
-        "answer": "Une méthode abstraite (ou hook) à redéfinir"
+        "question": "2. Qu’est-ce qu’une entité au sens de Spring annotée avec @Entity ?",
+        "answer": "Une entité est une classe Java dont les instances sont destinées à être persistées en base. Avec @Entity, JPA/Spring comprend que la classe correspond généralement à une table et que ses attributs correspondent à des colonnes."
       },
       {
-        "question": "Qu’est-ce que l’inversion de contrôle (IoC) ?",
-        "answer": "Le framework pilote le flux et appelle le code applicatif"
+        "question": "3. Définissez l’impedance mismatch (distorsion des langages) dans le contexte des bases de données.",
+        "answer": "L’impedance mismatch est la différence entre le modèle objet (objets, relations, héritage, collections) et le modèle relationnel (tables, lignes, colonnes, clés étrangères). Les ORM/JPA servent à réduire cette distorsion."
       },
       {
-        "question": "Pourquoi une méthode comme prixTTC() peut être dite « fonction d’ordre supérieur » ?",
-        "answer": "Elle délègue à une étape abstraite (ex: prixHT())"
+        "question": "4. Qu’est-ce que JPA ?",
+        "answer": "JPA (Java Persistence API) est une spécification Java qui définit le mapping objet-relationnel et la gestion de la persistance via des annotations (@Entity, @Id, @OneToMany, etc.). Hibernate est une implémentation courante de JPA."
       },
       {
-        "question": "Qu’est-ce que la liaison dynamique ?",
-        "answer": "Le choix de la méthode à l’exécution selon le type dynamique"
+        "question": "5. Lien Campus → bâtiments : a) à quoi correspond @OneToMany ? b) le chargement est-il automatique ? c) la suppression cascade-t-elle ?",
+        "answer": "a) @OneToMany décrit une relation « un vers plusieurs » (un campus possède plusieurs bâtiments). b) Par défaut, cela dépend du fetch : avec FetchType.LAZY la collection n’est pas chargée immédiatement (chargement à l’accès). c) La propagation dépend de cascade : avec cascade = CascadeType.ALL, les opérations (dont delete) peuvent être propagées aux bâtiments selon la configuration exacte de la relation."
       },
       {
-        "question": "Comment appelle-t-on une méthode qui renvoie this pour chaîner les appels ?",
-        "answer": "Fluent interface"
+        "question": "6. Qu’est-ce qu’un composant ?",
+        "answer": "Un composant est un objet (bean) géré par le conteneur Spring : Spring le crée, l’injecte et gère son cycle de vie. Typiquement annoté @Component, @Service, @Repository, @Controller."
       },
       {
-        "question": "Quel pattern permet de créer des objets sans dépendre des classes concrètes (familles d’objets) ?",
-        "answer": "Fabrique abstraite (Abstract Factory)"
+        "question": "7. Quels sont les rôles dévolus aux composants de type Repository ?",
+        "answer": "Accéder aux données (CRUD, requêtes), jouer le rôle de DAO, masquer les détails de persistance (JPA/SQL), et participer à la traduction d’exceptions techniques en exceptions Spring plus homogènes."
       },
       {
-        "question": "La surcharge (overload) est résolue quand ?",
-        "answer": "À la compilation (types statiques)"
+        "question": "8. JpaRepository étend PagingAndSortingRepository qui étend CrudRepository : apports principaux de chaque interface ?",
+        "answer": "CrudRepository : opérations CRUD de base. PagingAndSortingRepository : pagination et tri. JpaRepository : fonctionnalités JPA supplémentaires (flush, saveAndFlush, opérations en lot, etc.)."
       },
       {
-        "question": "La redéfinition (override) est résolue quand ?",
-        "answer": "À l’exécution (type dynamique du receveur)"
+        "question": "9. Donnez les principaux états du cycle de vie d’un objet dans un contexte de persistance.",
+        "answer": "Transient (nouvel objet non géré), Managed/Persistent (géré par le contexte de persistance), Detached (plus géré), Removed (marqué pour suppression)."
       },
       {
-        "question": "Qu’est-ce que le polymorphisme d’inclusion ?",
-        "answer": "Une variable de type base référence un objet d’une sous-classe"
+        "question": "10. Si l’on crée un nouvel objet Campus (new Campus(...)) sans le sauvegarder, dans quel état se trouve-t-il ?",
+        "answer": "Transient."
       },
       {
-        "question": "Pourquoi préférer une signature equiv(ComposantOrdi c, ...) plutôt que equiv(Montage c, ...) ?",
-        "answer": "Pour respecter le polymorphisme et éviter les casts"
+        "question": "11. Si l’on sauvegarde cet objet avec save (via CampusRepository), dans quel état se trouve-t-il ?",
+        "answer": "Généralement Managed (persistant) dans le contexte de persistance actif."
       },
       {
-        "question": "Quelle technique permet d’éviter instanceof dans des comparaisons (equiv/equals) ?",
-        "answer": "Double dispatch"
+        "question": "12. Réécrire cette requête SQL de consultation en JPQL (SELECT * FROM salle ORDER BY batiment).",
+        "answer": "@Query(\"SELECT s FROM Salle s ORDER BY s.batiment\")\\nList<Salle> findAllOrderByBatiment();"
       },
       {
-        "question": "Pour des variations cumulatives de comportement, quel pattern est le plus adapté ?",
-        "answer": "Decorator"
+        "question": "13. Adapter la requête JPQL pour proposer aussi un filtre sur le nom du campus.",
+        "answer": "Exemple :\\n@Query(\"SELECT s FROM Salle s WHERE s.etage = :et AND s.batiment = :bt AND s.batiment.campus.nomC = :nomC\")\\nList<Salle> findByEtageAndBatimentAndCampusNom(@Param(\\\"et\\\") String et, @Param(\\\"bt\\\") Batiment bt, @Param(\\\"nomC\\\") String nomC);"
       },
       {
-        "question": "Dans un Decorator, comment s’appelle souvent la référence vers l’objet décoré ?",
-        "answer": "wrapped"
+        "question": "14. Décrire brièvement le principe général d’Inversion de Contrôle (IoC).",
+        "answer": "Le code applicatif ne crée/assemble plus directement tous les objets : le framework (Spring) gère la création, la configuration et l’assemblage. Le contrôle passe du programmeur au conteneur."
       },
       {
-        "question": "Dans un decorator de prix, que fait typiquement prixHT() ?",
-        "answer": "wrapped.prixHT() + variation"
+        "question": "15. Qu’est-ce qui différencie IoC et l’injection de dépendance (DI) ?",
+        "answer": "IoC est un principe général (le conteneur prend le contrôle de la création/assemblage). La DI est un mécanisme concret pour appliquer l’IoC : les dépendances sont fournies à un objet au lieu d’être créées par lui."
       },
       {
-        "question": "Quel est le principe du pattern Template Method ?",
-        "answer": "L’algorithme est dans la classe mère, certaines étapes sont redéfinies"
+        "question": "16. Donner deux patterns qui suivent le principe d’IoC.",
+        "answer": "Dependency Injection et Service Locator."
       },
       {
-        "question": "Quel principe SOLID est illustré par « étendre sans modifier le code client » ?",
-        "answer": "Ouvert/Fermé (Open/Closed)"
+        "question": "17. Quelle est la différence entre DI et Service Locator ?",
+        "answer": "DI : l’objet reçoit ses dépendances (passif, moins couplé). Service Locator : l’objet demande ses dépendances à un registre/localisateur (plus actif, plus couplé au mécanisme)."
       },
       {
-        "question": "Type statique vs type dynamique : lequel correspond à la classe réelle à l’exécution ?",
-        "answer": "Le type dynamique"
+        "question": "18. Expliquez en quoi CampusService et MockCampusService satisfont l’inversion de dépendance (DIP).",
+        "answer": "Le DIP dit de dépendre d’abstractions (interfaces) plutôt que de classes concrètes. Si le contrôleur dépend d’une interface de service, on peut remplacer l’implémentation réelle par une implémentation mock (tests) sans changer le code client."
       },
       {
-        "question": "LSP (Liskov) : que dit-on sur les préconditions et postconditions ?",
-        "answer": "Ne pas renforcer les préconditions, ne pas affaiblir les postconditions"
+        "question": "19. Comment le framework Spring met en œuvre l’injection de dépendances ?",
+        "answer": "Via le conteneur IoC : détection des beans (stéréotypes @Component/@Service/@Repository/@Controller), instanciation et assemblage, puis injection (souvent par constructeur, ou via @Autowired / setters)."
       },
       {
-        "question": "Pourquoi Vector<Forme> v = new Vector<Cercle>(); est refusé en Java ?",
-        "answer": "Les génériques sont invariants (sécurité de type)"
+        "question": "20. Retrouvez deux erreurs typiques : injection d’une entité et injection mal déclarée (exemple CommandLineRunner).",
+        "answer": "Erreur 1 : une entité (@Entity) n’est pas un bean Spring, on ne l’@Autowired pas. Erreur 2 : préférer une injection par constructeur (ou un @Autowired correct) pour CampusRepository/CampusService. Exemple :\\npublic class CL_Appli implements CommandLineRunner {\\n  private final CampusService cs;\\n  private final CampusRepository cr;\\n  public CL_Appli(CampusService cs, CampusRepository cr){ this.cs=cs; this.cr=cr; }\\n}"
       },
       {
-        "question": "Pourquoi factoriser equals dans la classe mère via equalsTo() ?",
-        "answer": "Éviter instanceof/getClass et utiliser le polymorphisme (double dispatch)"
+        "question": "21. Quels sont les rôles dévolus aux composants Service ?",
+        "answer": "Porter la logique métier, faire le lien entre contrôleurs et repositories, centraliser les règles métier, orchestrer plusieurs opérations, et souvent délimiter les transactions."
       },
       {
-        "question": "Dans equalsTo(), pourquoi utiliser un identifiant de type (getTypeId) ?",
-        "answer": "Vérifier le type avant cast"
+        "question": "22. Pourquoi et à quel niveau décorer une méthode avec @Transactional ?",
+        "answer": "Pour exécuter l’opération dans une transaction (ACID) et garantir commit/rollback. On place généralement @Transactional au niveau Service, là où s’orchestrent des opérations de persistance."
       },
       {
-        "question": "Dans un composite Dessin/Forme, quel champ contient les enfants ?",
-        "answer": "Une liste de Forme (ex: List<Forme> contenu)"
+        "question": "23. Donner la signification de @Transactional(readOnly=true).",
+        "answer": "Transaction en lecture seule : on indique qu’on ne doit pas modifier les données, ce qui peut permettre des optimisations (et éviter du dirty checking inutile)."
       },
       {
-        "question": "Quelle est l’idée pour obtenir les dessins parents (dessinsInclus) d’une Forme ?",
-        "answer": "Référence inverse (liste de parents) mise à jour lors de add()"
+        "question": "24. Quel paradigme de programmation sous-tend @Transactional ?",
+        "answer": "AOP (programmation orientée aspect) : Spring entoure l’appel de la méthode pour ouvrir/committer/rollback la transaction."
       },
       {
-        "question": "Quels types de tests sont recommandés pour une architecture extensible ?",
-        "answer": "Unitaires, intégration, non-régression"
+        "question": "25. Donner la signification de @Autowired(required=false).",
+        "answer": "Injection facultative : si un bean compatible existe il est injecté, sinon Spring ne lève pas d’erreur au démarrage (la dépendance peut rester null)."
+      },
+      {
+        "question": "26. Lister les intérêts d’un contrôleur de vue.",
+        "answer": "Recevoir les requêtes HTTP, aiguiller vers le bon traitement, appeler les services, préparer le modèle (données pour la vue) et choisir la vue/réponse (render ou redirect)."
+      },
+      {
+        "question": "27. Expliquer la méthode deleteCampus : @DeleteMapping(\"/delete/{nomC}\") … redirect:/campuses.",
+        "answer": "Elle traite une requête HTTP DELETE sur /delete/{nomC}, récupère nomC via @PathVariable, appelle le service cs.deleteCampus(nomC) puis redirige vers la liste des campus via \"redirect:/campuses\"."
+      },
+      {
+        "question": "28. Compléter une méthode afficheCampus (avec Model) : charger campus, l’ajouter au modèle, choisir la vue.",
+        "answer": "Exemple :\\n@GetMapping(\"/{nomC}\")\\npublic String afficheCampus(@PathVariable String nomC, Model model) {\\n  return cs.campusParId(nomC)\\n    .map(campus -> { model.addAttribute(\\\"campus\\\", campus); return \\\"afficheCampus\\\"; })\\n    .orElse(\\\"afficheCampusNotFound\\\");\\n}"
+      },
+      {
+        "question": "29. À quoi correspond l’interface Model mobilisée dans les contrôleurs ?",
+        "answer": "Un conteneur de données pour transmettre des attributs du contrôleur vers la vue (ex: model.addAttribute(\"campus\", campus))."
+      },
+      {
+        "question": "30. Quelles facilités propose Thymeleaf ?",
+        "answer": "Templates HTML dynamiques : affichage de données, boucles/conditions, formulaires, liens, messages d’erreur, intégration Spring MVC. Les templates restent lisibles en HTML statique."
+      },
+      {
+        "question": "31. Expliquer un extrait de vue Campus avec th:action et th:object.",
+        "answer": "Ex : <form th:action=\\\"@{/processNewCampus}\\\" th:object=\\\"${campus}\\\" method=\\\"post\\\"> : th:action définit l’URL de soumission, th:object lie le formulaire à l’objet campus du modèle, et th:field lie chaque input à un attribut (ex: *{nomC}, *{ville})."
+      },
+      {
+        "question": "32. Expliquer les intérêts du pattern Front Controller dans Spring MVC.",
+        "answer": "Il centralise l’entrée des requêtes (DispatcherServlet) : réception, routage vers le bon contrôleur, gestion du modèle et choix de la vue. Architecture plus claire, cohérente et maintenable."
       }
     ]
   }
