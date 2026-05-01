@@ -9,8 +9,8 @@ export const themeDefinitions = [
   },
   {
     key: 'software-engineering',
-    label: 'Ingénierie logicielle',
-    description: 'Patterns, typage, tests et notions vues en examen.',
+    label: 'Modularités',
+    description: 'DAO/JPA, Spring (IoC/DI), transactions, MVC/Thymeleaf.',
     sourceName: 'Ingénierie logicielle',
   },
 ];
