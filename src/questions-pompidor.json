@@ -2230,7 +2230,7 @@
       {
         "question": "3. Définissez l’impedance mismatch (distorsion des langages) dans le contexte des bases de données.",
         "answer": "Écart entre le modèle objet (Java) et le modèle relationnel (tables)",
-        "explanation": "En Java, on manipule des objets, des relations et des collections ; en SQL, on manipule des tables, lignes, colonnes et clés étrangères. Ces modèles ne “collent” pas naturellement : c’est l’impedance mismatch. Un ORM (JPA/Hibernate) sert à faire la correspondance et à simplifier ce passage."
+        "explanation": "En Java, on manipule des objets, des relations et des collections ; en SQL, on manipule des tables, lignes, colonnes et clés étrangères. Ces modèles ne collent pas naturellement : c’est l’impedance mismatch. Un ORM (JPA/Hibernate) sert à faire la correspondance et à simplifier ce passage."
       },
       {
         "question": "4. Qu’est-ce que JPA ?",
@@ -2240,7 +2240,7 @@
       {
         "question": "5. Lien Campus → bâtiments : a) à quoi correspond @OneToMany ? b) le chargement est-il automatique ? c) la suppression cascade-t-elle ?",
         "answer": "a) 1 à n b) dépend du fetch (LAZY/EAGER) c) suppression selon CascadeType",
-        "explanation": "a) `@OneToMany` modélise “un campus possède plusieurs bâtiments”. b) Le chargement dépend du `fetch` : en `LAZY`, la collection est chargée plus tard (à l’accès) ; en `EAGER`, elle est chargée tout de suite. c) La cascade dépend de `cascade` : sans cascade, supprimer un campus ne supprime pas automatiquement ses bâtiments ; avec une cascade adaptée (ex : `CascadeType.REMOVE`/`ALL`), certaines opérations peuvent être propagées."
+        "explanation": "a) `@OneToMany` modélise un campus possède plusieurs bâtiments. b) Le chargement dépend du `fetch` : en `LAZY`, la collection est chargée plus tard (à l’accès) ; en `EAGER`, elle est chargée tout de suite. c) La cascade dépend de `cascade` : sans cascade, supprimer un campus ne supprime pas automatiquement ses bâtiments ; avec une cascade adaptée (ex : `CascadeType.REMOVE`/`ALL`), certaines opérations peuvent être propagées."
       },
       {
         "question": "6. Qu’est-ce qu’un composant ?",
@@ -2269,7 +2269,7 @@
       {
         "question": "11. Si l’on sauvegarde cet objet avec save (via CampusRepository), dans quel état se trouve-t-il ?",
         "answer": "Managed/Persistent.",
-        "explanation": "Après un `save(...)`, l’objet est en général rattaché au contexte de persistance en cours (donc “managed/persistent”). Les détails exacts dépendent du contexte transactionnel et de l’EntityManager sous-jacent."
+        "explanation": "Après un `save(...)`, l’objet est en général rattaché au contexte de persistance en cours (donc managed/persistent). Les détails exacts dépendent du contexte transactionnel et de l’EntityManager sous-jacent."
       },
       {
         "question": "14. Décrire brièvement le principe général d’Inversion de Contrôle (IoC).",
@@ -2279,7 +2279,7 @@
       {
         "question": "15. Qu’est-ce qui différencie IoC et l’injection de dépendance (DI) ?",
         "answer": "La DI est une façon de mettre en œuvre l'IoC pour fournir les dépendances.",
-        "explanation": "IoC est l’idée générale : le conteneur “prend la main” sur la création/assemblage. La DI (injection de dépendances) est une manière de mettre IoC en pratique : un objet reçoit ses dépendances (souvent via constructeur) au lieu de les instancier lui-même."
+        "explanation": "IoC est l’idée générale : le conteneur prend la main sur la création/assemblage. La DI (injection de dépendances) est une manière de mettre IoC en pratique : un objet reçoit ses dépendances (souvent via constructeur) au lieu de les instancier lui-même."
       },
       {
         "question": "16. Donner deux patterns qui suivent le principe d’IoC.",
@@ -2289,7 +2289,7 @@
       {
         "question": "17. Quelle est la différence entre DI et Service Locator ?",
         "answer": "La DI injecte les dépendances. Le Service Locator les récupère via un registre.",
-        "explanation": "En DI, l’objet est “passif” : ses dépendances lui sont fournies (souvent par constructeur), ce qui réduit le couplage au framework. Avec Service Locator, l’objet appelle un registre pour récupérer ses dépendances, ce qui le couple davantage au mécanisme de localisation."
+        "explanation": "En DI, l’objet est passif : ses dépendances lui sont fournies (souvent par constructeur), ce qui réduit le couplage au framework. Avec Service Locator, l’objet appelle un registre pour récupérer ses dépendances, ce qui le couple davantage au mécanisme de localisation."
       },
       {
         "question": "19. Comment le framework Spring met en œuvre l’injection de dépendances ?",
@@ -2298,8 +2298,8 @@
       },
       {
         "question": "20. Retrouvez deux erreurs typiques : injection d’une entité et injection mal déclarée (exemple CommandLineRunner).",
-        "answer": "1) On n’injecte pas une @Entity 2) Les dépendances “Spring” doivent être injectées correctement.",
-        "explanation": "Erreur fréquente 1 : une entité JPA (`@Entity`) n’est pas un bean Spring, donc on ne l’injecte pas avec `@Autowired`.\nErreur fréquente 2 : les dépendances “Spring” (Service/Repository) doivent être injectées correctement, idéalement par constructeur (ex : dans un `CommandLineRunner`)."
+        "answer": "1) On n’injecte pas une @Entity, les dépendances Spring doivent être injectées correctement.",
+        "explanation": "Erreur fréquente 1 : une entité JPA (`@Entity`) n’est pas un bean Spring, donc on ne l’injecte pas avec `@Autowired`.\nErreur fréquente 2 : les dépendances Spring (Service/Repository) doivent être injectées correctement, idéalement par constructeur (ex : dans un `CommandLineRunner`)."
       },
       {
         "question": "21. Quels sont les rôles dévolus aux composants Service ?",
