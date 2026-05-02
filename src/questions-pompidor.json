@@ -2229,12 +2229,12 @@
       },
       {
         "question": "3. Définissez l’impedance mismatch (distorsion des langages) dans le contexte des bases de données.",
-        "answer": "Écart entre le modèle objet (Java) et le modèle relationnel (tables) ; ORM/JPA le réduit.",
+        "answer": "Écart entre le modèle objet (Java) et le modèle relationnel (tables)",
         "explanation": "En Java, on manipule des objets, des relations et des collections ; en SQL, on manipule des tables, lignes, colonnes et clés étrangères. Ces modèles ne “collent” pas naturellement : c’est l’impedance mismatch. Un ORM (JPA/Hibernate) sert à faire la correspondance et à simplifier ce passage."
       },
       {
         "question": "4. Qu’est-ce que JPA ?",
-        "answer": "Spécification Java de persistance ORM (annotations) ; Hibernate est une implémentation.",
+        "answer": "Spécification Java de persistance ORM (annotations)",
         "explanation": "JPA (Java Persistence API) définit des concepts et annotations (ex : `@Entity`, `@Id`, `@OneToMany`) pour mapper des classes Java vers des tables et gérer la persistance. Hibernate est l’une des implémentations les plus utilisées de cette spécification."
       },
       {
@@ -2244,17 +2244,17 @@
       },
       {
         "question": "6. Qu’est-ce qu’un composant ?",
-        "answer": "Un bean Spring : objet créé/assemblé par le conteneur (cycle de vie + injection).",
+        "answer": "Un bean Spring",
         "explanation": "Un composant (bean) est instancié et géré par Spring : création, injection des dépendances, configuration, cycle de vie. On le déclare souvent via `@Component`, `@Service`, `@Repository`, `@Controller` (ou via une configuration)."
       },
       {
         "question": "7. Quels sont les rôles dévolus aux composants de type Repository ?",
-        "answer": "Accès aux données (DAO) : CRUD/requêtes, encapsule JPA/SQL, traduction d’exceptions.",
+        "answer": "Accès aux données (DAO)",
         "explanation": "Un `Repository` sert de couche d’accès aux données : il expose des opérations CRUD et des requêtes, tout en cachant les détails de persistance (JPA/SQL). Dans Spring, il peut aussi participer à une traduction d’exceptions techniques vers des exceptions Spring plus cohérentes."
       },
       {
         "question": "8. JpaRepository étend PagingAndSortingRepository qui étend CrudRepository : apports principaux de chaque interface ?",
-        "answer": "CrudRepository = CRUD ; PagingAndSortingRepository = pagination/tri ; JpaRepository = API JPA (flush, batch…).",
+        "answer": "CrudRepository = CRUD",
         "explanation": "`CrudRepository` fournit les opérations CRUD de base. `PagingAndSortingRepository` ajoute la pagination et le tri. `JpaRepository` ajoute des fonctionnalités spécifiques JPA/Hibernate (ex : `flush`, opérations en lot, etc.)."
       },
       {
@@ -2273,12 +2273,12 @@
       },
       {
         "question": "14. Décrire brièvement le principe général d’Inversion de Contrôle (IoC).",
-        "answer": "Le framework crée/assemble les objets : le contrôle passe du code applicatif au conteneur.",
+        "answer": "Le framework crée/assemble les objets",
         "explanation": "Avec l’IoC, l’application ne construit pas elle-même tout son graphe d’objets. C’est le conteneur (ex : Spring) qui instancie, configure et relie les composants, puis les fournit au bon endroit."
       },
       {
         "question": "15. Qu’est-ce qui différencie IoC et l’injection de dépendance (DI) ?",
-        "answer": "IoC = principe ; DI = mécanisme concret (les dépendances sont fournies, pas créées).",
+        "answer": "IoC = principe",
         "explanation": "IoC est l’idée générale : le conteneur “prend la main” sur la création/assemblage. La DI (injection de dépendances) est une manière de mettre IoC en pratique : un objet reçoit ses dépendances (souvent via constructeur) au lieu de les instancier lui-même."
       },
       {
@@ -2288,12 +2288,12 @@
       },
       {
         "question": "17. Quelle est la différence entre DI et Service Locator ?",
-        "answer": "DI : dépendances injectées ; Service Locator : dépendances demandées à un registre.",
+        "answer": "DI",
         "explanation": "En DI, l’objet est “passif” : ses dépendances lui sont fournies (souvent par constructeur), ce qui réduit le couplage au framework. Avec Service Locator, l’objet appelle un registre pour récupérer ses dépendances, ce qui le couple davantage au mécanisme de localisation."
       },
       {
         "question": "19. Comment le framework Spring met en œuvre l’injection de dépendances ?",
-        "answer": "Par le conteneur IoC : scan des beans, instanciation/assemblage, puis injection (souvent constructeur).",
+        "answer": "Par le conteneur IoC",
         "explanation": "Spring détecte les beans (scan des stéréotypes ou configuration), les instancie, résout leurs dépendances puis les injecte (idéalement par constructeur ; sinon par champs/setters selon les cas)."
       },
       {
@@ -2308,22 +2308,22 @@
       },
       {
         "question": "22. Pourquoi et à quel niveau décorer une méthode avec @Transactional ?",
-        "answer": "Pour garantir une transaction (commit/rollback) ; en général au niveau Service.",
+        "answer": "Pour garantir une transaction (commit/rollback)",
         "explanation": "`@Transactional` exécute la méthode dans une transaction : soit tout passe (commit), soit on annule en cas d’erreur (rollback). On l’applique généralement sur la couche service, là où l’on orchestre des opérations de persistance."
       },
       {
         "question": "23. Donner la signification de @Transactional(readOnly=true).",
-        "answer": "Transaction en lecture seule : pas de modification attendue (optimisations possibles).",
+        "answer": "Transaction en lecture seule",
         "explanation": "Avec `readOnly=true`, on indique que l’on ne prévoit pas de modifier les données. Cela peut activer certaines optimisations et éviter du travail inutile (ex : dirty checking) selon le provider JPA."
       },
       {
         "question": "24. Quel paradigme de programmation sous-tend @Transactional ?",
-        "answer": "AOP : Spring entoure l’appel (ouvrir/commit/rollback).",
+        "answer": "AOP",
         "explanation": "`@Transactional` s’appuie sur l’AOP : Spring crée un proxy qui intercepte l’appel de la méthode pour démarrer la transaction, puis faire commit ou rollback selon l’issue."
       },
       {
         "question": "25. Donner la signification de @Autowired(required=false).",
-        "answer": "Injection facultative : si aucun bean n’existe, pas d’erreur au démarrage (peut rester null).",
+        "answer": "Injection facultative",
         "explanation": "Avec `@Autowired(required=false)`, Spring tente d’injecter la dépendance si elle existe. S’il n’y a aucun bean compatible, l’application ne plante pas au démarrage, mais la dépendance peut rester non injectée."
       },
       {
@@ -2352,12 +2352,12 @@
       },
       {
         "question": "31. Expliquer un extrait de vue Campus avec th:action et th:object.",
-        "answer": "th:action = URL du formulaire ; th:object = objet du Model ; th:field = binding champ↔propriété.",
+        "answer": "th:action = URL du formulaire",
         "explanation": "Dans `<form th:action=\"@{/processNewCampus}\" th:object=\"${campus}\">` : `th:action` calcule l’URL de soumission, `th:object` associe le formulaire à l’objet `campus` fourni par le contrôleur. Ensuite, `th:field` relie chaque champ HTML à une propriété (ex : `*{nomC}`), ce qui simplifie la liaison et la validation."
       },
       {
         "question": "32. Expliquer les intérêts du pattern Front Controller dans Spring MVC.",
-        "answer": "Point d’entrée unique (DispatcherServlet) : centralise routage, modèle et rendu, donc plus cohérent.",
+        "answer": "Point d’entrée unique (DispatcherServlet)",
         "explanation": "Le Front Controller (dans Spring MVC : `DispatcherServlet`) centralise l’entrée de toutes les requêtes : il reçoit, choisit le bon contrôleur, gère le passage du modèle et la résolution de la vue. Cela rend l’architecture plus uniforme, maintenable et extensible (interceptors, gestion d’erreurs, etc.)."
       }
     ]
