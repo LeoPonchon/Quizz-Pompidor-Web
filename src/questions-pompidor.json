@@ -2224,7 +2224,7 @@
       },
       {
         "question": "2. Qu’est-ce qu’une entité au sens de Spring annotée avec @Entity ?",
-        "answer": "Classe Java persistée en base : @Entity indique à JPA le mapping table/colonnes.",
+        "answer": "Classe Java persistée en base. @Entity indique à JPA le mapping table/colonnes.",
         "explanation": "Une entité représente un objet du domaine que l’on stocke en base (ex : Campus, Bâtiment). Avec `@Entity`, JPA sait qu’il doit créer/charger/mettre à jour ces objets depuis la base, en mappant la classe (souvent) sur une table et les champs sur des colonnes."
       },
       {
@@ -2244,7 +2244,7 @@
       },
       {
         "question": "6. Qu’est-ce qu’un composant ?",
-        "answer": "Un bean Spring",
+        "answer": "Un composant est un bean Spring géré par le conteneur.",
         "explanation": "Un composant (bean) est instancié et géré par Spring : création, injection des dépendances, configuration, cycle de vie. On le déclare souvent via `@Component`, `@Service`, `@Repository`, `@Controller` (ou via une configuration)."
       },
       {
@@ -2254,7 +2254,7 @@
       },
       {
         "question": "8. JpaRepository étend PagingAndSortingRepository qui étend CrudRepository : apports principaux de chaque interface ?",
-        "answer": "CrudRepository = CRUD",
+        "answer": "CrudRepository = CRUD ; PagingAndSortingRepository = pagination/tri ; JpaRepository = API JPA (flush, batch…).",
         "explanation": "`CrudRepository` fournit les opérations CRUD de base. `PagingAndSortingRepository` ajoute la pagination et le tri. `JpaRepository` ajoute des fonctionnalités spécifiques JPA/Hibernate (ex : `flush`, opérations en lot, etc.)."
       },
       {
@@ -2278,7 +2278,7 @@
       },
       {
         "question": "15. Qu’est-ce qui différencie IoC et l’injection de dépendance (DI) ?",
-        "answer": "IoC = principe",
+        "answer": "IoC est un principe. La DI est une façon de le mettre en œuvre pour fournir les dépendances.",
         "explanation": "IoC est l’idée générale : le conteneur “prend la main” sur la création/assemblage. La DI (injection de dépendances) est une manière de mettre IoC en pratique : un objet reçoit ses dépendances (souvent via constructeur) au lieu de les instancier lui-même."
       },
       {
@@ -2288,12 +2288,12 @@
       },
       {
         "question": "17. Quelle est la différence entre DI et Service Locator ?",
-        "answer": "DI",
+        "answer": "La DI injecte les dépendances. Le Service Locator les récupère via un registre.",
         "explanation": "En DI, l’objet est “passif” : ses dépendances lui sont fournies (souvent par constructeur), ce qui réduit le couplage au framework. Avec Service Locator, l’objet appelle un registre pour récupérer ses dépendances, ce qui le couple davantage au mécanisme de localisation."
       },
       {
         "question": "19. Comment le framework Spring met en œuvre l’injection de dépendances ?",
-        "answer": "Par le conteneur IoC",
+        "answer": "Spring injecte les dépendances via le conteneur IoC.",
         "explanation": "Spring détecte les beans (scan des stéréotypes ou configuration), les instancie, résout leurs dépendances puis les injecte (idéalement par constructeur ; sinon par champs/setters selon les cas)."
       },
       {
@@ -2308,7 +2308,7 @@
       },
       {
         "question": "22. Pourquoi et à quel niveau décorer une méthode avec @Transactional ?",
-        "answer": "Pour garantir une transaction (commit/rollback)",
+        "answer": "Pour garantir une transaction. En général au niveau Service.",
         "explanation": "`@Transactional` exécute la méthode dans une transaction : soit tout passe (commit), soit on annule en cas d’erreur (rollback). On l’applique généralement sur la couche service, là où l’on orchestre des opérations de persistance."
       },
       {
@@ -2352,12 +2352,12 @@
       },
       {
         "question": "31. Expliquer un extrait de vue Campus avec th:action et th:object.",
-        "answer": "th:action = URL du formulaire",
+        "answer": "th:action définit l’URL du formulaire. th:object lie le formulaire à un objet du modèle. th:field lie un champ à une propriété.",
         "explanation": "Dans `<form th:action=\"@{/processNewCampus}\" th:object=\"${campus}\">` : `th:action` calcule l’URL de soumission, `th:object` associe le formulaire à l’objet `campus` fourni par le contrôleur. Ensuite, `th:field` relie chaque champ HTML à une propriété (ex : `*{nomC}`), ce qui simplifie la liaison et la validation."
       },
       {
         "question": "32. Expliquer les intérêts du pattern Front Controller dans Spring MVC.",
-        "answer": "Point d’entrée unique (DispatcherServlet)",
+        "answer": "Point d’entrée unique avec DispatcherServlet. Il centralise le routage et le rendu.",
         "explanation": "Le Front Controller (dans Spring MVC : `DispatcherServlet`) centralise l’entrée de toutes les requêtes : il reçoit, choisit le bon contrôleur, gère le passage du modèle et la résolution de la vue. Cela rend l’architecture plus uniforme, maintenable et extensible (interceptors, gestion d’erreurs, etc.)."
       }
     ]
