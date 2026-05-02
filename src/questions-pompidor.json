@@ -2224,7 +2224,7 @@
       },
       {
         "question": "2. Qu’est-ce qu’une entité au sens de Spring annotée avec @Entity ?",
-        "answer": "Classe Java persistée en base. @Entity indique à JPA le mapping table/colonnes.",
+        "answer": "Classe Java persistée en base indiquant à JPA le mapping table/colonnes.",
         "explanation": "Une entité représente un objet du domaine que l’on stocke en base (ex : Campus, Bâtiment). Avec `@Entity`, JPA sait qu’il doit créer/charger/mettre à jour ces objets depuis la base, en mappant la classe (souvent) sur une table et les champs sur des colonnes."
       },
       {
