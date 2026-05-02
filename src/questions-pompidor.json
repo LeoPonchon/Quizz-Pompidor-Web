@@ -2303,7 +2303,7 @@
       },
       {
         "question": "21. Quels sont les rôles dévolus aux composants Service ?",
-        "answer": "Porter la logique métier, faire le lien Controller ↔ Repository, délimiter les transactions.",
+        "answer": "Porter la logique métier, faire le lien Controller/Repository, délimiter les transactions.",
         "explanation": "Un `Service` contient la logique métier : règles, orchestration de plusieurs appels, coordination entre plusieurs repositories, etc. C’est aussi souvent au niveau service qu’on place les frontières transactionnelles."
       },
       {
