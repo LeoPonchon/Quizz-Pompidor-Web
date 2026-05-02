@@ -2268,7 +2268,7 @@
       },
       {
         "question": "11. Si l’on sauvegarde cet objet avec save (via CampusRepository), dans quel état se trouve-t-il ?",
-        "answer": "Managed/Persistent (après save, dans un contexte de persistance actif).",
+        "answer": "Managed/Persistent.",
         "explanation": "Après un `save(...)`, l’objet est en général rattaché au contexte de persistance en cours (donc “managed/persistent”). Les détails exacts dépendent du contexte transactionnel et de l’EntityManager sous-jacent."
       },
       {
