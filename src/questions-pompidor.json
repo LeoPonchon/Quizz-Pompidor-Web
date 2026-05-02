@@ -2219,7 +2219,7 @@
     "Ingénierie logicielle": [
       {
         "question": "1. Comment résumeriez-vous l’intérêt du pattern DAO (Data Access Object) ?",
-        "answer": "Séparer l’accès aux données du reste de l’application (moins de couplage, changement de persistance facilité).",
+        "answer": "Séparer l’accès aux données du reste de l’application.",
         "explanation": "Un DAO regroupe tout le code d’accès aux données (requêtes, connexions, JPA/SQL) dans une couche dédiée. Le reste de l’application (métier, contrôleurs) n’a plus besoin de connaître la technologie de base de données. Résultat : on modifie plus facilement la persistance sans casser le métier."
       },
       {
@@ -2239,7 +2239,7 @@
       },
       {
         "question": "5. Lien Campus → bâtiments : a) à quoi correspond @OneToMany ? b) le chargement est-il automatique ? c) la suppression cascade-t-elle ?",
-        "answer": "a) relation 1→N b) chargement selon fetch (LAZY/EAGER) c) suppression selon cascade (ex: CascadeType.ALL).",
+        "answer": "a) 1 à n b) dépend du fetch (LAZY/EAGER) c) suppression selon CascadeType",
         "explanation": "a) `@OneToMany` modélise “un campus possède plusieurs bâtiments”. b) Le chargement dépend du `fetch` : en `LAZY`, la collection est chargée plus tard (à l’accès) ; en `EAGER`, elle est chargée tout de suite. c) La cascade dépend de `cascade` : sans cascade, supprimer un campus ne supprime pas automatiquement ses bâtiments ; avec une cascade adaptée (ex : `CascadeType.REMOVE`/`ALL`), certaines opérations peuvent être propagées."
       },
       {
@@ -2249,7 +2249,7 @@
       },
       {
         "question": "7. Quels sont les rôles dévolus aux composants de type Repository ?",
-        "answer": "Accès aux données (DAO)",
+        "answer": "Opérations CRUD, accès aux données (DAO)",
         "explanation": "Un `Repository` sert de couche d’accès aux données : il expose des opérations CRUD et des requêtes, tout en cachant les détails de persistance (JPA/SQL). Dans Spring, il peut aussi participer à une traduction d’exceptions techniques vers des exceptions Spring plus cohérentes."
       },
       {
@@ -2278,7 +2278,7 @@
       },
       {
         "question": "15. Qu’est-ce qui différencie IoC et l’injection de dépendance (DI) ?",
-        "answer": "IoC est un principe. La DI est une façon de le mettre en œuvre pour fournir les dépendances.",
+        "answer": "La DI est une façon de mettre en œuvre l'IoC pour fournir les dépendances.",
         "explanation": "IoC est l’idée générale : le conteneur “prend la main” sur la création/assemblage. La DI (injection de dépendances) est une manière de mettre IoC en pratique : un objet reçoit ses dépendances (souvent via constructeur) au lieu de les instancier lui-même."
       },
       {
@@ -2298,7 +2298,7 @@
       },
       {
         "question": "20. Retrouvez deux erreurs typiques : injection d’une entité et injection mal déclarée (exemple CommandLineRunner).",
-        "answer": "1) On n’injecte pas une @Entity 2) injection à faire proprement (constructeur) pour Service/Repository.",
+        "answer": "1) On n’injecte pas une @Entity 2) Les dépendances “Spring” doivent être injectées correctement.",
         "explanation": "Erreur fréquente 1 : une entité JPA (`@Entity`) n’est pas un bean Spring, donc on ne l’injecte pas avec `@Autowired`.\nErreur fréquente 2 : les dépendances “Spring” (Service/Repository) doivent être injectées correctement, idéalement par constructeur (ex : dans un `CommandLineRunner`)."
       },
       {
@@ -2333,13 +2333,10 @@
       },
       {
         "question": "27. Expliquer la méthode deleteCampus : @DeleteMapping(\"/delete/{nomC}\") … redirect:/campuses.",
-        "answer": "DELETE /delete/{nomC} → @PathVariable → service delete → redirection vers /campuses.",
+        "answer": "deleteCampus reçoit requête DELETE sur /delete/{nomC}, récupère nomC avec @PathVariable, appelle service pour supprimer campus, puis redirige vers /campuses.",
         "explanation": "La méthode reçoit une requête HTTP DELETE sur `/delete/{nomC}`. Elle récupère `nomC` via `@PathVariable`, appelle le service (ex : `cs.deleteCampus(nomC)`) puis renvoie une redirection vers la liste via `redirect:/campuses`."
       },
-      {
-        "question": "28. Compléter une méthode afficheCampus (avec Model) : charger campus, l’ajouter au modèle, choisir la vue.",
-        "answer": "Exemple :\\n@GetMapping(\"/{nomC}\")\\npublic String afficheCampus(@PathVariable String nomC, Model model) {\\n  return cs.campusParId(nomC)\\n    .map(campus -> { model.addAttribute(\\\"campus\\\", campus); return \\\"afficheCampus\\\"; })\\n    .orElse(\\\"afficheCampusNotFound\\\");\\n}"
-      },
+
       {
         "question": "29. À quoi correspond l’interface Model mobilisée dans les contrôleurs ?",
         "answer": "Un conteneur d’attributs transmis du contrôleur vers la vue (model.addAttribute...).",
@@ -2347,7 +2344,7 @@
       },
       {
         "question": "30. Quelles facilités propose Thymeleaf ?",
-        "answer": "Templates HTML dynamiques (boucles/conditions, formulaires, liens) avec intégration Spring MVC.",
+        "answer": "Templates HTML dynamiques avec intégration Spring MVC.",
         "explanation": "Thymeleaf est un moteur de templates : on part d’un HTML lisible, et on ajoute des attributs (`th:*`) pour afficher des données, faire des boucles/conditions, gérer des formulaires, des liens et des messages d’erreur, le tout intégré à Spring MVC."
       },
       {
