@@ -2244,7 +2244,7 @@
       },
       {
         "question": "6. Qu’est-ce qu’un composant ?",
-        "answer": "Un composant est un bean Spring géré par le conteneur.",
+        "answer": "C'est un bean Spring géré par le conteneur.",
         "explanation": "Un composant (bean) est instancié et géré par Spring : création, injection des dépendances, configuration, cycle de vie. On le déclare souvent via `@Component`, `@Service`, `@Repository`, `@Controller` (ou via une configuration)."
       },
       {
@@ -2288,17 +2288,17 @@
       },
       {
         "question": "17. Quelle est la différence entre DI et Service Locator ?",
-        "answer": "La DI injecte les dépendances. Le Service Locator les récupère via un registre.",
-        "explanation": "En DI, l’objet est passif : ses dépendances lui sont fournies (souvent par constructeur), ce qui réduit le couplage au framework. Avec Service Locator, l’objet appelle un registre pour récupérer ses dépendances, ce qui le couple davantage au mécanisme de localisation."
+        "answer": "La DI injecte les dépendances. Le service Locator les récupère via un registre.",
+        "explane Sation": "En DI, l’objet est passif : ses dépendances lui sont fournies (souvent par constructeur), ce qui réduit le couplage au framework. Avec Service Locator, l’objet appelle un registre pour récupérer ses dépendances, ce qui le couple davantage au mécanisme de localisation."
       },
       {
         "question": "19. Comment le framework Spring met en œuvre l’injection de dépendances ?",
-        "answer": "Avec le conteneur IoC.",
+        "answer": "Avec le conteneur IoC et les annotations comme @Autowired.",
         "explanation": "Spring détecte les beans (scan des stéréotypes ou configuration), les instancie, résout leurs dépendances puis les injecte (idéalement par constructeur ; sinon par champs/setters selon les cas)."
       },
       {
         "question": "20. Retrouvez deux erreurs typiques : injection d’une entité et injection mal déclarée (exemple CommandLineRunner).",
-        "answer": "1) On n’injecte pas une @Entity, les dépendances Spring doivent être injectées correctement.",
+        "answer": "On n’injecte pas une @Entity, les dépendances Spring doivent être injectées correctement.",
         "explanation": "Erreur fréquente 1 : une entité JPA (`@Entity`) n’est pas un bean Spring, donc on ne l’injecte pas avec `@Autowired`.\nErreur fréquente 2 : les dépendances Spring (Service/Repository) doivent être injectées correctement, idéalement par constructeur (ex : dans un `CommandLineRunner`)."
       },
       {
