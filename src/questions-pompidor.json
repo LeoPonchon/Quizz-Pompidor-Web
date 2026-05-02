@@ -2293,7 +2293,7 @@
       },
       {
         "question": "19. Comment le framework Spring met en œuvre l’injection de dépendances ?",
-        "answer": "Spring injecte les dépendances via le conteneur IoC.",
+        "answer": "Avec le conteneur IoC.",
         "explanation": "Spring détecte les beans (scan des stéréotypes ou configuration), les instancie, résout leurs dépendances puis les injecte (idéalement par constructeur ; sinon par champs/setters selon les cas)."
       },
       {
@@ -2348,7 +2348,7 @@
         "explanation": "Thymeleaf est un moteur de templates : on part d’un HTML lisible, et on ajoute des attributs (`th:*`) pour afficher des données, faire des boucles/conditions, gérer des formulaires, des liens et des messages d’erreur, le tout intégré à Spring MVC."
       },
       {
-        "question": "31. Expliquer un extrait de vue Campus avec th:action et th:object.",
+        "question": "31. Expliquer un extrait de vue Campus avec th:action, th:object et th:field.",
         "answer": "th:action définit l’URL du formulaire. th:object lie le formulaire à un objet du modèle. th:field lie un champ à une propriété.",
         "explanation": "Dans `<form th:action=\"@{/processNewCampus}\" th:object=\"${campus}\">` : `th:action` calcule l’URL de soumission, `th:object` associe le formulaire à l’objet `campus` fourni par le contrôleur. Ensuite, `th:field` relie chaque champ HTML à une propriété (ex : `*{nomC}`), ce qui simplifie la liaison et la validation."
       },
