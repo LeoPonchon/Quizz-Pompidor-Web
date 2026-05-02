@@ -2272,14 +2272,6 @@
         "explanation": "Après un `save(...)`, l’objet est en général rattaché au contexte de persistance en cours (donc “managed/persistent”). Les détails exacts dépendent du contexte transactionnel et de l’EntityManager sous-jacent."
       },
       {
-        "question": "12. Réécrire cette requête SQL de consultation en JPQL (SELECT * FROM salle ORDER BY batiment).",
-        "answer": "@Query(\"SELECT s FROM Salle s ORDER BY s.batiment\")\\nList<Salle> findAllOrderByBatiment();"
-      },
-      {
-        "question": "13. Adapter la requête JPQL pour proposer aussi un filtre sur le nom du campus.",
-        "answer": "Exemple :\\n@Query(\"SELECT s FROM Salle s WHERE s.etage = :et AND s.batiment = :bt AND s.batiment.campus.nomC = :nomC\")\\nList<Salle> findByEtageAndBatimentAndCampusNom(@Param(\\\"et\\\") String et, @Param(\\\"bt\\\") Batiment bt, @Param(\\\"nomC\\\") String nomC);"
-      },
-      {
         "question": "14. Décrire brièvement le principe général d’Inversion de Contrôle (IoC).",
         "answer": "Le framework crée/assemble les objets : le contrôle passe du code applicatif au conteneur.",
         "explanation": "Avec l’IoC, l’application ne construit pas elle-même tout son graphe d’objets. C’est le conteneur (ex : Spring) qui instancie, configure et relie les composants, puis les fournit au bon endroit."
@@ -2298,11 +2290,6 @@
         "question": "17. Quelle est la différence entre DI et Service Locator ?",
         "answer": "DI : dépendances injectées ; Service Locator : dépendances demandées à un registre.",
         "explanation": "En DI, l’objet est “passif” : ses dépendances lui sont fournies (souvent par constructeur), ce qui réduit le couplage au framework. Avec Service Locator, l’objet appelle un registre pour récupérer ses dépendances, ce qui le couple davantage au mécanisme de localisation."
-      },
-      {
-        "question": "18. Expliquez en quoi CampusService et MockCampusService satisfont l’inversion de dépendance (DIP).",
-        "answer": "DIP : dépendre d’une abstraction (interface), donc on peut remplacer l’implémentation (mock).",
-        "explanation": "Le DIP (Dependency Inversion Principle) recommande de dépendre d’abstractions. Si le contrôleur dépend d’une interface de service, on peut brancher `CampusService` en prod et `MockCampusService` en test sans modifier le code du contrôleur : seule la configuration change."
       },
       {
         "question": "19. Comment le framework Spring met en œuvre l’injection de dépendances ?",
