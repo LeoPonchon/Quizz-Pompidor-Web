@@ -150,6 +150,20 @@ function App() {
     });
   }
 
+  function acceptCurrentAsCorrect() {
+    if (!answered || !result || result.isCorrect || result.acceptedByUser) {
+      return;
+    }
+
+    setScore((value) => value + 1);
+    setResult((prev) => {
+      if (!prev || prev.isCorrect || prev.acceptedByUser) {
+        return prev;
+      }
+      return { ...prev, isCorrect: true, acceptedByUser: true };
+    });
+  }
+
   function nextQuestion() {
     if (screen === 'course') {
       const nextIndex = index + 1;
@@ -224,6 +238,7 @@ function App() {
               answered={answered}
               inputRef={inputRef}
               onValidate={validateCurrent}
+              onAcceptCorrect={acceptCurrentAsCorrect}
               onNext={nextQuestion}
               onGoToThemes={goToThemes}
               onRestartTheme={restartTheme}

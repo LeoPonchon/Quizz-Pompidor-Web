@@ -26,6 +26,7 @@ function QuizScreen({
   answered,
   inputRef,
   onValidate,
+  onAcceptCorrect,
   onNext,
   onGoToThemes,
   onRestartTheme,
@@ -137,6 +138,13 @@ function QuizScreen({
               <strong>{result.isCorrect ? 'Juste' : 'Faux'}</strong>
               {result.isCorrect ? ' · +1 point' : ' · +0 point'}
             </div>
+            {!result.isCorrect && (
+              <div className="result-actions">
+                <button className="action secondary" onClick={onAcceptCorrect} type="button">
+                  Considérer ma réponse comme juste
+                </button>
+              </div>
+            )}
             <div className="result-line">
               <strong>Réponse attendue :</strong>
               <RichContent content={result.expectedRaw} className="result-rich" />
