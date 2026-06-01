@@ -18,6 +18,31 @@ import {
 import { getQuestionExplanation } from './lib/questionExamples';
 import questionBank from './questions-pompidor.json';
 
+function getChoiceId(choice, index) {
+  return choice.id || choice.label || `choice-${index + 1}`;
+}
+
+function formatChoice(choice) {
+  return choice.label ? `${choice.label}. ${choice.text}` : choice.text;
+}
+
+function formatSelectedChoices(choices, selectedIds) {
+  const selected = new Set(selectedIds);
+  return choices
+    .filter((choice, index) => selected.has(getChoiceId(choice, index)))
+    .map(formatChoice)
+    .join('\n');
+}
+
+function haveSameChoices(left, right) {
+  if (left.length !== right.length) {
+    return false;
+  }
+
+  const selected = new Set(left);
+  return right.every((id) => selected.has(id));
+}
+
 function App() {
   const allQuestions = useMemo(() => {
     const themesMap = questionBank.themes || {};
@@ -60,11 +85,16 @@ function App() {
 
   const currentQuestion = questions[index] || null;
   const currentCourseSection = courseSections[index] || null;
-  const isCodeQuestion = currentTheme?.key === 'code' || (currentQuestion?.answer || '').includes('\n');
+  const isChoiceQuestion = Array.isArray(currentQuestion?.choices);
+  const isCodeQuestion =
+    !isChoiceQuestion && (currentTheme?.key === 'code' || (currentQuestion?.answer || '').includes('\n'));
   const isBinaryQuestion = currentTheme?.key === 'component-review';
   const questionExplanation = useMemo(
-    () => getQuestionExplanation(currentQuestion, { isCodeQuestion, isBinaryQuestion }),
-    [currentQuestion, isCodeQuestion, isBinaryQuestion]
+    () =>
+      isChoiceQuestion
+        ? currentQuestion?.explanation || ''
+        : getQuestionExplanation(currentQuestion, { isCodeQuestion, isBinaryQuestion }),
+    [currentQuestion, isChoiceQuestion, isCodeQuestion, isBinaryQuestion]
   );
   const totalCount = questions.length;
   const themeCount = themes.length;
@@ -83,7 +113,7 @@ function App() {
     }
 
     setCurrentThemeKey(themeKey);
-    setQuestions(theme.key === 'course' ? courseSections : shuffle(theme.questions));
+    setQuestions(theme.key === 'course' || theme.ordered ? theme.questions : shuffle(theme.questions));
     setIndex(0);
     setScore(0);
     setAnswered(false);
@@ -121,6 +151,35 @@ function App() {
 
   function validateCurrent() {
     if (answered || !currentQuestion) {
+      return;
+    }
+
+    if (isChoiceQuestion) {
+      const choices = currentQuestion.choices || [];
+      const selectedChoiceIds = Array.isArray(answer) ? answer : [];
+
+      if (selectedChoiceIds.length === 0) {
+        return;
+      }
+
+      const correctChoiceIds = choices
+        .map((choice, index) => ({ choice, id: getChoiceId(choice, index) }))
+        .filter(({ choice }) => choice.correct)
+        .map(({ id }) => id);
+      const isCorrect = haveSameChoices(selectedChoiceIds, correctChoiceIds);
+
+      if (isCorrect) {
+        setScore((value) => value + 1);
+      }
+
+      setAnswered(true);
+      setResult({
+        isCorrect,
+        distance: 0,
+        tolerance: 0,
+        expectedRaw: currentQuestion.answer || formatSelectedChoices(choices, correctChoiceIds),
+        userRaw: formatSelectedChoices(choices, selectedChoiceIds),
+      });
       return;
     }
 
@@ -231,6 +290,7 @@ function App() {
               currentTheme={currentTheme}
               totalCount={totalCount}
               currentQuestion={currentQuestion}
+              isChoiceQuestion={isChoiceQuestion}
               isCodeQuestion={isCodeQuestion}
               isBinaryQuestion={isBinaryQuestion}
               answer={answer}

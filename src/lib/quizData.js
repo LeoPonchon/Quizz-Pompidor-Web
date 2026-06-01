@@ -1,4 +1,5 @@
 import questionBank from '../questions-pompidor.json';
+import progRepartieQuestions from './progRepartieQuestions';
 
 export const themeDefinitions = [
   {
@@ -12,6 +13,13 @@ export const themeDefinitions = [
     label: 'Modularités',
     description: 'DAO/JPA, Spring (IoC/DI), transactions, MVC/Thymeleaf.',
     sourceName: 'Ingénierie logicielle',
+  },
+  {
+    key: 'distributed-programming',
+    label: 'Prog répartie',
+    description: "QCM de programmation répartie reconstruits depuis les captures, dans l'ordre original.",
+    questions: progRepartieQuestions,
+    ordered: true,
   },
 ];
 
@@ -52,11 +60,12 @@ export function buildThemes(allQuestions) {
   return themeDefinitions.map((definition) => ({
     ...definition,
     questions:
-      definition.key === 'all'
+      definition.questions ||
+      (definition.key === 'all'
         ? allQuestions
         : definition.key === 'course'
           ? courseSections
-          : themesMap[definition.sourceName] || [],
+          : themesMap[definition.sourceName] || []),
   }));
 }
 

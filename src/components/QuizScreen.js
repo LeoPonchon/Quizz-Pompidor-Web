@@ -19,6 +19,7 @@ function QuizScreen({
   currentTheme,
   totalCount,
   currentQuestion,
+  isChoiceQuestion,
   isCodeQuestion,
   isBinaryQuestion,
   answer,
@@ -33,20 +34,73 @@ function QuizScreen({
   result,
   questionExplanation,
 }) {
+  const selectedChoices = Array.isArray(answer) ? answer : [];
+
+  function choiceId(choice, index) {
+    return choice.id || choice.label || `choice-${index + 1}`;
+  }
+
+  function toggleChoice(choice, index) {
+    const id = choiceId(choice, index);
+
+    if (currentQuestion.multiple) {
+      setAnswer((previousAnswer) => {
+        const previousChoices = Array.isArray(previousAnswer) ? previousAnswer : [];
+
+        if (previousChoices.includes(id)) {
+          return previousChoices.filter((choiceValue) => choiceValue !== id);
+        }
+
+        return [...previousChoices, id];
+      });
+      return;
+    }
+
+    setAnswer([id]);
+  }
+
   return (
     <div className="screen">
       <div className="topbar">
         <div>
           <span className="badge">{currentTheme?.label || 'Thème'}</span>
         </div>
-        <div className="small">{totalCount} questions mélangées</div>
+        <div className="small">
+          {totalCount} {currentTheme?.ordered ? 'questions dans l’ordre' : 'questions mélangées'}
+        </div>
       </div>
 
       <div className="question">
         <RichContent content={currentQuestion.question} transformContent={normalizeQuestionContent} />
       </div>
 
-      {isBinaryQuestion ? (
+      {isChoiceQuestion ? (
+        <>
+          <label>Choisis {currentQuestion.multiple ? 'les bonnes réponses' : 'la bonne réponse'}</label>
+          <div className="choice-list" role="group" aria-label="Choix de réponse">
+            {(currentQuestion.choices || []).map((choice, index) => {
+              const id = choiceId(choice, index);
+              const isSelected = selectedChoices.includes(id);
+
+              return (
+                <button
+                  key={id}
+                  type="button"
+                  className={`choice-btn ${isSelected ? 'selected' : ''}`}
+                  onClick={() => toggleChoice(choice, index)}
+                  disabled={answered}
+                >
+                  <span className={`choice-marker ${currentQuestion.multiple ? 'square' : 'round'}`}>
+                    {isSelected ? '✓' : ''}
+                  </span>
+                  {choice.label && <span className="choice-label">{choice.label}.</span>}
+                  <span className="choice-text">{choice.text}</span>
+                </button>
+              );
+            })}
+          </div>
+        </>
+      ) : isBinaryQuestion ? (
         <>
           <label>Choisis la bonne réponse</label>
           <div className="binary-choices" role="group" aria-label="Réponse oui ou non">
@@ -153,10 +207,12 @@ function QuizScreen({
               <strong>Ta réponse :</strong>
               <RichContent content={result.userRaw || '∅'} className="result-rich" />
             </div>
-            <div className="result-line">
-              <strong>Distance de Levenshtein :</strong> {result.distance} ·{' '}
-              <strong>Tolérance :</strong> {result.tolerance}
-            </div>
+            {!isChoiceQuestion && (
+              <div className="result-line">
+                <strong>Distance de Levenshtein :</strong> {result.distance} ·{' '}
+                <strong>Tolérance :</strong> {result.tolerance}
+              </div>
+            )}
             {questionExplanation && (
               <div className="result-line">
                 <strong>Pourquoi :</strong>
@@ -173,7 +229,12 @@ function QuizScreen({
       </div>
 
       <div className="small extra-hint">
-        {isBinaryQuestion ? (
+        {isChoiceQuestion ? (
+          <>
+            Astuce: sélectionne {currentQuestion.multiple ? 'toutes les réponses cochées' : 'la réponse cochée'},
+            puis valide.
+          </>
+        ) : isBinaryQuestion ? (
           <>
             Astuce: choisis <code>oui</code> ou <code>non</code>, puis valide.
           </>
