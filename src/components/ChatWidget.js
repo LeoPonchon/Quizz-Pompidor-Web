@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import RichContent from './RichContent';
 
 const DEFAULT_MODEL = process.env.REACT_APP_OPENROUTER_MODEL || 'openai/gpt-5.2';
 const OPENROUTER_API_KEY = process.env.REACT_APP_OPENROUTER_API_KEY || '';
@@ -11,6 +10,23 @@ function shouldRetryWithFreeFallback(message, model) {
   }
 
   return message.includes('No endpoints found') || message.includes('"code":404');
+}
+
+function removeMarkdown(content) {
+  return (content || '')
+    .replace(/```[a-zA-Z0-9_-]*\n([\s\S]*?)```/g, '$1')
+    .replace(/`([^`\n]+)`/g, '$1')
+    .replace(/!\[([^\]]*)\]\([^)]+\)/g, '$1')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1 ($2)')
+    .replace(/^\s{0,3}#{1,6}\s+/gm, '')
+    .replace(/^\s{0,3}>\s?/gm, '')
+    .replace(/^\s{0,3}[-*+]\s+/gm, '')
+    .replace(/^\s{0,3}\d+\.\s+/gm, '')
+    .replace(/\*\*([^*\n]+)\*\*/g, '$1')
+    .replace(/__([^_\n]+)__/g, '$1')
+    .replace(/\*([^*\n]+)\*/g, '$1')
+    .replace(/_([^_\n]+)_/g, '$1')
+    .trim();
 }
 
 function ChatWidget({ siteKnowledge, currentTheme, currentQuestion, currentCourseSection, screen }) {
@@ -76,6 +92,8 @@ function ChatWidget({ siteKnowledge, currentTheme, currentQuestion, currentCours
           'Tu dois répondre uniquement à partir du contenu du site fourni ci-dessous.',
           'Si une réponse n\'est pas dans la base, dis-le clairement et propose la notion la plus proche.',
           'Sois clair, précis, et adapté à un étudiant en révision.',
+          "N'utilise jamais de Markdown dans tes réponses : pas de titres Markdown, pas de gras, pas d'italique, pas de listes avec tirets, pas de liens Markdown et pas de blocs de code avec ``` .",
+          'Si tu dois donner du code, écris-le en texte brut, sans balises ni fences Markdown.',
           '',
           `Contexte actuel: ${contextLabel}`,
           '',
@@ -114,7 +132,7 @@ function ChatWidget({ siteKnowledge, currentTheme, currentQuestion, currentCours
       throw new Error('Réponse vide de la part du modèle.');
     }
 
-    return content;
+    return removeMarkdown(content);
   }
 
   async function handleSend(event) {
@@ -196,7 +214,7 @@ function ChatWidget({ siteKnowledge, currentTheme, currentQuestion, currentCours
               key={`${message.role}-${index}-${message.content.slice(0, 18)}`}
               className={`chat-message chat-message-${message.role}`}
             >
-              <RichContent content={message.content} variant="compact" />
+              <div className="chat-message-text">{message.content}</div>
             </div>
           ))}
 

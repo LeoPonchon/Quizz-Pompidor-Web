@@ -78,6 +78,29 @@ export function shuffle(array) {
   return copy;
 }
 
+export function shuffleDifferentFromOriginal(array) {
+  const shuffled = shuffle(array);
+
+  if (shuffled.length <= 1 || shuffled.some((item, index) => item !== array[index])) {
+    return shuffled;
+  }
+
+  return [...shuffled.slice(1), shuffled[0]];
+}
+
+export function shuffleQuestionChoices(questions) {
+  return (questions || []).map((question) => {
+    if (!Array.isArray(question.choices) || question.choices.length <= 1) {
+      return question;
+    }
+
+    return {
+      ...question,
+      choices: shuffleDifferentFromOriginal(question.choices),
+    };
+  });
+}
+
 export function levenshtein(a, b) {
   const matrix = Array.from({ length: a.length + 1 }, () => new Array(b.length + 1).fill(0));
 

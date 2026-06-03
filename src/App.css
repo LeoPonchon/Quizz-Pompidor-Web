@@ -757,6 +757,10 @@ code {
   border: 1px solid transparent;
 }
 
+.chat-message-text {
+  white-space: pre-wrap;
+}
+
 .rich-content--compact .rich-content-text + .rich-content-text {
   margin-top: 10px;
 }
