@@ -17,9 +17,8 @@ export const themeDefinitions = [
   {
     key: 'distributed-programming',
     label: 'Prog répartie',
-    description: "QCM de programmation répartie reconstruits depuis les captures, dans l'ordre original.",
+    description: 'QCM de programmation répartie reconstruits depuis les captures, mélangés à chaque lancement.',
     questions: progRepartieQuestions,
-    ordered: true,
   },
 ];
 

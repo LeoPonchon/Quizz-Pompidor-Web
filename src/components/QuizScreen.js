@@ -66,7 +66,7 @@ function QuizScreen({
           <span className="badge">{currentTheme?.label || 'Thème'}</span>
         </div>
         <div className="small">
-          {totalCount} {currentTheme?.ordered ? 'questions dans l’ordre' : 'questions mélangées'}
+          {totalCount} questions mélangées
         </div>
       </div>
 

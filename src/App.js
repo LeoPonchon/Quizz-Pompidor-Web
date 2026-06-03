@@ -12,7 +12,7 @@ import {
   getAllQuestionsFromThemes,
   levenshtein,
   normalizeForComparison,
-  shuffle,
+  shuffleDifferentFromOriginal,
   shuffleQuestionChoices,
   toleranceForLength,
 } from './lib/quizData';
@@ -114,7 +114,7 @@ function App() {
     }
 
     setCurrentThemeKey(themeKey);
-    const themeQuestions = theme.key === 'course' || theme.ordered ? theme.questions : shuffle(theme.questions);
+    const themeQuestions = theme.key === 'course' ? theme.questions : shuffleDifferentFromOriginal(theme.questions);
     setQuestions(theme.key === 'course' ? themeQuestions : shuffleQuestionChoices(themeQuestions));
     setIndex(0);
     setScore(0);
